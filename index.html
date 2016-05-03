@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -231,200 +231,7 @@
         <ul>
 <li>Hexo</li>
 </ul>
-<h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><p>下载并安装msysgit或者是msysgit中文版，如果你想了解点Git的基础命令，我推荐以下博文：Git常用的基础命令，史上最全github使用方法：github入门到精通,当然即使你不懂Git的命令，跟着本博文走，也完全没问题。</p>
-<p>##安装Node.js<br>下载并安装Node.js，此处我建议安装完毕后重启电脑，因为我当初安装完没重启，结果后面使用命令安装hexo的时候，提示无效的命令，因此推荐重启。当然，你也可以选择等到后面遇到问题，再选择重启。</p>
-<p>##安装hexo<br>安装前先介绍几个hexo常用的命令,#后面为注释。</p>
-<ol>
-<li>$ hexo g #完整命令为hexo generate,用于生成静态文件</li>
-<li>$ hexo s #完整命令为hexo server,用于启动服务器，主要用来本地预览</li>
-<li>$ hexo d #完整命令为hexo deploy,用于将本地文件发布到github上</li>
-<li>$ hexo n #完整命令为hexo new,用于新建一篇文章</li>
-</ol>
-<p>鼠标右键任意地方，选择Git Bash，使用以下命令安装hexo(ps：以下命令中的$符号只为了让教程和实际看起来一致，实际输入命令只需输入$ 后面的命令即可)</p>
-<ol>
-<li>$ npm install hexo-cli -g</li>
-</ol>
-<p>如果之后在使用的过程中，遇到以下的错误</p>
-<ol>
-<li>ERROR Deployer not found : github</li>
-</ol>
-<p>则运行以下命令,或者你直接先运行这个命令更好</p>
-<ol>
-<li>$ npm install hexo-deployer-git –save</li>
-<li>$ hexo g</li>
-<li>$ hexo d</li>
-</ol>
-<p>接下来创建放置博客文件的文件夹：hexo文件夹。在自己想要的位置创建文件夹，如我hexo文件夹的位置为E:\hexo，名字和地方可以自由选择，当然最好不要放在中文路径下，至于原因，我想很多人懂得。之后进入文件夹，即E:\hexo内，点击鼠标右键，选择Git Bash，执行以下命令，Hexo会自动在该文件夹下下载搭建网站所需的所有文件</p>
-<ol>
-<li>$ hexo init</li>
-</ol>
-<p>安装依赖包</p>
-<ol>
-<li>$ npm install</li>
-</ol>
-<p>让我们看看刚刚下载的hexo文件带来了什么，在E:\hexo内执行以下命令:</p>
-<ol>
-<li>$ hexo g</li>
-<li>$ hexo s</li>
-</ol>
-<p>然后用浏览器访问<a href="http://localhost:4000/，此时，你应该看到了一个漂亮的博客了，当然这个博客只是在本地的，别人是看不到的，hexo3.0使用的默认主题是landscape。轻轻松松就看到了一点成果，是不是很激动，这就是hexo的强大之处，这个本地预览的功能，我真是爱不释手。" target="_blank" rel="external">http://localhost:4000/，此时，你应该看到了一个漂亮的博客了，当然这个博客只是在本地的，别人是看不到的，hexo3.0使用的默认主题是landscape。轻轻松松就看到了一点成果，是不是很激动，这就是hexo的强大之处，这个本地预览的功能，我真是爱不释手。</a></p>
-<p>##注册Github帐号</p>
-<p>已经有Github帐号跳过此步，首先进入Github进行注册，用户名、邮箱和密码之后都需要用到，自己记好。</p>
-<p>##创建repository</p>
-<p>repository相当于一个仓库，用来放置你的代码文件。首先，登陆进入Github，并进入个人页面，选择Repositories(下图第一个红圈的地方)，然后New一个repository(下图第二个红圈的地方)</p>
-<p><img src="http://cejkw.img47.wal8.com/img47/533646_20151206140909/145779012821.png" alt="Mou icon"></p>
-<p>创建时，只需要填写Repository name即可，当然这个名字的格式必须为youname.github.io，例如我的为huangjunhui.github.io</p>
-<p><img src="http://cejkw.img47.wal8.com/img47/533646_20151206140909/145779012964.png" alt="Mou icon"></p>
-<p>##部署本地文件到github</p>
-<p>既然Repository已经创建了，当然是先把博客放到Github上去看看效果。编辑E：\hexo下的_config.yml文件，建议使用Notepad++。<br>在_config.yml最下方，添加如下配置(命令中的第一个huangjunhui为Github的用户名,第二个huangjunhui为之前New的Repository的名字,记得改成自己的。另外记得一点，hexo的配置文件中任何’:’后面都是带一个空格的),如果配置以下命令出现ERROR Deployer not found : github，则参考上文的解决方法。</p>
-<ol>
-<li>deploy: </li>
-<li>type: git</li>
-<li>repository: <a href="https://github.com/huangjunhui/" target="_blank" rel="external">https://github.com/huangjunhui/</a> huangjunhui.github.io.git</li>
-<li>branch: master</li>
-</ol>
-<p>配置好_config.yml并保存后，执行以下命令部署到Github上。如果你是第一次使用Github或者是已经使用过，但没有配置过SSH，则可能需要配置一下，具体方法史上最全github使用方法：github入门到精通里面有介绍到。</p>
-<ol>
-<li>$ hexo g</li>
-<li>$ hexo d</li>
-</ol>
-<p>执行上面的第二个命令，可能会要你输入用户名和密码，皆为注册Github时的数据，输入密码是不显示任何东西的，输入完毕回车即可。<br>此时，我们的博客已经搭建起来，并发布到Github上了，在浏览器访问huangjunhui.github.io就能看到自己的博客了。第一次访问刚地址，可能访问不了，您可以在几分钟后进行访问，一般不超过10分钟。</p>
-<p>##hexo的配置文件</p>
-<p>hexo里面有两个常用到的配置文件，分别是整个博客的配置文件E:\hexo_config.yml和主题的配置文件E:\hexo\themes\light_config.yml，此地址是对于我来说，hexo3.0使用的默认主题是landscape，因此你们的地址应该是E:\hexo\themes\landscape_config.yml，下文所有讲到light的地方，你们将之换为自己的主题名即可。本博客使用的主题是基于light改善的主题，目前还在完善中，如果完成的比较好，以后可能发布在github上。如果你想自己挑选喜欢的主题，hexo官方提供了12个主题供你自己选择，使用方法很简单，点击自己想要的主题，进入该主题的Repository，使用Git将主题clone到本地，然后将整个文件夹复制到E:\hexo\themes文件夹下，将E”\hexo_config.yml里的theme名字改为自己下载的主题的文件夹名即可。<br>接下来介绍整个博客的配置文件。<br>E:\hexo_config.yml</p>
-<pre><code> # Hexo Configuration
- ## Docs: http://hexo.io/docs/configuration.html
- ## Source: https://github.com/hexojs/hexo/
- # Site    这下面的几项配置都很简单，你看我的博客就知道分别是什么意思
-title: Chillax blog    #博客名
-subtitle: Goals determine what you are going to be    #副标题
-description: Goals determine what you are going to be #用于搜索，没有直观表现
-author: huangjunhui    #作者
-language: zh-CN    #语言
-timezone:     #时区，此处不填写，hexo会以你目前电脑的时区为默认值
-
-# URL    暂不配置，使用默认值
-## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;
- url: http://yoursite.com
- root: /
- permalink: :year/:month/:day/:title/
- permalink_defaults:
-
-# Directory        暂不配置，使用默认值
-source_dir: source
-public_dir: public
-tag_dir: tags
-archive_dir: archives
-category_dir: categories
-code_dir: downloads/code
-i18n_dir: :lang
-skip_render:
-
-# Writing    文章布局等，使用默认值
-new_post_name: :title.md # File name of new posts
-default_layout: post
-titlecase: false # Transform title into titlecase
-external_link: true # Open external links in new tab
-filename_case: 0
-render_drafts: false
-post_asset_folder: false
-relative_link: false
-future: true
-highlight:
-enable: true
-line_number: true
-tab_replace:
-
-# Category &amp; Tag    暂不配置，使用默认值
-default_category: uncategorized
-category_map:
-tag_map:
-
-# Date / Time format    时间格式，使用默认值
-## Hexo uses Moment.js to parse and display date
-## You can customize the date format as defined in
-## http://momentjs.com/docs/#/displaying/format/
-date_format: YYYY-MM-DD
-time_format: HH:mm:ss
-
-# Pagination    
-## Set per_page to 0 to disable pagination
-per_page: 10    #每页显示的文章数，0表示不分页
-pagination_dir: page
-
-# Extensions    插件配置，暂时不配置
-## Plugins: http://hexo.io/plugins/
-## Themes: http://hexo.io/themes/
-plugins:
-- hexo-generator-feed
-theme: light    #使用的主题
-
-feed:    #之后配置rss会用，此处先不配置这个
-type: atom
-path: atom.xml
-limit: 20  
-
-# Deployment    用于部署到github，之前已经配置过
-## Docs: http://hexo.io/docs/deployment.html
-
-deploy: 
-type: git
-repository: http://github.com/huangjunhui/huangjunhui.github.io.git
-branch: master
-</code></pre><p>按照自己的意愿修改完后，执行hexo g，hexo s，打开localhost:4000看看效果。<br>E:\hexo\themes\light_config.yml</p>
-<pre><code>menu:    #博客右上角的菜单栏，暂时使用默认值
-首页: /
-归档: /archives
-关于: /about
-
-#该类对应于E:\hexo\themes\light\layout\_widget下的文件
-widgets:    #站点右边栏，可以参照我的博客看，暂时使用默认值
-- intro        #简介
-- search        #搜索
-- category    #分类
-- tagcloud    #标签云
-- weibo        #微博
-- blogroll    #友情链接
-
-
-
-excerpt_link: Read more    #文章下的Read more，可以改为&apos;阅读全文&apos;
-
-plugins:    #插件，暂时使用默认值
-
-twitter:    #twitter
-username:
-show_replies: false
-tweet_count: 5
-
-addthis:    #SNS分享，暂时使用默认
-enable: true
-pubid:
-facebook: true
-twitter: true
-google: true
-pinterest: true
-
-fancybox: true    #图片效果，使用默认值
-
-google_analytics: 
-
-rss:     #生成RSS，暂时使用默认值
-</code></pre><p>以上的改动不多，大多是介绍下功能.</p>
-<p>##发表一篇文章</p>
-<ol>
-<li>在Git Bash执行命令：$ hexo new “my new post”</li>
-<li>在E:\hexo\source_post中打开my-new-post.md，打开方式使用记事本或notepad++。</li>
-</ol>
-<p>hexo中写文章使用的是Markdown，没接触过的可以看下Markdown语法说明,一分钟学会Markdown</p>
-<pre><code>title: my new post #可以改成中文的，如“新文章”
-date: 2015-04-08 22:56:29 #发表日期，一般不改动
-categories: blog #文章文类
-tags: [博客，文章] #文章标签，多于一项时用这种格式，只有一项时使用tags: blog
----------------------------------------------------------
-#这里是正文，用markdown写，你可以选择写一段显示在首页的简介后，加上
-&lt;!--more--&gt;，在&lt;!--more--&gt;之前的内容会显示在首页，之后的内容会被隐藏，当游客点击Read more才能看到。
-</code></pre><p>写完文章后，你可以使用1.$ hexo g生成静态文件。2.$ hexo s在本地预览效果。3.hexo d同步到github，然后使用<a href="http://huangjunhui.github.io进行访问。" target="_blank" rel="external">http://huangjunhui.github.io进行访问。</a></p>
-
+<h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><p>下载并安装msysgit或者是msysgit中文版，如果你想了解点Git的基础命令，我推荐以下博文：Git常用的基础命令，史上最全github使用方法：github入门到精通,当然即使你不懂Git的命令，跟着本博文走，也完全没问题。<br>
       
     </div>
     
@@ -433,6 +240,10 @@ tags: [博客，文章] #文章标签，多于一项时用这种格式，只有�
       
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/29/Hexo搭建/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
