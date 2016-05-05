@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>ReactiveCocoa之基础篇 | 晓时代的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##前言很多blog都说ReactiveCocoa好用，然后各种秀自己如何灵活运用ReactiveCocoa，但是感觉真正缺少的是一篇如何学习ReactiveCocoa的文章，小编看了很多篇都没看出怎么使用ReactiveCocoa,于是决定自己写一遍关于学习ReactiveCocoa的文章,本文主要针对如何从零开始学习ReactiveCocoa，这里非常感谢3个人（支点的雷纯锋，camera36">
+  <meta name="description" content="前言很多blog都说ReactiveCocoa好用，然后各种秀自己如何灵活运用ReactiveCocoa，但是感觉真正缺少的是一篇如何学习ReactiveCocoa的文章，小编看了很多篇都没看出怎么使用ReactiveCocoa,于是决定自己写一遍关于学习ReactiveCocoa的文章,本文主要针对如何从零开始学习ReactiveCocoa，这里非常感谢3个人（支点的雷纯锋，camera360的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ReactiveCocoa之基础篇">
 <meta property="og:url" content="http://yoursite.com/2015/05/04/ReactiveCocoa之基础篇/index.html">
 <meta property="og:site_name" content="晓时代的博客">
-<meta property="og:description" content="##前言很多blog都说ReactiveCocoa好用，然后各种秀自己如何灵活运用ReactiveCocoa，但是感觉真正缺少的是一篇如何学习ReactiveCocoa的文章，小编看了很多篇都没看出怎么使用ReactiveCocoa,于是决定自己写一遍关于学习ReactiveCocoa的文章,本文主要针对如何从零开始学习ReactiveCocoa，这里非常感谢3个人（支点的雷纯锋，camera36">
+<meta property="og:description" content="前言很多blog都说ReactiveCocoa好用，然后各种秀自己如何灵活运用ReactiveCocoa，但是感觉真正缺少的是一篇如何学习ReactiveCocoa的文章，小编看了很多篇都没看出怎么使用ReactiveCocoa,于是决定自己写一遍关于学习ReactiveCocoa的文章,本文主要针对如何从零开始学习ReactiveCocoa，这里非常感谢3个人（支点的雷纯锋，camera360的">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/304825-c102cdc07cd7e99e.png?imageMogr2/auto-orient/strip%7CimageView2/2">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/304825-a2fa6abca6338900.png?imageMogr2/auto-orient/strip%7CimageView2/2">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/304825-7e20e5b34f035fd2.png?imageMogr2/auto-orient/strip%7CimageView2/2">
@@ -22,10 +22,10 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/304825-e684a824ac51a74c.png?imageMogr2/auto-orient/strip%7CimageView2/2">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/304825-311191366a0b0972.png?imageMogr2/auto-orient/strip%7CimageView2/2">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/304825-1e8effc941c8498a.png?imageMogr2/auto-orient/strip%7CimageView2/2">
-<meta property="og:updated_time" content="2016-05-04T06:45:01.000Z">
+<meta property="og:updated_time" content="2016-05-05T07:09:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ReactiveCocoa之基础篇">
-<meta name="twitter:description" content="##前言很多blog都说ReactiveCocoa好用，然后各种秀自己如何灵活运用ReactiveCocoa，但是感觉真正缺少的是一篇如何学习ReactiveCocoa的文章，小编看了很多篇都没看出怎么使用ReactiveCocoa,于是决定自己写一遍关于学习ReactiveCocoa的文章,本文主要针对如何从零开始学习ReactiveCocoa，这里非常感谢3个人（支点的雷纯锋，camera36">
+<meta name="twitter:description" content="前言很多blog都说ReactiveCocoa好用，然后各种秀自己如何灵活运用ReactiveCocoa，但是感觉真正缺少的是一篇如何学习ReactiveCocoa的文章，小编看了很多篇都没看出怎么使用ReactiveCocoa,于是决定自己写一遍关于学习ReactiveCocoa的文章,本文主要针对如何从零开始学习ReactiveCocoa，这里非常感谢3个人（支点的雷纯锋，camera360的">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/304825-c102cdc07cd7e99e.png?imageMogr2/auto-orient/strip%7CimageView2/2">
   
     <link rel="alternative" href="/atom.xml" title="晓时代的博客" type="application/atom+xml">
@@ -106,9 +106,9 @@
 						
 							<li><a href="/">主页</a></li>
 				        
-							<li><a href="/archives">所有文章</a></li>
-				        
 							<li><a href="/tags/life">随笔</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
 				        
 						</ul>
 					</nav>
@@ -130,7 +130,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/RAC/" style="font-size: 10px;">RAC</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/life/" style="font-size: 10px;">life</a>
+						<a href="/tags/RAC/" style="font-size: 10px;">RAC</a> <a href="/tags/appledoc/" style="font-size: 10px;">appledoc</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/life/" style="font-size: 10px;">life</a>
 					</div>
 				</section>
 				
@@ -192,9 +192,9 @@
 				
 					<li><a href="/">主页</a></li>
 		        
-					<li><a href="/archives">所有文章</a></li>
-		        
 					<li><a href="/tags/life">随笔</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
 		        
 		        <div class="clearfix"></div>
 				</ul>
@@ -253,18 +253,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##前言<br>很多blog都说ReactiveCocoa好用，然后各种秀自己如何灵活运用ReactiveCocoa，但是感觉真正缺少的是一篇如何学习ReactiveCocoa的文章，小编看了很多篇都没看出怎么使用ReactiveCocoa,于是决定自己写一遍关于学习ReactiveCocoa的文章,本文主要针对如何从零开始学习ReactiveCocoa，这里非常感谢3个人（支点的雷纯锋，camera360的宋潘，以及我的小学弟何宗柱（我爱科技）），在我研究ReactiveCocoa对我的帮助。<br><a id="more"></a></p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>很多blog都说ReactiveCocoa好用，然后各种秀自己如何灵活运用ReactiveCocoa，但是感觉真正缺少的是一篇如何学习ReactiveCocoa的文章，小编看了很多篇都没看出怎么使用ReactiveCocoa,于是决定自己写一遍关于学习ReactiveCocoa的文章,本文主要针对如何从零开始学习ReactiveCocoa，这里非常感谢3个人（支点的雷纯锋，camera360的宋潘，以及我的小学弟何宗柱（我爱科技）），在我研究ReactiveCocoa对我的帮助。<br><a id="more"></a></p>
 <p>如果喜欢我的文章，可以关注我，也可以来小码哥，了解下我们的iOS培训课程。之后还会更新《最快让你上手ReactiveCocoa之进阶篇》</p>
 <p>文／峥吖（简书作者）<br>原文链接：<a href="http://www.jianshu.com/p/87ef6720a096" target="_blank" rel="external">http://www.jianshu.com/p/87ef6720a096</a><br>著作权归作者所有，转载请联系作者获得授权，并标注“简书作者”。</p>
-<p>##1.ReactiveCocoa简介<br>ReactiveCocoa（简称为RAC）,是由Github开源的一个应用于iOS和OS开发的新框架,Cocoa是苹果整套框架的简称，因此很多苹果框架喜欢以Cocoa结尾。</p>
-<p>##2.ReactiveCocoa作用</p>
-<ul>
+<h2 id="1-ReactiveCocoa简介"><a href="#1-ReactiveCocoa简介" class="headerlink" title="1.ReactiveCocoa简介"></a>1.ReactiveCocoa简介</h2><p>ReactiveCocoa（简称为RAC）,是由Github开源的一个应用于iOS和OS开发的新框架,Cocoa是苹果整套框架的简称，因此很多苹果框架喜欢以Cocoa结尾。</p>
+<h2 id="2-ReactiveCocoa作用"><a href="#2-ReactiveCocoa作用" class="headerlink" title="2.ReactiveCocoa作用"></a>2.ReactiveCocoa作用</h2><ul>
 <li>在我们iOS开发过程中，当某些事件响应的时候，需要处理某些业务逻辑,这些事件都用不同的方式来处理。</li>
 <li>比如按钮的点击使用action，ScrollView滚动使用delegate，属性值改变使用KVO等系统提供的方式。</li>
 <li>其实这些事件，都可以通过RAC处理</li>
 <li>ReactiveCocoa为事件提供了很多处理方法，而且利用RAC处理事件很方便，可以把要处理的事情，和监听的事情的代码放在一起，这样非常方便我们管理，就不需要跳到对应的方法里。非常符合我们开发中高聚合，低耦合的思想。</li>
 </ul>
-<p>##3.编程思想<br>在开发中我们也不能太依赖于某个框架，否则这个框架不更新了，导致项目后期没办法维护，比如之前Facebook提供的Three20框架，在当时也是神器，但是后来不更新了，也就没什么人用了。因此我感觉学习一个框架，还是有必要了解它的编程思想。</p>
+<h2 id="3-编程思想"><a href="#3-编程思想" class="headerlink" title="3.编程思想"></a>3.编程思想</h2><p>在开发中我们也不能太依赖于某个框架，否则这个框架不更新了，导致项目后期没办法维护，比如之前Facebook提供的Three20框架，在当时也是神器，但是后来不更新了，也就没什么人用了。因此我感觉学习一个框架，还是有必要了解它的编程思想。</p>
 <p>先简单介绍下目前咱们已知的编程思想。</p>
 <p>文／峥吖（简书作者）<br>原文链接：<a href="http://www.jianshu.com/p/87ef6720a096" target="_blank" rel="external">http://www.jianshu.com/p/87ef6720a096</a><br>著作权归作者所有，转载请联系作者获得授权，并标注“简书作者”。</p>
 <p>3.1 面向过程：处理事情以过程为核心，一步一步的实现。</p>
@@ -292,13 +291,13 @@
 </ul>
 <p><img src="http://upload-images.jianshu.io/upload_images/304825-1c9dc45eadd64c75.png?imageMogr2/auto-orient/strip%7CimageView2/2" alt="Mou icon"></p>
 <p><img src="http://upload-images.jianshu.io/upload_images/304825-1554573c7ad8321f.png?imageMogr2/auto-orient/strip%7CimageView2/2" alt="Mou icon"></p>
-<p>##4.ReactiveCocoa编程思想<br>ReactiveCocoa结合了几种编程风格：</p>
+<h2 id="4-ReactiveCocoa编程思想"><a href="#4-ReactiveCocoa编程思想" class="headerlink" title="4.ReactiveCocoa编程思想"></a>4.ReactiveCocoa编程思想</h2><p>ReactiveCocoa结合了几种编程风格：</p>
 <p>函数式编程（Functional Programming）</p>
 <p>响应式编程（Reactive Programming）</p>
 <p>所以，你可能听说过ReactiveCocoa被描述为函数响应式编程（FRP）框架。</p>
 <p>以后使用RAC解决问题，就不需要考虑调用顺序，直接考虑结果，把每一次操作都写成一系列嵌套的方法中，使代码高聚合，方便管理。</p>
 <p>文／峥吖（简书作者）<br>原文链接：<a href="http://www.jianshu.com/p/87ef6720a096" target="_blank" rel="external">http://www.jianshu.com/p/87ef6720a096</a><br>著作权归作者所有，转载请联系作者获得授权，并标注“简书作者”。</p>
-<p>##5.如何导入ReactiveCocoa框架<br>通常都会使用CocoaPods（用于管理第三方框架的插件）帮助我们导入。</p>
+<h2 id="5-如何导入ReactiveCocoa框架"><a href="#5-如何导入ReactiveCocoa框架" class="headerlink" title="5.如何导入ReactiveCocoa框架"></a>5.如何导入ReactiveCocoa框架</h2><p>通常都会使用CocoaPods（用于管理第三方框架的插件）帮助我们导入。</p>
 <p>PS:CocoaPods教程</p>
 <p>注意：</p>
 <ul>
@@ -312,7 +311,7 @@
 <ul>
 <li>需要在podfile加上use_frameworks，重新pod install 才能导入成功。<br><img src="http://upload-images.jianshu.io/upload_images/304825-1e8effc941c8498a.png?imageMogr2/auto-orient/strip%7CimageView2/2" alt="Mou icon"></li>
 </ul>
-<p>##6.ReactiveCocoa常见类。<br>学习框架首要之处:个人认为先要搞清楚框架中常用的类，在RAC中最核心的类RACSiganl,搞定这个类就能用ReactiveCocoa开发了。</p>
+<h2 id="6-ReactiveCocoa常见类。"><a href="#6-ReactiveCocoa常见类。" class="headerlink" title="6.ReactiveCocoa常见类。"></a>6.ReactiveCocoa常见类。</h2><p>学习框架首要之处:个人认为先要搞清楚框架中常用的类，在RAC中最核心的类RACSiganl,搞定这个类就能用ReactiveCocoa开发了。</p>
 <p>6.1RACSiganl:信号类,一般表示将来有数据传递，只要有数据改变，信号内部接收到数据，就会马上发出数据。</p>
 <p>注意：</p>
 <ul>
@@ -729,7 +728,7 @@ NSLog(@&quot;订阅者二信号&quot;);
 <p>6.11 RACUnit :表⽰stream不包含有意义的值,也就是看到这个，可以直接理解为nil.</p>
 <p>6.12 RACEvent: 把数据包装成信号事件(signal event)。它主要通过RACSignal的-materialize来使用，然并卵。</p>
 <p>文／峥吖（简书作者）<br>原文链接：<a href="http://www.jianshu.com/p/87ef6720a096" target="_blank" rel="external">http://www.jianshu.com/p/87ef6720a096</a><br>著作权归作者所有，转载请联系作者获得授权，并标注“简书作者”。</p>
-<p>##7.ReactiveCocoa开发中常见用法。<br>7.1 代替代理:</p>
+<h2 id="7-ReactiveCocoa开发中常见用法。"><a href="#7-ReactiveCocoa开发中常见用法。" class="headerlink" title="7.ReactiveCocoa开发中常见用法。"></a>7.ReactiveCocoa开发中常见用法。</h2><p>7.1 代替代理:</p>
 <ul>
 <li>rac_signalForSelector：用于替代代理。</li>
 </ul>
@@ -816,8 +815,7 @@ RACSignal *request2 = [RACSignal createSignal:^RACDisposable *(id&lt;RACSubscrib
 {
 NSLog(@&quot;更新UI%@  %@&quot;,data,data1);
 }
-</code></pre><p> 8.ReactiveCocoa常见宏。</p>
-<p> 8.1 RAC(TARGET, [KEYPATH, [NIL_VALUE]]):用于给某个对象的某个属性绑定。</p>
+</code></pre><h2 id="8-ReactiveCocoa常见宏。"><a href="#8-ReactiveCocoa常见宏。" class="headerlink" title="8.ReactiveCocoa常见宏。"></a>8.ReactiveCocoa常见宏。</h2><p> 8.1 RAC(TARGET, [KEYPATH, [NIL_VALUE]]):用于给某个对象的某个属性绑定。</p>
 <pre><code> // 只要文本框文字改变，就会修改label的文字
 RAC(self.labelView,text) = _textField.rac_textSignal;
 </code></pre><p> 8.2 RACObserve(self, name):监听某个对象的某个属性,返回的是信号。</p>
@@ -827,8 +825,7 @@ RAC(self.labelView,text) = _textField.rac_textSignal;
 }];
 </code></pre><p>8.3  @weakify(Obj)和@strongify(Obj),一般两个都是配套使用,在主头文件(ReactiveCocoa.h)中并没有导入，需要自己手动导入，RACEXTScope.h才可以使用。但是每次导入都非常麻烦，只需要在主头文件自己导入就好了。</p>
 <p>8.4 RACTuplePack：把数据包装成RACTuple（元组类）</p>
-<p>文／峥吖（简书作者）<br>原文链接：<a href="http://www.jianshu.com/p/87ef6720a096" target="_blank" rel="external">http://www.jianshu.com/p/87ef6720a096</a><br>著作权归作者所有，转载请联系作者获得授权，并标注“简书作者”。</p>
-<pre><code>    // 把参数中的数据包装成元组
+<pre><code>// 把参数中的数据包装成元组
 RACTuple *tuple = RACTuplePack(@10,@20);
 </code></pre><p>8.5 RACTupleUnpack：把RACTuple（元组类）解包成对应的数据。</p>
 <pre><code>    // 把参数中的数据包装成元组
@@ -846,11 +843,11 @@ RACTupleUnpack(NSString *name,NSNumber *age) = tuple;
     
 <nav id="article-nav">
   
-    <a href="/2016/05/01/Hexo搭建/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/09/01/如何使用appledoc/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Hexo搭建个人博客
+          如何使用appledoc
         
       </div>
     </a>
