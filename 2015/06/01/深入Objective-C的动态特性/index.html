@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>深入Objective-C的动态特性 | Grx Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Objective-C具有相当多的动态特性，基本的，也是经常被提到和用到的有动态类型（Dynamic typing），动态绑定（Dynamic binding）和动态加载（Dynamic loading）。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入Objective-C的动态特性">
+<meta property="og:url" content="http://yoursite.com/2015/06/01/深入Objective-C的动态特性/index.html">
+<meta property="og:site_name" content="Grx Blog">
+<meta property="og:description" content="Objective-C具有相当多的动态特性，基本的，也是经常被提到和用到的有动态类型（Dynamic typing），动态绑定（Dynamic binding）和动态加载（Dynamic loading）。">
+<meta property="og:updated_time" content="2016-05-09T07:23:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="深入Objective-C的动态特性">
+<meta name="twitter:description" content="Objective-C具有相当多的动态特性，基本的，也是经常被提到和用到的有动态类型（Dynamic typing），动态绑定（Dynamic binding）和动态加载（Dynamic loading）。">
+  
+    <link rel="alternative" href="/atom.xml" title="Grx Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://ww2.sinaimg.cn/crop.0.0.1080.1080.1024/d773ebfajw8eum57eobkwj20u00u075w.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Grx</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">自我管理，知识管理，时间管理，阅读，语音写作，思维导图</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/tags/life">随笔</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/OC/" style="font-size: 10px;">OC</a> <a href="/tags/RAC/" style="font-size: 10px;">RAC</a> <a href="/tags/appledoc/" style="font-size: 10px;">appledoc</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/life/" style="font-size: 10px;">life</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.devtang.com">唐巧的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondvincent.com">破船之家</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://limboy.me">无网不剩</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://msching.github.io">码农人生</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://yulingtianxia.com">玉令天下</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.leichunfeng.com">雷纯锋的技术博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">知识管理，时间管理，自我管理，阅读，语音写作，思维导图，Wiz，TimeMeter</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Grx</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://ww2.sinaimg.cn/crop.0.0.1080.1080.1024/d773ebfajw8eum57eobkwj20u00u075w.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Grx</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">自我管理，知识管理，时间管理，阅读，语音写作，思维导图</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/life">随笔</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-深入Objective-C的动态特性" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/06/01/深入Objective-C的动态特性/" class="article-date">
+  	<time datetime="2015-06-01T06:07:11.000Z" itemprop="datePublished">2015-06-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      深入Objective-C的动态特性
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OC/">OC</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Objective-C具有相当多的动态特性，基本的，也是经常被提到和用到的有动态类型（Dynamic typing），动态绑定（Dynamic binding）和动态加载（Dynamic loading）。</p>
+<a id="more"></a>
+<p>这些动态特性都是在Cocoa程序开发时非常常用的语言特性，而在这之后，OC在底层也提供了相当丰富的运行时的特性，比如枚举类属性方法、获取方法实现等等。虽然在平常的Cocoa开发中这些较底层的运行特性基本用不着，但是在某些情况下如果你知道这些特性并合理加以运用的话，往往能事半功倍～</p>
+<h2 id="动态特性基础"><a href="#动态特性基础" class="headerlink" title="动态特性基础"></a>动态特性基础</h2><h3 id="1、动态类型"><a href="#1、动态类型" class="headerlink" title="1、动态类型"></a>1、动态类型</h3><p>即运行时再决定对象的类型。这类动态特性在日常应用中非常常见，简单说就是id类型。id类型即通用的对象类，任何对象都可以被id指针所指，而在实际使 用中，往往使用introspection来确定该对象的实际所属类：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> id obj = someInstance;</span><br><span class="line">if ([obj isKindOfClass:someClass])</span><br><span class="line">&#123;</span><br><span class="line">    someClass *classSpecifiedInstance = (someClass *)obj;</span><br><span class="line">    // Do Something to classSpecifiedInstance which now is an instance of someClass</span><br><span class="line">    //...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> -isKindOfClass:是NSObject的方法，用意确定某个NSObject对象是否是某个类的成员。与之相似的为-isMemberOfClass:，可以用以确定某个对象是否是某个类或其子类的成员。这两个方法为典型的introspection方法。在确定对象为某类成员后，可以安全地进行强制转换，继续之后的工作。</p>
+<h3 id="2、动态绑定"><a href="#2、动态绑定" class="headerlink" title="2、动态绑定"></a>2、动态绑定</h3><p>基于动态类型，在某个实例对象被确定后，其类型便被确定了。该对象对应的属性和响应的消息也被完全确定，这就是动态绑定。在继续之前，需要明确Objective-C中消息的概念。由于OC的动态特性，在OC中其实很少提及“函数”的概念，传统的函数一般在编译时就已经把参数信息和函数实现打包到编译后的源码中了，而在OC中最常使用的是消息机制。调用一个实例的方法，所做的是向该实例的指针发送消息，实例在收到消息后，从自身的实现中寻找响应这条消息的方法。</p>
+<p>动态绑定所做的，即是在实例所属类确定后，将某些属性和相应的方法绑定到实例上。这里所指的属性和方法当然包括了原来没有在类中实现的，而是在运行时才需要的新加入的实现。在Cocoa层，我们一般向一个NSObject对象发送-respondsToSelector:或者-instancesRespondToSelector:等来确定对象是否可以对某个SEL做出响应，而在OC消息转发机制被触发之前，对应的类的+resolveClassMethod:和+resolveInstanceMethod:将会被调用，在此时有机会动态地向类或者实例添加新的方法，也即类的实现是可以动态绑定的。一个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> void dynamicMethodIMP(id self, SEL _cmd)</span><br><span class="line">&#123;</span><br><span class="line">    // implementation ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> //该方法在OC消息转发生效前被调用</p>
+<p>+(BOOL) resolveInstanceMethod:(SEL)aSEL<br>{ if (aSEL == @selector(resolveThisMethodDynamically))<br>{</p>
+<p>//向[self class]中新加入返回为void的实现，SEL名字为aSEL，实现的具体内容为dynamicMethodIMP</p>
+<p>class_addMethod([self class], aSEL, (IMP) dynamicMethodIMP, “v@:”);<br>return YES;<br>}<br>return [super resolveInstanceMethod:aSel];<br>}  </p>
+<p>当然也可以在任意需要的地方调用class_addMethod或者method_setImplementation（前者添加实现，后者替换实现），来完成动态绑定的需求。</p>
+<h3 id="3、动态加载"><a href="#3、动态加载" class="headerlink" title="3、动态加载"></a>3、动态加载</h3><p>根据需求加载所需要的资源，这点很容易理解，对于iOS开发来说，基本就是根据不同的机型做适配。最经典的例子就是在Retina设备上加载@2x的图片，而在老一些的普通屏设备上加载原图。随着Retina iPad的推出，和之后可能的Retina Mac的出现，这个特性相信会被越来越多地使用。</p>
+<hr>
+<h3 id="深入运行时特性"><a href="#深入运行时特性" class="headerlink" title="深入运行时特性"></a>深入运行时特性</h3><p>基本的动态特性在常规的Cocoa开发中非常常用，特别是动态类型和动态绑定。由于Cocoa程序大量地使用Protocol-Delegate的设计模式，因此绝大部分的delegate指针类型必须是id，以满足运行时delegate的动态替换（在Java里这个设计模式被叫做Strategy？不是很懂Java，求纠正）。而Objective-C还有一些高级或者说更底层的运行时特性，在一般的Cocoa开发中较为少见，基本被运用与编写OC和其他语言的接口上。但是如果有所了解并使用得当的话，在Cocoa开发中往往可以轻易解决一些棘手问题。</p>
+<p>这类运行时特性大多由/usr/lib/libobjc.A.dylib这个动态库提供，里面包括了对于类、实例成员、成员方法和消息发送的很多API，包括获取类实例变量列表，替换类中的方法，为类成员添加变量，动态改变方法实现等，十分强大。完整的API列表和手册可以在这里找到。虽然文档开头表明是对于Mac OS X Objective-C 2.0适用，但是由于这些是OC的底层方法，因此对于iOS开发来说也是完全相同的。</p>
+<p>一个简单的例子，比如在开发Universal应用或者游戏时，如果使用IB构建了大量的自定义的UI，那么在由iPhone版转向iPad版的过程中所面临的一个重要问题就是如何从不同的nib中加载界面。在iOS5之前，所有的UIViewController在使用默认的界面加载时(init或者initWithNibName:bundle:)，都会走-loadNibNamed:owner:options:。而因为我们无法拿到-loadNibNamed:owner:options的实现，因此对其重载是比较困难而且存在风险的。因此在做iPad版本的nib时，一个简单的办法是将所有的nib的命名方式统一，然后使用自己实现的新的类似-loadNibNamed:owner:options的方法将原方法替换掉，同时保证非iPad的设备还走原来的loadNibNamed:owner:options方法。使用OC运行时特性可以较简单地完成这一任务。</p>
+<p>代码如下，在程序运行时调用+swizze，交换自己实现的loadPadNibNamed:owner:options和系统的loadNibNamed:owner:options，之后所有的loadNibNamed:owner:options消息都将会发为loadPadNibNamed:owner:options，由自己的代码进行处理。</p>
+<pre><code>+(BOOL)swizze {
+Method oldMethod = class_getInstanceMethod(self, @selector(loadNibNamed:owner:options:));
+if (!oldMethod) {
+    return NO;
+}
+</code></pre><p> Method newMethod = class_getInstanceMethod(self, @selector(loadPadNibNamed:owner:options:));</p>
+<p>if (!newMethod) {<br>return NO;<br>}<br>method_exchangeImplementations(oldMethod, newMethod);<br>return YES;<br>}  </p>
+<p>loadPadNibNamed:owner:options的实现如下，注意在其中的loadPadNibNamed:owner:options由于之前已经进行了交换，因此实际会发送为系统的loadNibNamed:owner:options。以此完成了对不同资源的加载。</p>
+<pre><code> -(NSArray *)loadPadNibNamed:(NSString *)name owner:(id)owner options:(NSDictionary *)options {
+NSString *newName = [name stringByReplacingOccurrencesOfString:@&quot;@pad&quot; withString:@&quot;&quot;];
+newName = [newName stringByAppendingFormat:@&quot;@pad&quot;];
+</code></pre><p>//判断是否存在<br>NSFileManager <em>fm = [NSFileManager defaultManager];<br>NSString</em> filepath = [[NSBundle mainBundle] pathForResource:newName ofType:@”nib”];<br>//这里调用的loadPadNibNamed:owner:options:实际为为交换后的方法，即loadNibNamed:owner:options:<br>if ([fm fileExistsAtPath:filepath]) {<br>return [self loadPadNibNamed:newName owner:owner options:options];<br>} else {<br>return [self loadPadNibNamed:name owner:owner options:options];<br>}<br>}  </p>
+<p>当然这只是一个简单的例子，而且这个功能也可以通过别的方法来实现。比如添加UIViewController的类别来重载init，但是这样的重载会比较危险，因为你UIViewController的实现你无法完全知道，因此可能会由于重载导致某些本来应有的init代码没有覆盖，从而出现不可预测的错误。当然在上面这个例子中重载VC的init的话没有什么问题(因为对于VC，init的方法会被自动转发为loadNibNamed:owner:options，因此init方法并没有做其他更复杂的事情，因此只要初始化VC时使用的都是init的话就没有问题)。但是并不能保证这样的重载对于其他类也是可行的。因此对于实现未知的系统方法，使用上面的运行时交换方法会是一个不错的选择～<br><br><br><br><br><br></p>
+<h4 id="oc是一个全动态语言，oc的一切都是基于runtime实现的！"><a href="#oc是一个全动态语言，oc的一切都是基于runtime实现的！" class="headerlink" title="oc是一个全动态语言，oc的一切都是基于runtime实现的！"></a>oc是一个全动态语言，oc的一切都是基于runtime实现的！</h4><h3 id="从以下三方面来理解runtime吧"><a href="#从以下三方面来理解runtime吧" class="headerlink" title="从以下三方面来理解runtime吧:"></a>从以下三方面来理解runtime吧:</h3><ol>
+<li><p>传统的面向过程的语言开发，例如c语言。实现c语言编译器很简单，只要按照语法规则实现一个LALR语法分析器就可以了，编译器优化是非常难的topic，不在这里讨论范围内，忽略。 这里我们实现了编译器其中最最基础和原始的目标之一就是把一份代码里的函数名称，转化成一个相对内存地址，把调用这个函数的语句转换成一个jmp跳转指令。在程序开始运行时候，调用语句可以正确跳转到对应的函数地址。 这样很好，也很直白，但是。。。太死板了。everything is per-determined</p>
+</li>
+<li><p>我们希望灵活，于是需要开发面向对象的语言，例如c++。 c++在c的基础上增加了类的部分。但这到底意味着什么呢？我们在写它的编译器要如何考虑呢？其实，就是让编译器多绕个弯，在严格的c编译器上增加一层类处理的机制，把一个函数限制在它处在的class环境里，每次请求一个函数调用，先找到它的对象, 其类型,返回值，参数等等，确定了这些后再jmp跳转到需要的函数。这样很多程序增加了灵活性同样一个函数调用会根据请求参数和类的环境返回完全不同的结果。增加类机制后，就模拟了现实世界的抽象模式，不同的对象有不同的属性和方法。同样的方法，不同的类有不同的行为！ 这里大家就可以看到作为一个编译器开发者都做了哪些进一步的思考。但是。。。还是死板, 我们仍然叫c++是static language。</p>
+</li>
+<li><p>希望更加灵活！ 于是我们完全把上面哪个类的实现部分抽象出来，做成一套完整运行阶段的检测环境。这次再写编译器甚至保留部分代码里的sytax名称，名称错误检测，runtime环境注册所有全局的类，函数，变量等等信息等等，我们可以无限的为这个层增加必要的功能。调用函数时候，会先从这个运行时环境里检测所以可能的参数再做jmp跳转，这就是runtime。编译器开发起来比上面更加弯弯绕。但是这个层极大增加了程序的灵活性。  例如当调用一个函数时候，前2种语言，很有可能一个jmp到了一个非法地址导致程序crash, 但是在这个层次里面，runtime就过滤掉了这些可能性。 这就是为什么dynamic langauge更加强壮。 因为编译器和runtime环境开发人员已经帮你处理了这些问题。</p>
+</li>
+</ol>
+<p>好了上面说着这么多，我们再返回来看objective-c.  现在你是不是能理解这样的语句了呢？</p>
+<pre><code>id obj=self;
+if ([obj respondsToSelector:@selector(function1:)) {
+}
+if ([obj isKindOfClass:[NSArray class]] ) {
+}
+if ([obj conformsToProtocol:@protocol(myProtocol)]) {
+}           
+if ([[obj class] isSubclassOfClass:[NSArray class]]) {
+}
+[obj someNonExistFunction];
+</code></pre><p>  看似很简单的语句，但是为了让语言实现这个能力，语言开发者要付出很多努力实现runtime环境。这里运行时环境处理了弱类型、函数存在检查工作。runtime会检测注册列表里是否存在对应的函数，类型是否正确，最后确定下来正确的函数地址，再进行保存寄存器状态，压栈，函数调用等等实际的操作。</p>
+<pre><code>id knife=[Knife grateKnife];
+NSArray *monsterList=[NSArray array];
+[monsterList makeObjectsPerformSelector:@selector(killMonster:) withObject:knife];
+</code></pre><p>  在c,c++年代去完成这个功能是非常麻烦的，但是动态语言却非常简单。<br>  <br><br>  <br></p>
+<p>  关于执行效率问题。 “静态语言执行效率要比动态语言高”，这句没错。因为一部分cpu计算损耗在了runtime过程中。而静态语言生成的机器指令更简洁。正因为知道这个原因，所以开发语言的人付出很大一部分努力为了保持runtime小巧上。所以objecitve-c是c的超集+一个小巧的runtime环境。  但是，换句话说，从算法角度考虑，这点复杂度不算差别的，Big O notation结果不会有差别。( It’s not log(n) vs n^2 )</p>
+<p><br><br>简单理解：“Runtime is everything between your each function call.”<br>Runtime好比objective-c的灵魂。很多东西都是在这个基础上出现的。所以它是指的你花功夫去理解的。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/09/01/如何使用appledoc/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          如何使用appledoc
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/05/04/ReactiveCocoa之基础篇/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ReactiveCocoa之基础篇</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="深入Objective-C的动态特性" data-title="深入Objective-C的动态特性" data-url="http://yoursite.com/2015/06/01/深入Objective-C的动态特性/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Grx
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
