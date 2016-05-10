@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>在Xcode中添加多个targets进行版本控制 | Grx Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在ios开发时，我们经常会遇到对同一个app开发多个版本（Pro、Lite、Free）的情况，这里就涉及到xcode里通过添加多个targets来进行版本控制的问题了，下面就简单说明一下：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在Xcode中添加多个targets进行版本控制">
+<meta property="og:url" content="http://yoursite.com/2014/11/11/在Xcode中添加多个targets进行版本控制/index.html">
+<meta property="og:site_name" content="Grx Blog">
+<meta property="og:description" content="在ios开发时，我们经常会遇到对同一个app开发多个版本（Pro、Lite、Free）的情况，这里就涉及到xcode里通过添加多个targets来进行版本控制的问题了，下面就简单说明一下：">
+<meta property="og:updated_time" content="2016-05-10T03:22:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在Xcode中添加多个targets进行版本控制">
+<meta name="twitter:description" content="在ios开发时，我们经常会遇到对同一个app开发多个版本（Pro、Lite、Free）的情况，这里就涉及到xcode里通过添加多个targets来进行版本控制的问题了，下面就简单说明一下：">
+  
+    <link rel="alternative" href="/atom.xml" title="Grx Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://img3.imgtn.bdimg.com/it/u=2738905542,2894070565&amp;fm=21&amp;gp=0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Grx</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">自我管理，知识管理，时间管理，阅读，语音写作，思维导图</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/tags/life">随笔</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/OC/" style="font-size: 20px;">OC</a> <a href="/tags/RAC/" style="font-size: 10px;">RAC</a> <a href="/tags/Xcode/" style="font-size: 20px;">Xcode</a> <a href="/tags/appledoc/" style="font-size: 10px;">appledoc</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/life/" style="font-size: 10px;">life</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.devtang.com">唐巧的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondvincent.com">破船之家</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://limboy.me">无网不剩</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://msching.github.io">码农人生</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://yulingtianxia.com">玉令天下</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.leichunfeng.com">雷纯锋的技术博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">知识管理，时间管理，自我管理，阅读，语音写作，思维导图，Wiz，TimeMeter</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Grx</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://img3.imgtn.bdimg.com/it/u=2738905542,2894070565&amp;fm=21&amp;gp=0.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Grx</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">自我管理，知识管理，时间管理，阅读，语音写作，思维导图</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/life">随笔</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-在Xcode中添加多个targets进行版本控制" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/11/11/在Xcode中添加多个targets进行版本控制/" class="article-date">
+  	<time datetime="2014-11-11T02:44:34.000Z" itemprop="datePublished">2014-11-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      在Xcode中添加多个targets进行版本控制
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Xcode/">Xcode</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> 在ios开发时，我们经常会遇到对同一个app开发多个版本（Pro、Lite、Free）的情况，这里就涉及到xcode里通过添加多个targets来进行版本控制的问题了，下面就简单说明一下：<br><a id="more"></a><br> 点击左侧的工程名称，右侧会出现PROJECT和TARGETS，点击你现在的target，假如叫A，右键弹出菜单中，选择Duplicate，复制一个相同的target，复制的target一般叫A copy，A copy和A的设置（编译条件、源文件、资源文件）完全一样，此时你可以根据需要修改A copy的编译条件和资源文件了；</p>
+<h3 id="1-A-copy的名称是不是显得不够专业-现在来修改一下："><a href="#1-A-copy的名称是不是显得不够专业-现在来修改一下：" class="headerlink" title="1.A copy的名称是不是显得不够专业? 现在来修改一下："></a>1.A copy的名称是不是显得不够专业? 现在来修改一下：</h3><p>1）首先修改Xcode左上角的target名称：</p>
+<p>点击xcode左上角Run、Stop右边的工程名称，下拉框中选择Manage Schemes，在弹出框中，点击A copy那行，点击一次、再点击一次，就可以修改A copy为你想要的名字了，比如ALite；</p>
+<p>2）修改xcode左下方Products下的A copy.app名称：</p>
+<p>点击Targets下你刚才改名后的ALite，点击Bulid Setting，搜索Packaging下的Private Headers Folder Path，修改A copy.app/PrivateHeaders为：ALite.app/PrivateHeaders；</p>
+<h3 id="2-修改Bundle-Identifier和选择不同的证书，让app区分开来"><a href="#2-修改Bundle-Identifier和选择不同的证书，让app区分开来" class="headerlink" title="2.修改Bundle Identifier和选择不同的证书，让app区分开来:"></a>2.修改Bundle Identifier和选择不同的证书，让app区分开来:</h3><p>1）新target需要的.plist文件</p>
+<p> 新建一个文件夹X，添加X到项目中，添加时选择target为ALite，不要选target A了，因为不是共用的；复制原来target的A-Info.plist到X，修改其名称为ALite-Info.plist，xcode中右键Add File To …，选择添加到target ALite中；</p>
+<p>2）点击target: ALite -&gt;Summary：提示你需要选择plist文件，选择1）中添加的ALite-Info.plist；</p>
+<p>3）点击target: ALite -&gt;Summary：设置Bundle Idenfitier；</p>
+<p>4）点击target: ALite-&gt;Build Settings-&gt;Code Signing：选择另外的证书；</p>
+<h3 id="3-修改程序名称"><a href="#3-修改程序名称" class="headerlink" title="3.修改程序名称"></a>3.修改程序名称</h3><p><br></p>
+<p>  一般说来，多个target的程序名称不同，复制zh-Hans.lproj和en.lproj下的InfoPlist.strings文件到X，xcode中右键Add File To …，选择添加到target ALite中；然后修改InfoPlist.strings的内容：CFBundleDisplayName=”程序名称Lite”;</p>
+<p>4、2个target到现在就创建好了，你添加资源文件的时候，通过选择添加的target来控制不同版本的内容；再说一下预编译宏的事情：target-&gt;Build Setting，搜索：Preprocessor Macros，设置Debug和Release里的预编译宏内容，比如TARGET_VERSION_LITE=1表示lite版本（注意=前后不能右空格，有空格会编译不过），程序中对不同版本这样判断：</p>
+<pre><code>#if TARGET_VERSION_LITE ==1
+
+...
+
+#elif TARGET_VERSION_LITE ==2
+
+...
+
+#endif
+</code></pre><h2 id="参考文章："><a href="#参考文章：" class="headerlink" title="参考文章："></a>参考文章：</h2><blockquote>
+<p><a href="http://blog.163.com/lengfeng_04/blog/static/80470603201273111549529/" target="_blank" rel="external">http://blog.163.com/lengfeng_04/blog/static/80470603201273111549529/</a></p>
+</blockquote>
+<h4 id="XCode-同一Project创建多个target"><a href="#XCode-同一Project创建多个target" class="headerlink" title="XCode 同一Project创建多个target"></a>XCode 同一Project创建多个target</h4><p><br><br>由于项目需求，同一项目需要发两个版本，两个版本只有小部分不同，特地研究了一下target，小有了解，把创建target的经过记录在案，方便过后查看，如有疏漏，请网友指正。</p>
+<p>创建target有两种方式：</p>
+<p>1是通过新建target可以通过File–&gt;New–&gt;Target，然后选择其中一个模板来创建，app类型的target，可以选择Empty Application模板，不过新建的target有自己的AppDelegate和main，这点还没研究好，如何与原来的AppDelegate和main复用</p>
+<p>2.另一种方法是通过对原有的target做duplicate，复制一份，目前只研究了如何通过duplicate来新建target，做下记录。</p>
+<p>假设原来的target名字为A，我们需要新建一个target B</p>
+<hr>
+<p>1.在原来的target上右键，选择duplicate，Xcode会复制一个名为A copy的target对象，同时生成一个A copy-info.plist和A copy的scheme</p>
+<p>2.改名</p>
+<p>a）对A copy target改名，可以直接单击target来修改，改成B</p>
+<p>b）A copy-info.plist，默认生成在程序环境根目录，也就是A.xcodeproj的同级目录中，如果想放到里层（比如与A-info.plist放在同级目录），可以先在Xcode删除A copy-info.plist索引，然后拷贝文件到制定目录中，然后更名为B-info.plist，在add到project中。在Project的Build Settings中，修改Info.plist File选项为B-info.plist的目录（相对路径）,这样就可以看到Info页了（就是B-info.plist），接着修改ProductName和Bundle identifier，使之成为另一个app。Prefix Header的路径，视具体需求而定是否要修改，如果两个target可以公用同一个Prefix Header，那么就不需要修改这里的路径</p>
+<p>c）修改scheme，在调试的Stop按钮边上，我们可以选择本工程中所有的target来做编译，如果不修改，在这里选择出来的名字就是A copy，为了与新建的target统一起来，同样也要修改这里的名字。点击scheme选择区，然后选Manager Scheme，找到A copy，然后改成你需要的名字，比如B</p>
+<p>用duplicate的好处是，如果两个target的相同点很多，用duplicate，就可以把相关的设置全部拷贝过来，而不需要做过多的修改</p>
+<p>生成一个新的target，一定会与原target有区别，这里可以定义预编译宏，来区分两个版本的不同代码，预编译宏可以在Build Settings中Preprocessor Macros定义，比如在我们新建的target B中定义预编译宏MACRO，然后在代码中通过</p>
+<pre><code>#if defined (MACRO)
+//target  B需要执行的代码
+
+#else
+//target A需要执行的代码
+
+#endif
+</code></pre><p>来区分</p>
+<p>其他：Build Phases（各target编译所包含的内容，需要注意的是，如果创建了target B后，再往A里面添加资源或文件，target B中不会自动增加这些资源，需要手动添加）</p>
+<p>1.Compile Sources</p>
+<p>需要编译的代码文件</p>
+<p>2.Link Binary With Libraries</p>
+<p>编译所依赖的库</p>
+<p>3.Copy Bundle Resources</p>
+<p>编译需要的资源</p>
+<p>每个target可以根据具体需要增减里面的内容</p>
+<h3 id="2-http-kan-weibo-com-con-3550176548481250-from-text"><a href="#2-http-kan-weibo-com-con-3550176548481250-from-text" class="headerlink" title="2.http://kan.weibo.com/con/3550176548481250?_from=text"></a>2.<a href="http://kan.weibo.com/con/3550176548481250?_from=text" target="_blank" rel="external">http://kan.weibo.com/con/3550176548481250?_from=text</a></h3><h4 id="http-stackoverflow-com-questions-1807377-xcode-multiple-targets-multiple-internationalized-names"><a href="#http-stackoverflow-com-questions-1807377-xcode-multiple-targets-multiple-internationalized-names" class="headerlink" title="http://stackoverflow.com/questions/1807377/xcode-multiple-targets-multiple-internationalized-names"></a><a href="http://stackoverflow.com/questions/1807377/xcode-multiple-targets-multiple-internationalized-names" target="_blank" rel="external">http://stackoverflow.com/questions/1807377/xcode-multiple-targets-multiple-internationalized-names</a></h4><h3 id="同一份代码多个Target，在支持多语言下分别设置其名称的方法"><a href="#同一份代码多个Target，在支持多语言下分别设置其名称的方法" class="headerlink" title="同一份代码多个Target，在支持多语言下分别设置其名称的方法"></a>同一份代码多个Target，在支持多语言下分别设置其名称的方法</h3><p><br><br>真不好用一个标题来概括这个东西。Xcode 4.2+ 在项目多语言包 xx.lproj 里引入了一个叫 InfoPlist.strings 的文件，可以对同一个 App 在不同系统语言下显示不同的 Display Name。比如：</p>
+<pre><code>InfoPlist.strings (English) -
+
+&quot;CFBundleDisplayName&quot; = &quot;English Name&quot;;
+InfoPlist.strings (Chinese) - &quot;CFBundleDisplayName&quot; = &quot;中文&quot;;
+</code></pre><p> 在单 Target 下很容易做，多 Target 的时候就需要做一点额外的处理。在项目目录下新建与 Target 同名的文件夹（同名是为了方便区分），然后将 xx.lproj 文件夹 复制 到各个 Target 下面，目录结构会是这个样子：</p>
+<pre><code> ./Target1/
+ en.lproj/InfoPlist.strings
+ zh-Hans.lproj/InfoPlist.strings
+./Target2/
+en.lproj/InfoPlist.strings
+zh-Hans.lproj/InfoPlist.strings
+</code></pre><p>复制后保持项目目录下还有 xx.lproj 文件夹，里面保留 Localizable.strings，因为多语言化一般是通用的，没必要针对每一个 Target 做多语言。复制后的 Target1/xx.lproj 下只有 InfoPlist.strings。然后添加到 Xcode 项目里，打开 Xcode - Views - Utilities （Command+Option+0），在 Target Membership 下针对不同的 Target 把对应文件夹下的 InfoPlist.strings 对应连接起来，Done。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/05/04/ReactiveCocoa之基础篇/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          ReactiveCocoa之基础篇
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/06/01/深入Objective-C的动态特性/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">深入Objective-C的动态特性</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="在Xcode中添加多个targets进行版本控制" data-title="在Xcode中添加多个targets进行版本控制" data-url="http://yoursite.com/2014/11/11/在Xcode中添加多个targets进行版本控制/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Grx
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
