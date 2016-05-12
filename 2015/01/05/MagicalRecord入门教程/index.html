@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2015/01/05/MagicalRecord入门教程/index.html">
 <meta property="og:site_name" content="Grx Blog">
 <meta property="og:description" content="Magical Record是什么在Cocoa中存在一种技术叫Core Data，用来对数据进行持久化，类似于Java世界中的Hibernate。在新建Cocoa Application/iOS Application的向导中，有一个选项是要不要使用Core Data，当启用以后你会发现在AppDelegate.m中添加了大量与Core Data相关的代码，但是你对大部分代码不知所以然。">
-<meta property="og:updated_time" content="2016-05-11T08:25:10.000Z">
+<meta property="og:updated_time" content="2016-05-12T07:05:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MagicalRecord入门教程">
 <meta name="twitter:description" content="Magical Record是什么在Cocoa中存在一种技术叫Core Data，用来对数据进行持久化，类似于Java世界中的Hibernate。在新建Cocoa Application/iOS Application的向导中，有一个选项是要不要使用Core Data，当启用以后你会发现在AppDelegate.m中添加了大量与Core Data相关的代码，但是你对大部分代码不知所以然。">
@@ -248,8 +248,8 @@
 <li>新建一个项目，注意在向导中不要勾选Core Data。</li>
 <li>下载Magical Record，并把MagicalRecord目录拖拽到工程中，记得勾选copy items into group folder。</li>
 <li>为项目添加CoreData FrameWork。(点击工程根节点，然后依次Targets &gt; Build Phases &gt; Link Binary With Libraries &gt; + &gt; CoreData.framework &gt; Add)</li>
-<li><p>添加Magical Record的头文件到*-Prefix.pch：</p>
-<pre><code>1.  #import &quot;CoreData+MagicalRecord.h&quot;
+<li><p>添加Magical Record的头文件到*-Prefix.pch：(再创建pch,添加#import <magicalrecord magicalrecord.h="">)</magicalrecord></p>
+<pre><code>1.  #import &lt;MagicalRecord/MagicalRecord.h&gt;
 </code></pre></li>
 </ol>
 <h2 id="创建模型文件"><a href="#创建模型文件" class="headerlink" title="创建模型文件"></a>创建模型文件</h2><p>下面创建一个名为Person的模型，有age、firstname、lastname三个字段</p>
