@@ -4,18 +4,27 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>ios runtime浅析：Method Swizzling | Grx Blog</title>
+  <title>Autolayout-VFL语言添加约束 | Grx Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="method swizzling也许是runtime中最有争议的技术，它的作用就是改变已经存在selector的实现，之所以可以这样是因为方法调用可以在运行时改变：通过改变类的分发表( dispatch table，该表包含selector的名称及对应实现函数的地址)里selector和实现之间的对应关系。">
+  <meta name="description" content="什么是VFL语言:
+VFL全称是Visual Format Language，翻译过来是“可视化格式语言”
+VFL是苹果公司为了简化Autolayout的编码而推出的抽象语言
+VFL（Visual format language）语言是苹果为了简化手写Autolayout代码所创建的专门负责编写约束的代码。为我们简化了许多代码量。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ios runtime浅析：Method Swizzling">
-<meta property="og:url" content="http://yoursite.com/2015/10/01/ios-runtime浅析：Method-Swizzling/index.html">
+<meta property="og:title" content="Autolayout-VFL语言添加约束">
+<meta property="og:url" content="http://yoursite.com/2015/09/19/Autolayout-VFL语言添加约束/index.html">
 <meta property="og:site_name" content="Grx Blog">
-<meta property="og:description" content="method swizzling也许是runtime中最有争议的技术，它的作用就是改变已经存在selector的实现，之所以可以这样是因为方法调用可以在运行时改变：通过改变类的分发表( dispatch table，该表包含selector的名称及对应实现函数的地址)里selector和实现之间的对应关系。">
-<meta property="og:updated_time" content="2016-05-09T08:09:48.000Z">
+<meta property="og:description" content="什么是VFL语言:
+VFL全称是Visual Format Language，翻译过来是“可视化格式语言”
+VFL是苹果公司为了简化Autolayout的编码而推出的抽象语言
+VFL（Visual format language）语言是苹果为了简化手写Autolayout代码所创建的专门负责编写约束的代码。为我们简化了许多代码量。">
+<meta property="og:updated_time" content="2016-05-19T08:00:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ios runtime浅析：Method Swizzling">
-<meta name="twitter:description" content="method swizzling也许是runtime中最有争议的技术，它的作用就是改变已经存在selector的实现，之所以可以这样是因为方法调用可以在运行时改变：通过改变类的分发表( dispatch table，该表包含selector的名称及对应实现函数的地址)里selector和实现之间的对应关系。">
+<meta name="twitter:title" content="Autolayout-VFL语言添加约束">
+<meta name="twitter:description" content="什么是VFL语言:
+VFL全称是Visual Format Language，翻译过来是“可视化格式语言”
+VFL是苹果公司为了简化Autolayout的编码而推出的抽象语言
+VFL（Visual format language）语言是苹果为了简化手写Autolayout代码所创建的专门负责编写约束的代码。为我们简化了许多代码量。">
   
     <link rel="alternative" href="/atom.xml" title="Grx Blog" type="application/atom+xml">
   
@@ -209,11 +218,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-ios-runtime浅析：Method-Swizzling" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Autolayout-VFL语言添加约束" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/01/ios-runtime浅析：Method-Swizzling/" class="article-date">
-  	<time datetime="2015-10-01T07:07:11.000Z" itemprop="datePublished">2015-10-01</time>
+      <a href="/2015/09/19/Autolayout-VFL语言添加约束/" class="article-date">
+  	<time datetime="2015-09-19T07:47:11.000Z" itemprop="datePublished">2015-09-19</time>
 </a>
     </div>
   
@@ -226,7 +235,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      ios runtime浅析：Method Swizzling
+      Autolayout-VFL语言添加约束
     </h1>
   
 
@@ -246,72 +255,75 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>method swizzling也许是runtime中最有争议的技术，它的作用就是改变已经存在selector的实现，之所以可以这样是因为方法调用可以在运行时改变：通过改变类的分发表( dispatch table，该表包含selector的名称及对应实现函数的地址)里selector和实现之间的对应关系。</p>
+        <h2 id="什么是VFL语言"><a href="#什么是VFL语言" class="headerlink" title="什么是VFL语言:"></a>什么是VFL语言:</h2><ul>
+<li>VFL全称是Visual Format Language，翻译过来是“可视化格式语言”</li>
+<li>VFL是苹果公司为了简化Autolayout的编码而推出的抽象语言</li>
+<li>VFL（Visual format language）语言是苹果为了简化手写Autolayout代码所创建的专门负责编写约束的代码。为我们简化了许多代码量。</li>
+</ul>
 <a id="more"></a>
-<p>举个例子，比如你想记录一个iOS应用里每个view controller显示的次数：可以在每个view controller添加记录的代码，但这会导致大量的重复代码；通过继承也是一个方法，但需要同时创建UIViewController, UITableViewController, UINavigationController及其它中view controller的子类，同样也会产生许多重复的代码出现。</p>
-<p> 幸运的是，在UIViewController的category使用method swizzling：</p>
-<pre><code>  #import &lt;objc/runtime.h&gt;
-
-  @implementation UIViewController (Tracking)
-
-  + (void)load {
-       static dispatch_once_t onceToken;
-       dispatch_once(&amp;onceToken, ^{
-       Class class = [self class];
-
-       SEL originalSelector =          @selector(viewWillAppear:);
-    SEL swizzledSelector = @selector(xxx_viewWillAppear:);
-
-    Method originalMethod = class_getInstanceMethod(class, originalSelector);
-    Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
-
-    // 如果 swizzling 的是类方法, 采用如下的方式:
-    // Class class = object_getClass((id)self);
-    // ...
-    // Method originalMethod = class_getClassMethod(class, originalSelector);
-    // Method swizzledMethod = class_getClassMethod(class, swizzledSelector);
-
-    //交换实现
-    method_exchangeImplementations(originalMethod, swizzledMethod);
-});
-}
-
- #pragma mark - Method Swizzling
-
- - (void)xxx_viewWillAppear:(BOOL)animated {
-[self xxx_viewWillAppear:animated];
-NSLog(@&quot;viewWillAppear: %@&quot;, self);
-}
-</code></pre><p> 现在，当一个UIViewController或者其子类的实例调用viewWillAppear:方法时，就会打印出一条记录。假如要在在view controller的生命周期，view的绘制或者Foundation的网络协议栈注入一些自定的行为，method swizzling也许是你应该考虑的一个方向。<br><br><br><br><br>下面是使用method swizzling应该注意的点：</p>
-<h2 id="load-vs-initialize"><a href="#load-vs-initialize" class="headerlink" title="+load vs. +initialize"></a>+load vs. +initialize</h2><h3 id="Swizzling应该只在load方法中使用"><a href="#Swizzling应该只在load方法中使用" class="headerlink" title="Swizzling应该只在load方法中使用"></a>Swizzling应该只在load方法中使用</h3><p>oc会在运行时自动调用每个类的两个方法，+load 会在类初始化加载的时候调用；+initialize方法会在程序调用类的第一个实例或者类方法的时候调用。这两个方法都是可选的，只会在实现的时候才去调用。由于method swizzling会影响到全局的状态，因此最小化竞争条件的出现变得很重要，+load方法能够确保在类的初始化时候调用，这能够保证改变应用行为的一致性，而+initialize在执行时并不提供这种保证，实际上，如果没有直接给这个类发送消息，该方法可能都不会调用到。</p>
-<h2 id="dispatch-once"><a href="#dispatch-once" class="headerlink" title="dispatch_once"></a>dispatch_once</h2><h3 id="Swizzling应该只在dispatch-once中完成"><a href="#Swizzling应该只在dispatch-once中完成" class="headerlink" title="Swizzling应该只在dispatch_once中完成"></a>Swizzling应该只在dispatch_once中完成</h3><p>如上，由于swizzling会改变全局状态，所以我们需要在运行时采取一些预防措施。原子性就是其中的一种预防措施，因为它能保证不管有多少个线程，代码只会执行一次。GCD的dispatch_once 能够满足这种需求，因此在method swizzling应该将其作为最佳的实践方式。</p>
-<h2 id="选择器，方法和实现"><a href="#选择器，方法和实现" class="headerlink" title="选择器，方法和实现"></a>选择器，方法和实现</h2><p>在oc中，选择器、方法和实现是运行时的特殊方面，虽然在一般情况下，这些术语是用在消息发送的过程中。</p>
-<p>下面是Apple对它们的几个描述：</p>
+<hr>
+<h3 id="二、使用步骤"><a href="#二、使用步骤" class="headerlink" title="二、使用步骤"></a>二、使用步骤</h3><ul>
+<li>创建控件</li>
+<li>添加到父控件</li>
+<li>禁用Aoturesizing</li>
+<li>添加约束</li>
+</ul>
+<h3 id="三、使用方法"><a href="#三、使用方法" class="headerlink" title="三、使用方法"></a>三、使用方法</h3><ul>
+<li><p>这里先展示一个实例：</p>
+<pre><code>NSArray *blueHArr = [NSLayoutConstraint constraintsWithVisualFormat:
+@&quot;H:|-20-[blueView]-20-|&quot; 
+options:kNilOptions
+metrics:nil views:
+NSDictionaryOfVariableBindings(blueView)];
+</code></pre></li>
+<li><p>方法介绍：</p>
 <ul>
-<li><p>选择器(Selector-typedef struct objc_selector *SEL )：用于在运行时表示一个方法的名称，一个方法选择器就是一个C字符串，在运行时会被注册或者映射，选择器是由编译器生成的，并在类被加载的时候由运行时自动进行映射。</p>
+<li>constraintsWithVisualFormat：这个方法返回了一个数组;</li>
+<li>@”H:|-20-[blueView(100)]-20-|”:这句话表明所添加的约束，H的意思是水平方向添加约束，blueView 视图名称，(100)代表着blueView 的宽为100，blueView距离父类的左边20，距离父类的右边是20;</li>
+<li>options：是对其方式;</li>
+<li>metrics：返回的是一个字典，它的意思是可以将约束中的值用某些字符串来代理，然后在这个字典中给多对应的字符串赋值，方便修改，并且增加可读性;</li>
+<li>views：返回的也是一个字典，这个字典的意思是：你可以将前面的view用其他字符串来代替，在这里在给他赋给对应的view的名字。</li>
+</ul>
 </li>
-<li><p>方法(Method-typedef struct objc_method *Method)：在类的定义中代表一个方法的类型。</p>
-</li>
-<li><p>实现(Implementation- typedef id (*IMP)(id, SEL, …))：这是一个指向方法实现函数起始地址的指针，这个函数的第一个参数是指向self的指针，第二个参数是方法选择器，然后是方法的参数。</p>
-</li>
-<li><p>理解它们之间关系的最好方式是：一个类维护着一张分发表(dispatch table)，用来解析运行时发来的消息；该表的每个入口是一个方法(Method)，其中的key就是选择器(SEL)，对应一个实现(IMP)，即一个指向底层c函数的指针。</p>
-</li>
-<li><p>swizzle 一个方法就是改变类的分发表，使它在解析消息的时候，将一个选择器selector对应到别的实现，并且将该选择器对应的原始实现关联到新的选择器中。</p>
+<li><p>我可以将上面的约束语句改成如下这样：</p>
+<pre><code>NSArray *blueHArr = [NSLayoutConstraint 
+constraintsWithVisualFormat:@&quot;H:|-aa-[cccc(100)]-20-|&quot;
+options:kNilOptions
+metrics:@{@&quot;aa&quot;:@20}
+views:@{@&quot;cccc&quot;:blueView}];
+</code></pre><ul>
+<li>这里我用aa替换了20，cccc替换了blueVuew</li>
+<li>这里有一个简单的方法，就是使用NSDictionaryOfVariableBindings(blueView)来替换views中的内容也是可以的。</li>
+</ul>
 </li>
 </ul>
-<h2 id="调用-cmd"><a href="#调用-cmd" class="headerlink" title="调用 _cmd"></a>调用 _cmd</h2><p><br><br>看起来下面的代码可能导致无限循环：</p>
-<pre><code> - (void)xxx_viewWillAppear:(BOOL)animated {
-[self xxx_viewWillAppear:animated];
-NSLog(@&quot;viewWillAppear: %@&quot;, NSStringFromClass([self class]));
-}
-</code></pre><p>可奇怪的是，它并不会。在swizzling的过程中，xxx_viewWillAppear:已经被重新指向UIViewController 的原始实现-viewWillAppear:，但是如果我们在这个方法中调用viewWillAppear:则会导致无限循环。</p>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p><br><br>通常认为Swizzling是一个比较危险的技术，容易产生不可预料的行为和无法预见的后果，但只要遵循以下几个注意事项，其实method swizzlin还是相对安全的。</p>
-<ul>
-<li>总是调用一个方法的原始实现(除非你有足够好的理由不这么做):API提供了输入和输出的约定，但其中的实现却是黑盒。Swizzling 一个方法但不去调用其原始实现，可能造成私有状态的底层假设被打破，影响程序的其它部分。</li>
-<li>避免冲突: 给category方法加前缀，确保不会跟其它依赖的代码产生冲突。</li>
-<li><p>知道到底发生啥了：简单的复制粘贴swizzling 代码，而不清楚其如何工作不仅非常危险，而且浪费了好多深入学习objective-c运行时的机会，可以通过查看 Objective-C Runtime Reference 和<objc runtime.h="">头文件了解其中的一些来龙去脉。</objc></p>
+<h3 id="四、VFL的缺点"><a href="#四、VFL的缺点" class="headerlink" title="四、VFL的缺点"></a>四、VFL的缺点</h3><ul>
+<li>VFL语句不支持乘除法</li>
+<li>比如我想表示redview是blueview高度的一半，</li>
+<li><p>我们是不能这样写的:</p>
+<pre><code>NSArray *redVArr = [NSLayoutConstraint 
+constraintsWithVisualFormat:@&quot;V:[blueView]-20-[redView(==blueView*0.5)]&quot; 
+options:NSLayoutFormatAlignAllRight 
+metrics:nil 
+views:NSDictionaryOfVariableBindings(blueView, redView)];
+</code></pre></li>
+<li><p>原因就是这里包含了乘法，而一旦VFL语句中包含了乘除法那么系统就会不识别而崩溃。</p>
 </li>
-<li><p>小心的处理：不管你在swizzling Foundation、UIKit或者其它内建framework方法时多么的充满自信，必须清楚在下一个版本这些可能都改变了，所以为了不出差错，还是需要多花点心思的。</p>
+<li><p>所以，当一涉及到乘除法的时候，我们又不得不再次使用系统原来的方法中来：</p>
+<pre><code>NSLayoutConstraint *redWidth = [NSLayoutConstraint 
+constraintWithItem:redView 
+attribute:NSLayoutAttributeWidth 
+relatedBy:NSLayoutRelationEqual
+toItem:blueView 
+attribute:NSLayoutAttributeWidth
+multiplier:0.5
+constant:0.0];
+</code></pre></li>
+</ul>
+<h3 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h3><ul>
+<li><p>苹果虽然推出了这项简单的语言，简化了代码量，也方便了我们用代码来书写约束。</p>
+</li>
+<li><p>但是VFL的缺陷也是很明显的，不支持乘除法的的弊端让它的应用也是大打折扣。</p>
 </li>
 </ul>
 
@@ -323,18 +335,18 @@ NSLog(@&quot;viewWillAppear: %@&quot;, NSStringFromClass([self class]));
     
 <nav id="article-nav">
   
-    <a href="/2016/02/16/腾讯云产品－优图人脸识别/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/10/01/ios-runtime浅析：Method-Swizzling/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          腾讯云产品－优图人脸识别
+          ios runtime浅析：Method Swizzling
         
       </div>
     </a>
   
   
-    <a href="/2015/09/19/Autolayout-VFL语言添加约束/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Autolayout-VFL语言添加约束</div>
+    <a href="/2015/09/01/如何使用appledoc/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">如何使用appledoc</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -369,7 +381,7 @@ NSLog(@&quot;viewWillAppear: %@&quot;, NSStringFromClass([self class]));
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="ios-runtime浅析：Method-Swizzling" data-title="ios runtime浅析：Method Swizzling" data-url="http://yoursite.com/2015/10/01/ios-runtime浅析：Method-Swizzling/"></div>
+	<div class="ds-thread" data-thread-key="Autolayout-VFL语言添加约束" data-title="Autolayout-VFL语言添加约束" data-url="http://yoursite.com/2015/09/19/Autolayout-VFL语言添加约束/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
