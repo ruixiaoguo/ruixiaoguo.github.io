@@ -118,7 +118,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/OC/" style="font-size: 10px;">-OC</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/OC/" style="font-size: 20px;">OC</a> <a href="/tags/RAC/" style="font-size: 10px;">RAC</a> <a href="/tags/Xcode/" style="font-size: 15px;">Xcode</a> <a href="/tags/appledoc/" style="font-size: 10px;">appledoc</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/life/" style="font-size: 17.5px;">life</a>
+						<a href="/tags/OC/" style="font-size: 10px;">-OC</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Apple-Watch/" style="font-size: 10px;">Apple Watch</a> <a href="/tags/OC/" style="font-size: 18px;">OC</a> <a href="/tags/RAC/" style="font-size: 10px;">RAC</a> <a href="/tags/Swift/" style="font-size: 20px;">Swift</a> <a href="/tags/Xcode/" style="font-size: 14px;">Xcode</a> <a href="/tags/appledoc/" style="font-size: 10px;">appledoc</a> <a href="/tags/hexo/" style="font-size: 12px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/life/" style="font-size: 16px;">life</a>
 					</div>
 				</section>
 				
@@ -210,11 +210,11 @@
 
       <div class="body-wrap">
   
-    <article id="post-深入Objective-C的动态特性" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-ios-runtime浅析：Method-Swizzling" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2014/06/01/深入Objective-C的动态特性/" class="article-date">
-  	<time datetime="2014-06-01T06:07:11.000Z" itemprop="datePublished">2014-06-01</time>
+      <a href="/2015/10/01/ios-runtime浅析：Method-Swizzling/" class="article-date">
+  	<time datetime="2015-10-01T07:07:11.000Z" itemprop="datePublished">2015-10-01</time>
 </a>
     </div>
   
@@ -227,7 +227,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/06/01/深入Objective-C的动态特性/">深入Objective-C的动态特性</a>
+      <a class="article-title" href="/2015/10/01/ios-runtime浅析：Method-Swizzling/">ios runtime浅析：Method Swizzling</a>
     </h1>
   
 
@@ -236,7 +236,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Objective-C具有相当多的动态特性，基本的，也是经常被提到和用到的有动态类型（Dynamic typing），动态绑定（Dynamic binding）和动态加载（Dynamic loading）。</p>
+        <p>method swizzling也许是runtime中最有争议的技术，它的作用就是改变已经存在selector的实现，之所以可以这样是因为方法调用可以在运行时改变：通过改变类的分发表( dispatch table，该表包含selector的名称及对应实现函数的地址)里selector和实现之间的对应关系。</p>
       
     </div>
     
@@ -251,7 +251,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2014/06/01/深入Objective-C的动态特性/#more">more >></a>
+          <a  href="/2015/10/01/ios-runtime浅析：Method-Swizzling/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -270,11 +270,11 @@
 
 
   
-    <article id="post-Hexo主题yilia" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Autolayout-VFL语言添加约束" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2014/05/10/Hexo主题yilia/" class="article-date">
-  	<time datetime="2014-05-10T08:03:00.000Z" itemprop="datePublished">2014-05-10</time>
+      <a href="/2015/09/19/Autolayout-VFL语言添加约束/" class="article-date">
+  	<time datetime="2015-09-19T07:47:11.000Z" itemprop="datePublished">2015-09-19</time>
 </a>
     </div>
   
@@ -287,7 +287,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/05/10/Hexo主题yilia/">Hexo主题Yilia</a>
+      <a class="article-title" href="/2015/09/19/Autolayout-VFL语言添加约束/">Autolayout-VFL语言添加约束</a>
     </h1>
   
 
@@ -296,8 +296,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://github.com/litten/hexo-theme-yilia">hexo-theme-yilia</a> 是为 <a href="https://github.com/tommy351/hexo">hexo</a> 2.4+制作的主题。<br>响应式设计，风格简约。</p>
-<p>终于从octopress迁移到hexo。Yilia是自己设计的主题，分享之，有爱请自取。关于主题：<br>
+        <h2 id="什么是VFL语言"><a href="#什么是VFL语言" class="headerlink" title="什么是VFL语言:"></a>什么是VFL语言:</h2><ul>
+<li>VFL全称是Visual Format Language，翻译过来是“可视化格式语言”</li>
+<li>VFL是苹果公司为了简化Autolayout的编码而推出的抽象语言</li>
+<li>VFL（Visual format language）语言是苹果为了简化手写Autolayout代码所创建的专门负责编写约束的代码。为我们简化了许多代码量。</li>
+</ul>
       
     </div>
     
@@ -305,14 +308,14 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OC/">OC</a></li></ul>
 	</div>
 
       
 
       
         <p class="article-more-link">
-          <a  href="/2014/05/10/Hexo主题yilia/#more">more >></a>
+          <a  href="/2015/09/19/Autolayout-VFL语言添加约束/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -331,11 +334,11 @@
 
 
   
-    <article id="post-Hexo搭建" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-如何使用appledoc" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2014/05/01/Hexo搭建/" class="article-date">
-  	<time datetime="2014-05-01T08:03:00.000Z" itemprop="datePublished">2014-05-01</time>
+      <a href="/2015/09/01/如何使用appledoc/" class="article-date">
+  	<time datetime="2015-09-01T06:07:11.000Z" itemprop="datePublished">2015-09-01</time>
 </a>
     </div>
   
@@ -348,7 +351,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/05/01/Hexo搭建/">Hexo搭建个人博客</a>
+      <a class="article-title" href="/2015/09/01/如何使用appledoc/">如何使用appledoc</a>
     </h1>
   
 
@@ -357,7 +360,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><p>下载并安装msysgit或者是msysgit中文版，如果你想了解点Git的基础命令，我推荐以下博文：Git常用的基础命令，史上最全github使用方法：github入门到精通,当然即使你不懂Git的命令，跟着本博文走，也完全没问题。<br>
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="那么简单介绍一下如何安装appledoc，安装非常简单，只需要2步："><a href="#那么简单介绍一下如何安装appledoc，安装非常简单，只需要2步：" class="headerlink" title="那么简单介绍一下如何安装appledoc，安装非常简单，只需要2步："></a>那么简单介绍一下如何安装appledoc，安装非常简单，只需要2步：</h3><pre><code>git clone git://github.com/tomaz/appledoc.git 
+//打开下载的文件夹
+cd appledoc  
+//开始安装
+sudo sh install-appledoc.sh -b /usr/bin -t ~/Library/Application\ Support/appledoc
+</code></pre><p>这样就安装完毕了</p>
       
     </div>
     
@@ -365,14 +373,442 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/appledoc/">appledoc</a></li></ul>
 	</div>
 
       
 
       
         <p class="article-more-link">
-          <a  href="/2014/05/01/Hexo搭建/#more">more >></a>
+          <a  href="/2015/09/01/如何使用appledoc/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-程序员为什么热衷造轮子" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/17/程序员为什么热衷造轮子/" class="article-date">
+  	<time datetime="2015-08-17T06:33:48.000Z" itemprop="datePublished">2015-08-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/17/程序员为什么热衷造轮子/">程序员为什么热衷造轮子</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="程序员为什么热衷造轮子"><a href="#程序员为什么热衷造轮子" class="headerlink" title="程序员为什么热衷造轮子"></a>程序员为什么热衷造轮子</h2><p> 搜索一下“造轮子”或者“程序员为什么喜欢造轮子”，会看到很多相关的讨论，这是个老生常谈的话题，很多人谈过了，谈了很多年。不过还是有再谈的必要。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/life/">life</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/17/程序员为什么热衷造轮子/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-《重构》阅读笔记-代码的坏味道" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/05/20/《重构》阅读笔记-代码的坏味道/" class="article-date">
+  	<time datetime="2015-05-20T08:22:05.000Z" itemprop="datePublished">2015-05-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/20/《重构》阅读笔记-代码的坏味道/">《重构》阅读笔记-代码的坏味道</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="《重构》阅读笔记-代码的坏味道"><a href="#《重构》阅读笔记-代码的坏味道" class="headerlink" title="《重构》阅读笔记-代码的坏味道"></a>《重构》阅读笔记-代码的坏味道</h2><blockquote>
+<p>决定何时重构、何时停止和知道如何重构一样重要！</p>
+</blockquote>
+<p>开发者必须通过实践培养自己的经验和直觉，培养出自己的判断力：学会判断一个类内有多少个实例变量算是太大、学会判断一个函数内有多少行代码才算太长。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/life/">life</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/05/20/《重构》阅读笔记-代码的坏味道/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-创建CoreData基本教程" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/05/15/创建CoreData基本教程/" class="article-date">
+  	<time datetime="2015-05-15T03:22:59.000Z" itemprop="datePublished">2015-05-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/15/创建CoreData基本教程/">创建CoreData基本教程</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="工程中引入CoreData步骤"><a href="#工程中引入CoreData步骤" class="headerlink" title="工程中引入CoreData步骤:"></a>工程中引入CoreData步骤:</h4><p>1.添加CoreData Framework框架</p>
+<p>2.创建Data Model（数据模型）<br>          New File -&gt; Core Data -&gt; Data Model</p>
+<p>3.添加实体表和属性<br>          Data Model -&gt; Add Entity -&gt;Add Attributes添加字段属性</p>
+<p>4.创建实体对象类<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Xcode/">Xcode</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/05/15/创建CoreData基本教程/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ReactiveCocoa之基础篇" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/05/04/ReactiveCocoa之基础篇/" class="article-date">
+  	<time datetime="2015-05-04T06:07:11.000Z" itemprop="datePublished">2015-05-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/04/ReactiveCocoa之基础篇/">ReactiveCocoa之基础篇</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>很多blog都说ReactiveCocoa好用，然后各种秀自己如何灵活运用ReactiveCocoa，但是感觉真正缺少的是一篇如何学习ReactiveCocoa的文章，小编看了很多篇都没看出怎么使用ReactiveCocoa,于是决定自己写一遍关于学习ReactiveCocoa的文章,本文主要针对如何从零开始学习ReactiveCocoa，这里非常感谢3个人（支点的雷纯锋，camera360的宋潘，以及我的小学弟何宗柱（我爱科技）），在我研究ReactiveCocoa对我的帮助。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RAC/">RAC</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/05/04/ReactiveCocoa之基础篇/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-从零开始开发一款Android-App" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/02/19/从零开始开发一款Android-App/" class="article-date">
+  	<time datetime="2015-02-19T05:41:27.000Z" itemprop="datePublished">2015-02-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/19/从零开始开发一款Android-App/">从零开始开发一款Android App</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="从零开始开发一款Android-App"><a href="#从零开始开发一款Android-App" class="headerlink" title="从零开始开发一款Android App"></a>从零开始开发一款Android App</h2><blockquote>
+<p>最近准备开始写一个系列的Android开发blogs，算是对之前开发做一些总结，预计会写十一篇，以下为文章目录：（持续更新中！）</p>
+</blockquote>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/02/19/从零开始开发一款Android-App/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JSON和模型之间转换iOS框架：MJExtension" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/18/JSON和模型之间转换iOS框架：MJExtension/" class="article-date">
+  	<time datetime="2015-01-18T08:08:03.000Z" itemprop="datePublished">2015-01-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/18/JSON和模型之间转换iOS框架：MJExtension/">JSON和模型之间转换iOS框架：MJExtension</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="MJExtension是一套字典和模型之间互相转换的超轻量级框架-MJExtension能完成的功能"><a href="#MJExtension是一套字典和模型之间互相转换的超轻量级框架-MJExtension能完成的功能" class="headerlink" title="MJExtension是一套字典和模型之间互相转换的超轻量级框架 MJExtension能完成的功能"></a>MJExtension是一套字典和模型之间互相转换的超轻量级框架 MJExtension能完成的功能</h5><p>字典（JSON）–&gt;模型（Model）<br>模型（Model）–&gt;字典（JSON）<br>字典数组（JSON Array）–&gt;模型数组（Model Array）<br>模型数组（Model Array）–&gt;字典数组（JSON Array）</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OC/">OC</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/01/18/JSON和模型之间转换iOS框架：MJExtension/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-MagicalRecord入门教程" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/05/MagicalRecord入门教程/" class="article-date">
+  	<time datetime="2015-01-05T08:13:45.000Z" itemprop="datePublished">2015-01-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/05/MagicalRecord入门教程/">MagicalRecord入门教程</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Magical-Record是什么"><a href="#Magical-Record是什么" class="headerlink" title="Magical Record是什么"></a>Magical Record是什么</h2><p>在Cocoa中存在一种技术叫Core Data，用来对数据进行持久化，类似于Java世界中的Hibernate。在新建Cocoa Application/iOS Application的向导中，有一个选项是要不要使用Core Data，当启用以后你会发现在AppDelegate.m中添加了大量与Core Data相关的代码，但是你对大部分代码不知所以然。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OC/">OC</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/01/05/MagicalRecord入门教程/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -393,7 +829,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 </div>
