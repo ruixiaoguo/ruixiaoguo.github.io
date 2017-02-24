@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>MagicalRecord入门教程 | Grx Blog</title>
+  <title>Xcode8.1如何支持iOS8.0以下版本 | Grx Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Magical Record是什么在Cocoa中存在一种技术叫Core Data，用来对数据进行持久化，类似于Java世界中的Hibernate。在新建Cocoa Application/iOS Application的向导中，有一个选项是要不要使用Core Data，当启用以后你会发现在AppDelegate.m中添加了大量与Core Data相关的代码，但是你对大部分代码不知所以然。">
+  <meta name="description" content="Xcode6.0升级到Xcode8.0,Xcode8.0升级到Xcode8.1时会删除它支持的8.0以后的版本配置文件。老项目要兼容iOS8以下也是可以另辟蹊径的。虽然手机iOS已经到了10.1.1版本，但是人有8%的人在用9.0以前的版本，并且这些早期版本又以7.0、7.1、8.0、8.1、8.2、8.3、8.4版本占绝大多少。iOS7.0以下版本市场占有率已经低于4%，可以忽略了。iOS7.0">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MagicalRecord入门教程">
-<meta property="og:url" content="http://yoursite.com/2015/01/05/MagicalRecord入门教程/index.html">
+<meta property="og:title" content="Xcode8.1如何支持iOS8.0以下版本">
+<meta property="og:url" content="http://yoursite.com/2017/02/24/Xcode8-1如何支持iOS8-0以下版本/index.html">
 <meta property="og:site_name" content="Grx Blog">
-<meta property="og:description" content="Magical Record是什么在Cocoa中存在一种技术叫Core Data，用来对数据进行持久化，类似于Java世界中的Hibernate。在新建Cocoa Application/iOS Application的向导中，有一个选项是要不要使用Core Data，当启用以后你会发现在AppDelegate.m中添加了大量与Core Data相关的代码，但是你对大部分代码不知所以然。">
-<meta property="og:updated_time" content="2016-05-12T07:05:54.000Z">
+<meta property="og:description" content="Xcode6.0升级到Xcode8.0,Xcode8.0升级到Xcode8.1时会删除它支持的8.0以后的版本配置文件。老项目要兼容iOS8以下也是可以另辟蹊径的。虽然手机iOS已经到了10.1.1版本，但是人有8%的人在用9.0以前的版本，并且这些早期版本又以7.0、7.1、8.0、8.1、8.2、8.3、8.4版本占绝大多少。iOS7.0以下版本市场占有率已经低于4%，可以忽略了。iOS7.0">
+<meta property="og:updated_time" content="2017-02-24T01:47:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MagicalRecord入门教程">
-<meta name="twitter:description" content="Magical Record是什么在Cocoa中存在一种技术叫Core Data，用来对数据进行持久化，类似于Java世界中的Hibernate。在新建Cocoa Application/iOS Application的向导中，有一个选项是要不要使用Core Data，当启用以后你会发现在AppDelegate.m中添加了大量与Core Data相关的代码，但是你对大部分代码不知所以然。">
+<meta name="twitter:title" content="Xcode8.1如何支持iOS8.0以下版本">
+<meta name="twitter:description" content="Xcode6.0升级到Xcode8.0,Xcode8.0升级到Xcode8.1时会删除它支持的8.0以后的版本配置文件。老项目要兼容iOS8以下也是可以另辟蹊径的。虽然手机iOS已经到了10.1.1版本，但是人有8%的人在用9.0以前的版本，并且这些早期版本又以7.0、7.1、8.0、8.1、8.2、8.3、8.4版本占绝大多少。iOS7.0以下版本市场占有率已经低于4%，可以忽略了。iOS7.0">
   
     <link rel="alternative" href="/atom.xml" title="Grx Blog" type="application/atom+xml">
   
@@ -209,11 +209,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-MagicalRecord入门教程" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Xcode8-1如何支持iOS8-0以下版本" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/01/05/MagicalRecord入门教程/" class="article-date">
-  	<time datetime="2015-01-05T08:13:45.000Z" itemprop="datePublished">2015-01-05</time>
+      <a href="/2017/02/24/Xcode8-1如何支持iOS8-0以下版本/" class="article-date">
+  	<time datetime="2017-02-24T01:42:24.000Z" itemprop="datePublished">2017-02-24</time>
 </a>
     </div>
   
@@ -226,7 +226,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      MagicalRecord入门教程
+      Xcode8.1如何支持iOS8.0以下版本
     </h1>
   
 
@@ -235,7 +235,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OC/">OC</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xcode/">xcode</a></li></ul>
 	</div>
 
         
@@ -246,62 +246,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Magical-Record是什么"><a href="#Magical-Record是什么" class="headerlink" title="Magical Record是什么"></a>Magical Record是什么</h2><p>在Cocoa中存在一种技术叫Core Data，用来对数据进行持久化，类似于Java世界中的Hibernate。在新建Cocoa Application/iOS Application的向导中，有一个选项是要不要使用Core Data，当启用以后你会发现在AppDelegate.m中添加了大量与Core Data相关的代码，但是你对大部分代码不知所以然。<br><a id="more"></a><br><br><br>Magical Record的出现在一定程度上缓解了这个问题，降低了Core Data的使用门槛。</p>
-<p>Magical Record借用了Ruby on Rails中的Active Record模式，使得你可以非常容易的添加、查找、删除数据。Google了一下，没有发现中文相关教程，遂把自己的试用过程记录下来，写成此篇文章。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ol>
-<li>新建一个项目，注意在向导中不要勾选Core Data。</li>
-<li>下载Magical Record，并把MagicalRecord目录拖拽到工程中，记得勾选copy items into group folder。</li>
-<li>为项目添加CoreData FrameWork。(点击工程根节点，然后依次Targets &gt; Build Phases &gt; Link Binary With Libraries &gt; + &gt; CoreData.framework &gt; Add)</li>
-<li><p>添加Magical Record的头文件到*-Prefix.pch：(再创建pch,添加#import <magicalrecord magicalrecord.h="">)</magicalrecord></p>
-<pre><code>1.  #import &lt;MagicalRecord/MagicalRecord.h&gt;
-</code></pre></li>
-</ol>
-<h2 id="创建模型文件"><a href="#创建模型文件" class="headerlink" title="创建模型文件"></a>创建模型文件</h2><p>下面创建一个名为Person的模型，有age、firstname、lastname三个字段</p>
-<ol>
-<li>创建一个名为Model的模型文件。 (File &gt; New File… &gt; Core Data &gt; Data Model)<br>点击左下角的Add Entity，更改Entity的名字为Person。</li>
-<li>为Entity添加三个Attribute：age(Integer16)、firstname(string)、lastname(string)</li>
-<li>点击Editor &gt; Create NSManagedObject Subclass… &gt; Create创建模型文件对应的类</li>
-</ol>
-<h2 id="使用Magical-Record"><a href="#使用Magical-Record" class="headerlink" title="使用Magical Record"></a>使用Magical Record</h2><h4 id="初始化Magical-Record"><a href="#初始化Magical-Record" class="headerlink" title="初始化Magical Record"></a>初始化Magical Record</h4><p>首先在AppDelegate.m中添加以下代码对Magical Record进行初始化：</p>
-<pre><code> - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-   {
-      [MagicalRecord setupCoreDataStackWithStoreNamed:@&quot;MyDatabase.sqlite&quot;];
-      // ...
-      return YES;
-   }
-- (void)applicationWillTerminate:(NSNotification *)aNotification
-   {
-      [MagicalRecord cleanUp];
-   }
-</code></pre><p>是否比Core Data默认的初始化简洁多了呢？</p>
-<h3 id="查询记录"><a href="#查询记录" class="headerlink" title="查询记录"></a>查询记录</h3><p>使用Person的MR_findAll、MR_findAllSortedBy、MR_findByAttribute等方法可以查询Person：</p>
-<pre><code> //查找数据库中的所有Person。
- NSArray *persons = [Person MR_findAll];
- //查找所有的Person并按照first name排序。
- NSArray *personsSorted = [Person MR_findAllSortedBy:@&quot;firstname&quot; ascending:YES];
- //查找所有age属性为25的Person记录。
- NSArray *personsAgeEuqals25   = [Person MR_findByAttribute:@&quot;age&quot; withValue:[NSNumber numberWithInt:25]];
-//查找数据库中的第一条记录
- Person *person = [Person MR_findFirst];
-</code></pre><h3 id="添加记录"><a href="#添加记录" class="headerlink" title="添加记录"></a>添加记录</h3><p>使用Person的MR_createEntity方法可以方便的创建一个Person，需要使用[[NSManagedObjectContext MR_defaultContext] MR_save]来进行保存哦：</p>
-<pre><code> Person *person = [Person MR_createEntity];
- person.firstname = @&quot;Frank&quot;;
- person.lastname = @&quot;Zhang&quot;;
- person.age = @26;//此处使用了LLVM的新特性，XCode 4.4可用
-[[NSManagedObjectContext MR_defaultContext] MR_save];
-</code></pre><h3 id="更新记录"><a href="#更新记录" class="headerlink" title="更新记录"></a>更新记录</h3><p>直接对数据库中查找到的Person进行赋值，然后使用NSManagedObjectContext保存即可更新Person：</p>
-<pre><code> Person *person = ...;//此处略
- person.lastname = object;        
-[[NSManagedObjectContext MR_defaultContext] MR_save];          
-</code></pre><h3 id="删除记录"><a href="#删除记录" class="headerlink" title="删除记录"></a>删除记录</h3><p>使用Person的MR_deleteEntity可以方便的删除Person，模式和添加更新一致：</p>
-<pre><code>Person *person = ...;//此处略
-[person MR_deleteEntity];
-[[NSManagedObjectContext MR_defaultContext] MR_save];
-</code></pre><h3 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h3><h4 id="启动时MR-mergedObjectModelFromMainBundle方法报错"><a href="#启动时MR-mergedObjectModelFromMainBundle方法报错" class="headerlink" title="启动时MR_mergedObjectModelFromMainBundle方法报错"></a>启动时MR_mergedObjectModelFromMainBundle方法报错</h4><p>Core Data的模型有版本的概念，有可能在你Magical Record第一次初始化完成以后，你又更改了模型文件，导致Core Data去合并模型报错。解决办法很简单，点击菜单中的Project-&gt;Clean即可</p>
-<h4 id="项目使用ARC后，编译Magical-Record不通过"><a href="#项目使用ARC后，编译Magical-Record不通过" class="headerlink" title="项目使用ARC后，编译Magical Record不通过"></a>项目使用ARC后，编译Magical Record不通过</h4><p>点击项目 -&gt; Build Phases -&gt; Compile Sources中, 双击报错的class文件, 编辑Compiler Flags加入 -fno-objc-arc</p>
-<h4 id="不想使用MR-前缀"><a href="#不想使用MR-前缀" class="headerlink" title="不想使用MR_前缀"></a>不想使用MR_前缀</h4><p>只需要在*-Prefix.pch文件中添加一句#define MR_SHORTHAND即可，注意这句要在#import “CoreData+MagicalRecord.h”之前</p>
-<p><br></p>
-<h4 id="注：这篇文章中的MagicalRecordHelpers、MRCoreDataAction都已经不在新版本的Magical-Record中存在，都已经更改为MagicalRecord。"><a href="#注：这篇文章中的MagicalRecordHelpers、MRCoreDataAction都已经不在新版本的Magical-Record中存在，都已经更改为MagicalRecord。" class="headerlink" title="注：这篇文章中的MagicalRecordHelpers、MRCoreDataAction都已经不在新版本的Magical Record中存在，都已经更改为MagicalRecord。"></a>注：这篇文章中的MagicalRecordHelpers、MRCoreDataAction都已经不在新版本的Magical Record中存在，都已经更改为MagicalRecord。</h4>
+        <p>Xcode6.0升级到Xcode8.0,Xcode8.0升级到Xcode8.1时会删除它支持的8.0以后的版本配置文件。老项目要兼容iOS8以下也是可以另辟蹊径的。<br>虽然手机iOS已经到了10.1.1版本，但是人有8%的人在用9.0以前的版本，并且这些早期版本又以7.0、7.1、8.0、8.1、8.2、8.3、8.4版本占绝大多少。<br>iOS7.0以下版本市场占有率已经低于4%，可以忽略了。iOS7.0以前的版本和现在的版本差异很大，没有必要为了适配它们花费更多精力。所以放弃它们吧！<br>iOS7.0、iOS7.1对应是的iphone 5s还有余热可以发挥，暂时可以不舍弃它。<br>现在从Xcode8.0开始，已经不支持8.0以下版本。若你不想放弃7.0、7.1，想支持它就要想些办法支持它了。<br>现在iMac 10.12.1加强的对系统文件夹下的文件可写控制，想直接修改SDKSettings.plist已经不可以了。<br>首先我们要找到Xcode是通过什么来兼容iOS版本的，请打开以下路径：/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport，在文件夹中我们能够看到Xcode支持的iOS版本，从8.0开始，唯独没有8.0以下的，所以我们第一步要做的就是把需要支持的iOS版本的配置包放进来，支持iOS7.0以前的版本介绍如何支持iOS7.0,iOS7.1版本：<br>打开文件夹，找到应用程序，找到Xcode，右击该图标选显示包内容 </p>
+<p>找到/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport这个文件夹，从<a href="https://pan.baidu.com/s/1minqZJa这个地址下载设备支持包，解压缩，把7.0和7.1文件夹拷贝到该文件夹。" target="_blank" rel="external">https://pan.baidu.com/s/1minqZJa这个地址下载设备支持包，解压缩，把7.0和7.1文件夹拷贝到该文件夹。</a></p>
+<p>找到/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs目录你会看到两个子目录iPhoneOS.sdk和iPhoneOS10.1.sdk </p>
+<p>然后找到它们下面SDKSettings.plist，分别把它们拉到终端里解析它们的地址，你会发现它们地址完全相同，所以它们是同一个文件。<br>在这个文件夹里的东西是锁定的，首先右键‘空白部分’，点击显示简介，滑动到最下面，点击小锁打开权限，需要输入管理员密码，接着把所有的权限改为读写，第一步完成，接下来，右键SDKSettings.plist文件夹，和上面同样的操作，打开读写权限，然后双击打开SDKSettings.plist文件。<br>你会发现它仍旧有可能报错，不能修改。 </p>
+<p>这个文件本应该可以修改，但是由于权限和引用的问题而不让你修改。那么你来个暴力的，用Linux命令直接把它拷贝到桌面上，修改后再拷贝过来不就可以了。<br>在终端里执行这个命令：cp /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/SDKSettings.plist /Users/jiaguoshang/Desktop/SDKSettings.plist。<br>双击打开SDKSettings.plist，添加7.0和7.1版本支持属性，并保存。 </p>
+<p>在活动监控器里强制退出XCode，在终端里执行这个命令：cp /Users/jiaguoshang/Desktop/SDKSettings.plist /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/SDKSettings.plist。<br>你可以看到/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs的子目录下的两个SDKSettings.plis都变成你刚拷贝的文件了，内容一模一样。</p>
+<p><a href="http://blog.csdn.net/jia12216/article/details/53408594" target="_blank" rel="external">链接地址</a></p>
+
       
     </div>
     
@@ -310,18 +262,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/01/18/JSON和模型之间转换iOS框架：MJExtension/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          JSON和模型之间转换iOS框架：MJExtension
-        
-      </div>
-    </a>
   
-  
-    <a href="/2014/11/11/在Xcode中添加多个targets进行版本控制/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">在Xcode中添加多个targets进行版本控制</div>
+    <a href="/2017/02/14/iOS网络-『文件下载、断点下载』的实现（三）：AFNetworking/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS网络--『文件下载、断点下载』的实现（三）：AFNetworking</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -356,7 +299,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="MagicalRecord入门教程" data-title="MagicalRecord入门教程" data-url="http://yoursite.com/2015/01/05/MagicalRecord入门教程/"></div>
+	<div class="ds-thread" data-thread-key="Xcode8-1如何支持iOS8-0以下版本" data-title="Xcode8.1如何支持iOS8.0以下版本" data-url="http://yoursite.com/2017/02/24/Xcode8-1如何支持iOS8-0以下版本/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
