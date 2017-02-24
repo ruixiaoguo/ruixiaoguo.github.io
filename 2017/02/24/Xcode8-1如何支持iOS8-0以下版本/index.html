@@ -6,16 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Xcode8.1如何支持iOS8.0以下版本 | Grx Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Xcode6.0升级到Xcode8.0,Xcode8.0升级到Xcode8.1时会删除它支持的8.0以后的版本配置文件。老项目要兼容iOS8以下也是可以另辟蹊径的。虽然手机iOS已经到了10.1.1版本，但是人有8%的人在用9.0以前的版本，并且这些早期版本又以7.0、7.1、8.0、8.1、8.2、8.3、8.4版本占绝大多少。iOS7.0以下版本市场占有率已经低于4%，可以忽略了。iOS7.0">
+  <meta name="description" content="Xcode6.0升级到Xcode8.0,Xcode8.0升级到Xcode8.1时会删除它支持的8.0以后的版本配置文件。老项目要兼容iOS8以下也是可以另辟蹊径的。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Xcode8.1如何支持iOS8.0以下版本">
 <meta property="og:url" content="http://yoursite.com/2017/02/24/Xcode8-1如何支持iOS8-0以下版本/index.html">
 <meta property="og:site_name" content="Grx Blog">
-<meta property="og:description" content="Xcode6.0升级到Xcode8.0,Xcode8.0升级到Xcode8.1时会删除它支持的8.0以后的版本配置文件。老项目要兼容iOS8以下也是可以另辟蹊径的。虽然手机iOS已经到了10.1.1版本，但是人有8%的人在用9.0以前的版本，并且这些早期版本又以7.0、7.1、8.0、8.1、8.2、8.3、8.4版本占绝大多少。iOS7.0以下版本市场占有率已经低于4%，可以忽略了。iOS7.0">
-<meta property="og:updated_time" content="2017-02-24T01:47:40.000Z">
+<meta property="og:description" content="Xcode6.0升级到Xcode8.0,Xcode8.0升级到Xcode8.1时会删除它支持的8.0以后的版本配置文件。老项目要兼容iOS8以下也是可以另辟蹊径的。">
+<meta property="og:updated_time" content="2017-02-24T01:51:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Xcode8.1如何支持iOS8.0以下版本">
-<meta name="twitter:description" content="Xcode6.0升级到Xcode8.0,Xcode8.0升级到Xcode8.1时会删除它支持的8.0以后的版本配置文件。老项目要兼容iOS8以下也是可以另辟蹊径的。虽然手机iOS已经到了10.1.1版本，但是人有8%的人在用9.0以前的版本，并且这些早期版本又以7.0、7.1、8.0、8.1、8.2、8.3、8.4版本占绝大多少。iOS7.0以下版本市场占有率已经低于4%，可以忽略了。iOS7.0">
+<meta name="twitter:description" content="Xcode6.0升级到Xcode8.0,Xcode8.0升级到Xcode8.1时会删除它支持的8.0以后的版本配置文件。老项目要兼容iOS8以下也是可以另辟蹊径的。">
   
     <link rel="alternative" href="/atom.xml" title="Grx Blog" type="application/atom+xml">
   
@@ -246,7 +246,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Xcode6.0升级到Xcode8.0,Xcode8.0升级到Xcode8.1时会删除它支持的8.0以后的版本配置文件。老项目要兼容iOS8以下也是可以另辟蹊径的。<br>虽然手机iOS已经到了10.1.1版本，但是人有8%的人在用9.0以前的版本，并且这些早期版本又以7.0、7.1、8.0、8.1、8.2、8.3、8.4版本占绝大多少。<br>iOS7.0以下版本市场占有率已经低于4%，可以忽略了。iOS7.0以前的版本和现在的版本差异很大，没有必要为了适配它们花费更多精力。所以放弃它们吧！<br>iOS7.0、iOS7.1对应是的iphone 5s还有余热可以发挥，暂时可以不舍弃它。<br>现在从Xcode8.0开始，已经不支持8.0以下版本。若你不想放弃7.0、7.1，想支持它就要想些办法支持它了。<br>现在iMac 10.12.1加强的对系统文件夹下的文件可写控制，想直接修改SDKSettings.plist已经不可以了。<br>首先我们要找到Xcode是通过什么来兼容iOS版本的，请打开以下路径：/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport，在文件夹中我们能够看到Xcode支持的iOS版本，从8.0开始，唯独没有8.0以下的，所以我们第一步要做的就是把需要支持的iOS版本的配置包放进来，支持iOS7.0以前的版本介绍如何支持iOS7.0,iOS7.1版本：<br>打开文件夹，找到应用程序，找到Xcode，右击该图标选显示包内容 </p>
+        <p>Xcode6.0升级到Xcode8.0,Xcode8.0升级到Xcode8.1时会删除它支持的8.0以后的版本配置文件。老项目要兼容iOS8以下也是可以另辟蹊径的。 </p>
+<a id="more"></a>
+<p>虽然手机iOS已经到了10.1.1版本，但是人有8%的人在用9.0以前的版本，并且这些早期版本又以7.0、7.1、8.0、8.1、8.2、8.3、8.4版本占绝大多少。<br>iOS7.0以下版本市场占有率已经低于4%，可以忽略了。iOS7.0以前的版本和现在的版本差异很大，没有必要为了适配它们花费更多精力。所以放弃它们吧！<br>iOS7.0、iOS7.1对应是的iphone 5s还有余热可以发挥，暂时可以不舍弃它。<br>现在从Xcode8.0开始，已经不支持8.0以下版本。若你不想放弃7.0、7.1，想支持它就要想些办法支持它了。<br>现在iMac 10.12.1加强的对系统文件夹下的文件可写控制，想直接修改SDKSettings.plist已经不可以了。<br>首先我们要找到Xcode是通过什么来兼容iOS版本的，请打开以下路径：/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport，在文件夹中我们能够看到Xcode支持的iOS版本，从8.0开始，唯独没有8.0以下的，所以我们第一步要做的就是把需要支持的iOS版本的配置包放进来，支持iOS7.0以前的版本介绍如何支持iOS7.0,iOS7.1版本：<br>打开文件夹，找到应用程序，找到Xcode，右击该图标选显示包内容 </p>
 <p>找到/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport这个文件夹，从<a href="https://pan.baidu.com/s/1minqZJa这个地址下载设备支持包，解压缩，把7.0和7.1文件夹拷贝到该文件夹。" target="_blank" rel="external">https://pan.baidu.com/s/1minqZJa这个地址下载设备支持包，解压缩，把7.0和7.1文件夹拷贝到该文件夹。</a></p>
 <p>找到/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs目录你会看到两个子目录iPhoneOS.sdk和iPhoneOS10.1.sdk </p>
 <p>然后找到它们下面SDKSettings.plist，分别把它们拉到终端里解析它们的地址，你会发现它们地址完全相同，所以它们是同一个文件。<br>在这个文件夹里的东西是锁定的，首先右键‘空白部分’，点击显示简介，滑动到最下面，点击小锁打开权限，需要输入管理员密码，接着把所有的权限改为读写，第一步完成，接下来，右键SDKSettings.plist文件夹，和上面同样的操作，打开读写权限，然后双击打开SDKSettings.plist文件。<br>你会发现它仍旧有可能报错，不能修改。 </p>
