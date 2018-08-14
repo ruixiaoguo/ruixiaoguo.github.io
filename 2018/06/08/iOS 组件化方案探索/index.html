@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>iOS 组件化方案探索 | Grx Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="iOS 组件化方案探索看了 Limboy(文章1 文章2) 和 Casa (文章) 对 iOS 组件化方案的讨论，写篇文章梳理下思路。首先我觉得”组件”在这里不太合适，因为按我理解组件是指比较小的功能块，这些组件不需要多少组件间通信，没什么依赖，也就不需要做什么其他处理，面向对象就能搞定。而这里提到的是较大粒度的业务功能，我们习惯称为”模块”。为了方便表述，下面模块和组件代表同一个意思，都是指较大">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS 组件化方案探索">
+<meta property="og:url" content="http://yoursite.com/2018/06/08/iOS 组件化方案探索/index.html">
+<meta property="og:site_name" content="Grx Blog">
+<meta property="og:description" content="iOS 组件化方案探索看了 Limboy(文章1 文章2) 和 Casa (文章) 对 iOS 组件化方案的讨论，写篇文章梳理下思路。首先我觉得”组件”在这里不太合适，因为按我理解组件是指比较小的功能块，这些组件不需要多少组件间通信，没什么依赖，也就不需要做什么其他处理，面向对象就能搞定。而这里提到的是较大粒度的业务功能，我们习惯称为”模块”。为了方便表述，下面模块和组件代表同一个意思，都是指较大">
+<meta property="og:updated_time" content="2018-08-14T06:08:21.927Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS 组件化方案探索">
+<meta name="twitter:description" content="iOS 组件化方案探索看了 Limboy(文章1 文章2) 和 Casa (文章) 对 iOS 组件化方案的讨论，写篇文章梳理下思路。首先我觉得”组件”在这里不太合适，因为按我理解组件是指比较小的功能块，这些组件不需要多少组件间通信，没什么依赖，也就不需要做什么其他处理，面向对象就能搞定。而这里提到的是较大粒度的业务功能，我们习惯称为”模块”。为了方便表述，下面模块和组件代表同一个意思，都是指较大">
+  
+    <link rel="alternative" href="/atom.xml" title="Grx Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://img3.imgtn.bdimg.com/it/u=2738905542,2894070565&amp;fm=21&amp;gp=0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Grx</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">自我管理，知识管理，时间管理，阅读，语音写作，思维导图</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/tags/life">随笔</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/OC/" style="font-size: 10px;">-OC</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Apple-Watch/" style="font-size: 10px;">Apple Watch</a> <a href="/tags/OC/" style="font-size: 20px;">OC</a> <a href="/tags/RAC/" style="font-size: 10px;">RAC</a> <a href="/tags/Swift/" style="font-size: 18px;">Swift</a> <a href="/tags/Xcode/" style="font-size: 14px;">Xcode</a> <a href="/tags/appledoc/" style="font-size: 10px;">appledoc</a> <a href="/tags/hexo/" style="font-size: 12px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/life/" style="font-size: 16px;">life</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.devtang.com">唐巧的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondvincent.com">破船之家</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://limboy.me">无网不剩</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://msching.github.io">码农人生</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://yulingtianxia.com">玉令天下</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.leichunfeng.com">雷纯锋的技术博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://jax.cnblogs.com">包建强</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.cnbang.net">bang</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">知识管理，时间管理，自我管理，阅读，语音写作，思维导图，Wiz，TimeMeter</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Grx</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://img3.imgtn.bdimg.com/it/u=2738905542,2894070565&amp;fm=21&amp;gp=0.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Grx</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">自我管理，知识管理，时间管理，阅读，语音写作，思维导图</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/life">随笔</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-iOS 组件化方案探索" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/06/08/iOS 组件化方案探索/" class="article-date">
+  	<time datetime="2018-06-08T10:28:47.000Z" itemprop="datePublished">2018-06-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS 组件化方案探索
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OC/">OC</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="iOS-组件化方案探索"><a href="#iOS-组件化方案探索" class="headerlink" title="iOS 组件化方案探索"></a>iOS 组件化方案探索</h1><p>看了 Limboy(文章1 文章2) 和 Casa (文章) 对 iOS 组件化方案的讨论，写篇文章梳理下思路。<br>首先我觉得”组件”在这里不太合适，因为按我理解组件是指比较小的功能块，这些组件不需要多少组件间通信，没什么依赖，也就不需要做什么其他处理，面向对象就能搞定。而这里提到的是较大粒度的业务功能，我们习惯称为”模块”。为了方便表述，下面模块和组件代表同一个意思，都是指较大粒度的业务模块。</p>
+<a id="more"></a>
+<p>一个 APP 有多个模块，模块之间会通信，互相调用，例如微信读书有 书籍详情 想法列表 阅读器 发现卡片 等等模块，这些模块会互相调用，例如 书籍详情要调起阅读器和想法列表，阅读器要调起想法列表和书籍详情，等等，一般我们是怎样调用呢，以阅读器为例，会这样写：</p>
+<pre><code>#import &quot;WRBookDetailViewController.h&quot;
+#import &quot;WRReviewViewController.h&quot;
+@implementation WRReadingViewController
+- (void)gotoDetail {
+WRBookDetailViewController *detailVC = [[WRBookDetailViewController alloc] initWithBookId:self.bookId];
+[self.navigationController pushViewController:detailVC animated:YES];
+}
+- (void)gotoReview {
+WRReviewViewController *reviewVC = [[WRReviewViewController alloc] initWithBookId:self.bookId reviewType:1];
+[self.navigationController pushViewController:reviewVC animated:YES];
+}
+@end
+</code></pre><p>看起来挺好，这样做简单明了，没有多余的东西，项目初期推荐这样快速开发，但到了项目越来越庞大，这种方式会有什么问题呢？显而易见，每个模块都离不开其他模块，互相依赖粘在一起成为一坨：<br>这样揉成一坨对测试/编译/开发效率/后续扩展都有一些坏处，那怎么解开这一坨呢。很简单，按软件工程的思路，下意识就会加一个中间层：<br>叫他 Mediator Manager Router 什么都行，反正就是负责转发信息的中间层，暂且叫他 Mediator。<br>看起来顺眼多了，但这里有几个问题：<br>1 Mediator 怎么去转发组件间调用？<br>2 一个模块只跟 Mediator 通信，怎么知道另一个模块提供了什么接口？<br>3 按上图的画法，模块和 Mediator 间互相依赖，怎样破除这个依赖？</p>
+<p>###方案1<br>对于前两个问题，最直接的反应就是在 Mediator 直接提供接口，调用对应模块的方法：<br>//Mediator.m</p>
+<p>#import “BookDetailComponent.h”</p>
+<p>#import “ReviewComponent.h”<br>@implementation Mediator</p>
+<ul>
+<li>(UIViewController <em>)BookDetailComponent_viewController:(NSString </em>)bookId {<br>return [BookDetailComponent detailViewController:bookId];<br>}</li>
+<li>(UIViewController <em>)ReviewComponent_viewController:(NSString </em>)bookId reviewType:(NSInteger)type {<br>return [ReviewComponent reviewViewController:bookId type:type];<br>}<br>@end<br>//BookDetailComponent 组件<br>#import “Mediator.h”<br>#import “WRBookDetailViewController.h”<br>@implementation BookDetailComponent</li>
+<li>(UIViewController <em>)detailViewController:(NSString </em>)bookId {<br>WRBookDetailViewController *detailVC = [[WRBookDetailViewController alloc] initWithBookId:bookId];<br>return detailVC;<br>}<br>@end<br>//ReviewComponent 组件<br>#import “Mediator.h”<br>#import “WRReviewViewController.h”<br>@implementation ReviewComponent</li>
+<li>(UIViewController <em>)reviewViewController:(NSString </em>)bookId type:(NSInteger)type {<br>UIViewController *reviewVC = [[WRReviewViewController alloc] initWithBookId:bookId type:type];<br>return reviewVC;<br>}<br>@end<br>然后在阅读模块里：<br>//WRReadingViewController.m<br>#import “Mediator.h”<br>@implementation WRReadingViewController</li>
+</ul>
+<ul>
+<li>(void)gotoDetail:(NSString <em>)bookId {<br>UIViewController </em>detailVC = [Mediator BookDetailComponent_viewControllerForDetail:bookId];<br>[self.navigationController pushViewController:detailVC];<br>UIViewController *reviewVC = [Mediator ReviewComponent_viewController:bookId type:1];<br>[self.navigationController pushViewController:reviewVC];<br>}<br>@end<br>这就是一开始架构图的实现，看起来显然这样做并没有什么好处，依赖关系并没有解除，Mediator 依赖了所有模块，而调用者又依赖 Mediator，最后还是一坨互相依赖，跟原来没有 Mediator 的方案相比除了更麻烦点其他没区别。<br>那怎么办呢。<br>怎样让Mediator解除对各个组件的依赖，同时又能调到各个组件暴露出来的方法？对于OC有一个法宝可以做到，就是runtime反射调用：<br>//Mediator.m<br>@implementation Mediator</li>
+</ul>
+<ul>
+<li>(UIViewController <em>)BookDetailComponent_viewController:(NSString </em>)bookId {<br>Class cls = NSClassFromString(@”BookDetailComponent”);<br>return [cls performSelector:NSSelectorFromString(@”detailViewController:”) withObject:@{@”bookId”:bookId}];<br>}</li>
+<li>(UIViewController <em>)ReviewComponent_viewController:(NSString </em>)bookId type:(NSInteger)type {<br>Class cls = NSClassFromString(@”ReviewComponent”);<br>return [cls performSelector:NSSelectorFromString(@”reviewViewController:”) withObject:@{@”bookId”:bookId, @”type”: @(type)}];<br>}<br>@end<br>这下 Mediator 没有再对各个组件有依赖了，你看已经不需要 #import 什么东西了，对应的架构图就变成：</li>
+</ul>
+<p>只有调用其他组件接口时才需要依赖 Mediator，组件开发者不需要知道 Mediator 的存在。<br>等等，既然用runtime就可以解耦取消依赖，那还要Mediator做什么？组件间调用时直接用runtime接口调不就行了，这样就可以没有任何依赖就完成调用：<br>//WRReadingViewController.m<br>@implementation WRReadingViewController</p>
+<ul>
+<li>(void)gotoReview:(NSString <em>)bookId {<br>Class cls = NSClassFromString(@”ReviewComponent”);<br>UIViewController </em>reviewVC = [cls performSelector:NSSelectorFromString(@”reviewViewController:”) withObject:@{@”bookId”:bookId, @”type”: @(1)}];<br>[self.navigationController pushViewController:reviewVC];<br>}<br>@end<br>这样就完全解耦了，但这样做的问题是：<br>1 调用者写起来很恶心，代码提示都没有，每次调用写一坨。<br>2 runtime方法的参数个数和类型限制，导致只能每个接口都统一传一个NSDictionary。这个NSDictionary里的key value是什么不明确，需要找个地方写文档说明和查看。<br>3 编译器层面不依赖其他组件，实际上还是依赖了，直接在这里调用，没有引入调用的组件时就挂了<br>把它移到Mediator后：<br>1 调用者写起来不恶心，代码提示也有了。<br>2 参数类型和个数无限制，由 Mediator 去转就行了，组件提供的还是一个NSDictionary参数的接口，但在Mediator 里可以提供任意类型和个数的参数，像上面的例子显式要求参数NSString *bookId和NSInteger type。<br>3 Mediator可以做统一处理，调用某个组件方法时如果某个组件不存在，可以做相应操作，让调用者与组件间没有耦合。<br>到这里，基本上能解决我们的问题：各组件互不依赖，组件间调用只依赖中间件Mediator，Mediator不依赖其他组件。接下来就是优化这套写法，有两个优化点：<br>1 Mediator 每一个方法里都要写 runtime 方法，格式是确定的，这是可以抽取出来的。<br>2 每个组件对外方法都要在 Mediator 写一遍，组件一多 Mediator 类的长度是恐怖的。<br>优化后就成了 casa 的方案，target-action 对应第一点，target就是class，action就是selector，通过一些规则简化动态调用。Category 对应第二点，每个组件写一个 Mediator 的 Category，让 Mediator 不至于太长。这里有个demo<br>总结起来就是，组件通过中间件通信，中间件通过 runtime 接口解耦，通过 target-action 简化写法，通过 category 感官上分离组件接口代码。</li>
+</ul>
+<p>###方案2<br>回到 Mediator 最初的三个问题，蘑菇街用的是另一种方式解决：注册表的方式，用URL表示接口，在模块启动时注册模块提供的接口，一个简化的实现：<br>//Mediator.m 中间件<br>@implementation Mediator<br>typedef void (^componentBlock) (id param);<br>@property (nonatomic, storng) NSMutableDictionary *cache</p>
+<ul>
+<li>(void)registerURLPattern:(NSString *)urlPattern toHandler:(componentBlock)blk {<br>[cache setObject:blk forKey:urlPattern];<br>}</li>
+<li>(void)openURL:(NSString *)url withParam:(id)param {<br>componentBlock blk = [cache objectForKey:url];<br>if (blk) blk(param);<br>}<br>@end<br>//BookDetailComponent 组件<br>#import “Mediator.h”<br>#import “WRBookDetailViewController.h”</li>
+</ul>
+<ul>
+<li>(void)initComponent {<br>[[Mediator sharedInstance] registerURLPattern:@”weread://bookDetail” toHandler:^(NSDictionary <em>param) {<br>WRBookDetailViewController </em>detailVC = [[WRBookDetailViewController alloc] initWithBookId:param[@”bookId”]];<br>[[UIApplication sharedApplication].keyWindow.rootViewController.navigationController pushViewController:detailVC animated:YES];<br>}];<br>}<br>//WRReadingViewController.m 调用者<br>//ReadingViewController.m<br>#import “Mediator.h”</li>
+<li>(void)gotoDetail:(NSString *)bookId {<br>[[Mediator sharedInstance] openURL:@”weread://bookDetail” withParam:@{@”bookId”: bookId}];<br>}<br>这样同样做到每个模块间没有依赖，Mediator 也不依赖其他组件，不过这里不一样的一点是组件本身和调用者都依赖了Mediator，不过这不是重点，架构图还是跟方案1一样。<br>各个组件初始化时向 Mediator 注册对外提供的接口，Mediator 通过保存在内存的表去知道有哪些模块哪些接口，接口的形式是URL-&gt;block。<br>这里抛开URL的远程调用和本地调用混在一起导致的问题，先说只用于本地调用的情况，对于本地调用，URL只是一个表示组件的key，没有其他作用，这样做有三个问题：<br>1 需要有个地方列出各个组件里有什么 URL 接口可供调用。蘑菇街做了个后台专门管理。<br>2 每个组件都需要初始化，内存里需要保存一份表，组件多了会有内存问题。<br>3 参数的格式不明确，是个灵活的 dictionary，也需要有个地方可以查参数格式。<br>第二点没法解决，第一点和第三点可以跟前面那个方案一样，在 Mediator 每个组件暴露方法的转接口，然后使用起来就跟前面那种方式一样了。<br>抛开URL不说，这种方案跟方案1的共同思路就是：Mediator 不能直接去调用组件的方法，因为这样会产生依赖，那我就要通过其他方法去调用，也就是通过 字符串-&gt;方法 的映射去调用。runtime 接口的className + selectorName -&gt; IMP是一种，注册表的key -&gt; block是一种，而前一种是 OC 自带的特性，后一种需要内存维持一份注册表，这是不必要的。<br>现在说回 URL，组件化是不应该跟 URL 扯上关系的，因为组件对外提供的接口主要是模块间代码层面上的调用，我们先称为本地调用，而 URL 主要用于 APP 间通信，姑且称为远程调用。按常规思路者应该是对于远程调用，再加个中间层转发到本地调用，让这两者分开。那这里这两者混在一起有什么问题呢？<br>如果是 URL 的形式，那组件对外提供接口时就要同时考虑本地调用和远程调用两种情况，而远程调用有个限制，传递的参数类型有限制，只能传能被字符串化的数据，或者说只能传能被转成 json 的数据，像 UIImage 这类对象是不行的，所以如果组件接口要考虑远程调用，这里的参数就不能是这类非常规对象，接口的定义就受限了。<br>用理论的话来说就是，远程调用是本地调用的子集，这里混在一起导致组件只能提供子集功能，无法提供像方案1那样提供全集功能。所以这个方案是天生有缺陷的，对于遗漏的这部分功能，蘑菇街使用了另一种方案补全，请看方案3。</li>
+</ul>
+<p>###方案3<br>蘑菇街为了补全本地调用的功能，为组件多加了另一种方案，就是通过 protocol-class 注册表的方式。首先有一个新的中间件：</p>
+<pre><code>//ProtocolMediator.m 新中间件
+@implementation ProtocolMediator
+@property (nonatomic, storng) NSMutableDictionary *protocolCache
+- (void)registerProtocol:(Protocol *)proto forClass:(Class)cls {
+NSMutableDictionary *protocolCache;
+[protocolCache setObject:cls forKey:NSStringFromProtocol(proto)];
+}
+- (Class)classForProtocol:(Protocol *)proto {
+return protocolCache[NSStringFromProtocol(proto)];
+}
+@end
+</code></pre><p>然后有一个公共Protocol文件，定义了每一个组件对外提供的接口：</p>
+<pre><code>//ComponentProtocol.h
+@protocol BookDetailComponentProtocol &lt;NSObject&gt;
+- (UIViewController *)bookDetailController:(NSString *)bookId;
+- (UIImage *)coverImageWithBookId:(NSString *)bookId;
+@end
+@protocol ReviewComponentProtocol &lt;NSObject&gt;
+- (UIViewController *)ReviewController:(NSString *)bookId;
+@end
+</code></pre><p>再在模块里实现这些接口，并在初始化时调用 registerProtocol 注册。</p>
+<pre><code>//BookDetailComponent 组件
+#import &quot;ProtocolMediator.h&quot;
+#import &quot;ComponentProtocol.h&quot;
+#import &quot;WRBookDetailViewController.h&quot;
++ (void)initComponent
+{
+[[ProtocolMediator sharedInstance] registerProtocol:@protocol(BookDetailComponentProtocol) forClass:[self class];
+}
+- (UIViewController *)bookDetailController:(NSString *)bookId {
+WRBookDetailViewController *detailVC = [[WRBookDetailViewController alloc] initWithBookId:param[@&quot;bookId&quot;]];
+return detailVC;
+}
+- (UIImage *)coverImageWithBookId:(NSString *)bookId {
+….
+}
+</code></pre><p>最后调用者通过 protocol 从 ProtocolMediator 拿到提供这些方法的 Class，再进行调用：</p>
+<pre><code>//WRReadingViewController.m 调用者
+//ReadingViewController.m
+#import &quot;ProtocolMediator.h&quot;
+#import &quot;ComponentProtocol.h&quot;
++ (void)gotoDetail:(NSString *)bookId {
+Class cls = [[ProtocolMediator sharedInstance] classForProtocol:BookDetailComponentProtocol];
+id bookDetailComponent = [[cls alloc] init];
+UIViewController *vc = [bookDetailComponent bookDetailController:bookId];
+[[UIApplication sharedApplication].keyWindow.rootViewController.navigationController pushViewController:vc animated:YES];
+}
+</code></pre><p>这种思路有点绕，这个方案跟刚才两个最大的不同就是，它不是直接通过 Mediator 调用组件方法，而是通过 Mediator 拿到组件对象，再自行去调用组件方法。<br>结果就是组件方法的调用是分散在各地的，没有统一的入口，也就没法做组件不存在时的统一处理。组件1调用了组件2的方法，如果用前面两种方式，组件间是没有依赖的，组件1+Mediator可以单独抽离出来，只需要在Mediator里做好调用组件2方法时的异常处理就行。而这种方法组件1对组件2的调用分散在各个地方，没法做这些处理，在不修改组件1代码的情况下，组件1和组件2是分不开的。<br>当然你也可以在这上面跟方案1一样在 Mediator 对每一个组件接口 wrapper 一层，那这样这种方案跟方案1比除了更复杂点，其他没什么区别。<br>在 protocol-class 这个方案上，主要存在的问题就是分散调用导致耦合，另外实现上会有一些绕，其他就没什么了。casa 说的 “protocol对业务产生了侵入，且不符合黑盒模型。” 其实并没有这么夸张，实际上 protocol 对外提供组件方法，跟方案1在 Mediator wrapper 对外提供组件方法是差不多的。</p>
+<p>##最后<br>蘑菇街在一个项目里同时用了方案2和方案3两种方式，会让写组件的人不知所措，新增一个接口时不知道该用方案2的方式还是方案3的方式，可能这个在蘑菇街内部会通过一些文档规则去规范，但其实是没有必要的。可能是蘑菇街作为电商平台一开始就注重APP页面间跳转的概念，每个模块已经有一个对应的URL，于是组件化时自然想到通过URL的方式表示组件，后续发现URL方式的限制，于是加上方案3的方式，这也是正常的探索过程。<br>上面论述下方案1确实比方案2+方案3简单明了，没有 注册表常驻内存/参数传递限制/调用分散 这些缺点，方案1多做的一步是需要对所有组件方法进行一层 wrapper，但若想要明确提供组件的方法和参数类型，解耦统一处理，方案2和方案3同样需要多加这层。<br>实际上我没有组件化相关的实践，这里仅从 limboy 和 casa 提供的这几个方案对比分析，我还对组件化带来的收益是否大于组件化增加的成本这点存疑，相信真正实践起来还会碰到很多坑，继续探索中。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/02/24/Xcode8-1如何支持iOS8-0以下版本/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Xcode8.1如何支持iOS8.0以下版本</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="iOS 组件化方案探索" data-title="iOS 组件化方案探索" data-url="http://yoursite.com/2018/06/08/iOS 组件化方案探索/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 Grx
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
