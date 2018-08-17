@@ -4,17 +4,30 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Grx Blog</title>
+  <title>iOS团队编程规范 | Grx Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="知识管理，时间管理，自我管理，阅读，语音写作，思维导图，Wiz，TimeMeter">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Grx Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="iOS团队编程规范一、命名规范1、统一要求含义清楚，尽量做到不需要注释也能了解其作用，若做不到，就加注释，使用全称，不使用缩写。
+2、类名大驼峰式命名：每个单词的首字母都采用大写字母
+==例：==MFHomePageViewController
+3、私有变量• 私有变量放在 .m 文件中声明• 以 _ 开头，第一个单词首字母小写，后面的单词的首字母全部大写。
+==例：==NSString *_so">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS团队编程规范">
+<meta property="og:url" content="http://yoursite.com/2018/08/10/iOS团队编程规范/index.html">
 <meta property="og:site_name" content="Grx Blog">
-<meta property="og:description" content="知识管理，时间管理，自我管理，阅读，语音写作，思维导图，Wiz，TimeMeter">
+<meta property="og:description" content="iOS团队编程规范一、命名规范1、统一要求含义清楚，尽量做到不需要注释也能了解其作用，若做不到，就加注释，使用全称，不使用缩写。
+2、类名大驼峰式命名：每个单词的首字母都采用大写字母
+==例：==MFHomePageViewController
+3、私有变量• 私有变量放在 .m 文件中声明• 以 _ 开头，第一个单词首字母小写，后面的单词的首字母全部大写。
+==例：==NSString *_so">
+<meta property="og:updated_time" content="2018-08-17T08:09:19.966Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Grx Blog">
-<meta name="twitter:description" content="知识管理，时间管理，自我管理，阅读，语音写作，思维导图，Wiz，TimeMeter">
+<meta name="twitter:title" content="iOS团队编程规范">
+<meta name="twitter:description" content="iOS团队编程规范一、命名规范1、统一要求含义清楚，尽量做到不需要注释也能了解其作用，若做不到，就加注释，使用全称，不使用缩写。
+2、类名大驼峰式命名：每个单词的首字母都采用大写字母
+==例：==MFHomePageViewController
+3、私有变量• 私有变量放在 .m 文件中声明• 以 _ 开头，第一个单词首字母小写，后面的单词的首字母全部大写。
+==例：==NSString *_so">
   
     <link rel="alternative" href="/atom.xml" title="Grx Blog" type="application/atom+xml">
   
@@ -208,55 +221,7 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
-  
-    <article id="post-iOS应用架构谈 view层的组织和调用方案" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/08/16/iOS应用架构谈 view层的组织和调用方案/" class="article-date">
-  	<time datetime="2018-08-16T08:12:52.131Z" itemprop="datePublished">2018-08-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>iOS应用架构谈 view层的组织和调用方案<br>Date  Fri 24 April 2015 Tags iOS / architect / thoughts</p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>当我们开始设计View层的架构时，往往是这个App还没有开始开发，或者这个App已经发过几个版本了，然后此时需要做非常彻底的重构。<br>一般也就是这两种时机会去做View层架构，基于这个时机的特殊性，我们在这时候必须清楚认识到：View层的架构一旦实现或定型，在App发版后可修改的余地就已经非常之小了。因为它跟业务关联最为紧密，所以哪怕稍微动一点点，它所引发的蝴蝶效应都不见得是业务方能够hold住的。这样的情况，就要求我们在实现这个架构时，代码必须得改得勤快，不能偷懒。也必须抱着充分的自我怀疑态度，做决策时要拿捏好尺度。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2018/08/16/iOS应用架构谈 view层的组织和调用方案/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-iOS团队编程规范" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-iOS团队编程规范" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2018/08/10/iOS团队编程规范/" class="article-date">
@@ -272,12 +237,23 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/10/iOS团队编程规范/">iOS团队编程规范</a>
+    <h1 class="article-title" itemprop="name">
+      iOS团队编程规范
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/life/">life</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -682,517 +658,77 @@ send();
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/life/">life</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
   
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-iOS应用架构谈 开篇" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/07/18/iOS应用架构谈 开篇/" class="article-date">
-  	<time datetime="2018-07-18T10:28:47.000Z" itemprop="datePublished">2018-07-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+<nav id="article-nav">
+  
+    <a href="/2018/08/16/iOS应用架构谈 view层的组织和调用方案/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/18/iOS应用架构谈 开篇/">iOS应用架构谈 开篇</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="iOS应用架构谈-开篇"><a href="#iOS应用架构谈-开篇" class="headerlink" title="iOS应用架构谈 开篇"></a>iOS应用架构谈 开篇</h1><h2 id="缘由"><a href="#缘由" class="headerlink" title="缘由"></a>缘由</h2><p>之前安居客iOS app的第二版架构大部分内容是我做的，期间有总结了一些经验。在将近一年之后，前同事zzz在微信朋友圈上发了一个问题：假如问你一个iOS or Android app的架构，你会从哪些方面来说呢？</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/life/">life</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2018/07/18/iOS应用架构谈 开篇/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-创建属于自己的私有库(github)以及提交到cocoapods" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/07/08/创建属于自己的私有库(github)以及提交到cocoapods/" class="article-date">
-  	<time datetime="2018-07-08T10:28:47.000Z" itemprop="datePublished">2018-07-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+          (no title)
         
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/08/创建属于自己的私有库(github)以及提交到cocoapods/">创建属于自己的私有库(github)以及提交到cocoapods</a>
-    </h1>
   
+    <a href="/2018/07/18/iOS应用架构谈 开篇/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS应用架构谈 开篇</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="创建属于自己的私有库-github-以及提交到cocoapods"><a href="#创建属于自己的私有库-github-以及提交到cocoapods" class="headerlink" title="创建属于自己的私有库(github)以及提交到cocoapods"></a>创建属于自己的私有库(github)以及提交到cocoapods</h1><p>相信每个Develop<a href="https://link.jianshu.com/?t=https://github.com/CharlsPrince/CommonExtension.git%27er都会在使用Cocoapods这儿第三方库管理工具，虽然有时候pod">https://link.jianshu.com/?t=https://github.com/CharlsPrince/CommonExtension.git%27er都会在使用Cocoapods这儿第三方库管理工具，虽然有时候pod</a> install的时候会有种想死的感觉o(╯□╰)o，但依然无法阻挡某些程序员去使用它的热情，why？因为它能使你的项目工程看起来更加简洁，更加有条理性，而不至于使自己项目的Vendor文件夹看起来臃肿，而且能减少手动导入静态framework的麻烦，也可以将自己封装好的代码提交到Trunk供自己和别人使用，的确方便。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OC/">OC</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2018/07/08/创建属于自己的私有库(github)以及提交到cocoapods/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
   
 </article>
 
 
-
-
-
-
-
-
-
-  
-    <article id="post-iOS 组件化方案探索" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/06/08/iOS 组件化方案探索/" class="article-date">
-  	<time datetime="2018-06-08T10:28:47.000Z" itemprop="datePublished">2018-06-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/08/iOS 组件化方案探索/">iOS 组件化方案探索</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="iOS-组件化方案探索"><a href="#iOS-组件化方案探索" class="headerlink" title="iOS 组件化方案探索"></a>iOS 组件化方案探索</h1><p>看了 Limboy(文章1 文章2) 和 Casa (文章) 对 iOS 组件化方案的讨论，写篇文章梳理下思路。<br>首先我觉得”组件”在这里不太合适，因为按我理解组件是指比较小的功能块，这些组件不需要多少组件间通信，没什么依赖，也就不需要做什么其他处理，面向对象就能搞定。而这里提到的是较大粒度的业务功能，我们习惯称为”模块”。为了方便表述，下面模块和组件代表同一个意思，都是指较大粒度的业务模块。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OC/">OC</a></li></ul>
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-      
 
-      
-        <p class="article-more-link">
-          <a  href="/2018/06/08/iOS 组件化方案探索/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
 
 
 
 
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="iOS团队编程规范" data-title="iOS团队编程规范" data-url="http://yoursite.com/2018/08/10/iOS团队编程规范/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 
 
-
-  
-    <article id="post-iOS的AOP(面向切面)编程--Aspects" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/04/08/iOS的AOP(面向切面)编程--Aspects/" class="article-date">
-  	<time datetime="2018-04-08T10:28:47.000Z" itemprop="datePublished">2018-04-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/08/iOS的AOP(面向切面)编程--Aspects/">iOS的AOP(面向切面)编程--Aspects</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="iOS的AOP-面向切面-编程–Aspects"><a href="#iOS的AOP-面向切面-编程–Aspects" class="headerlink" title="iOS的AOP(面向切面)编程–Aspects"></a>iOS的AOP(面向切面)编程–Aspects</h1><h2 id="什么是AOP呢？下面是来自百科的一段话："><a href="#什么是AOP呢？下面是来自百科的一段话：" class="headerlink" title="什么是AOP呢？下面是来自百科的一段话："></a>什么是AOP呢？下面是来自百科的一段话：</h2><p>在软件业，AOP为Aspect Oriented Programming的缩写，意为：面向切面编程，通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术。AOP是OOP的延续，是软件开发中的一个热点，也是Spring框架中的一个重要内容，是函数式编程的一种衍生范型。利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OC/">OC</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2018/04/08/iOS的AOP(面向切面)编程--Aspects/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-从程序员到项目经理：如何管理自己的时间" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/02/25/从程序员到项目经理：如何管理自己的时间/" class="article-date">
-  	<time datetime="2018-02-25T01:45:59.000Z" itemprop="datePublished">2018-02-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/25/从程序员到项目经理：如何管理自己的时间/">从程序员到项目经理：如何管理自己的时间</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="从程序员到项目经理：如何管理自己的时间"><a href="#从程序员到项目经理：如何管理自己的时间" class="headerlink" title="从程序员到项目经理：如何管理自己的时间"></a>从程序员到项目经理：如何管理自己的时间</h1><p>对很多项目经理而言，是没有什么所谓的“我的时间”的，因为他们不是在管项目，而是被工作的潮水带着跑而已，他们的时间被工作主宰了。项目经理必须要主动的管理自己的时间，合理安排自己的工作，才能真正“翻身”做自己时间主人。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/life/">life</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2018/02/25/从程序员到项目经理：如何管理自己的时间/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-App设计的基本原则和规范" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/01/25/App设计的基本原则和规范/" class="article-date">
-  	<time datetime="2018-01-25T01:45:59.000Z" itemprop="datePublished">2018-01-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/25/App设计的基本原则和规范/">App设计的基本原则和规范</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="App设计的基本原则和规范"><a href="#App设计的基本原则和规范" class="headerlink" title="App设计的基本原则和规范"></a>App设计的基本原则和规范</h1><p>为了能在交互设计和用户体验上做出比竞品更优秀的移动APP产品，我们必须知道移动设计的基本原则。<br>目前移动设计在我们的工作中越来越重要啦，除了掌握基本的UI设计技能之外，我们也要对移动互联网的特征有所认识。为了能在交互设计和用户体验上做出比竞品更优秀的移动APP产品，我们必须知道移动设计的基本原则。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/life/">life</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2018/01/25/App设计的基本原则和规范/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-程序员安身立命的138条忠告" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/07/08/程序员安身立命的138条忠告/" class="article-date">
-  	<time datetime="2017-07-08T10:28:47.000Z" itemprop="datePublished">2017-07-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/08/程序员安身立命的138条忠告/">程序员安身立命的138条忠告</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="程序员安身立命的138条忠告"><a href="#程序员安身立命的138条忠告" class="headerlink" title="程序员安身立命的138条忠告"></a>程序员安身立命的138条忠告</h1><p>让我们面对现实，每个开发人员都希望个人的技术能力以及团队协同能力可以随着时间的推移不断得到提高。但大多数开发者都会提出的一个重要且关键性的问题：如何才能做到这一点呢？接下来，本文作者以自身的开发经验分享在编程时作为开发者应该牢记的 139 条忠告，以成为更好的程序员。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/life/">life</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/07/08/程序员安身立命的138条忠告/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Xcode8-1如何支持iOS8-0以下版本" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/02/24/Xcode8-1如何支持iOS8-0以下版本/" class="article-date">
-  	<time datetime="2017-02-24T01:42:24.000Z" itemprop="datePublished">2017-02-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/24/Xcode8-1如何支持iOS8-0以下版本/">Xcode8.1如何支持iOS8.0以下版本</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Xcode6.0升级到Xcode8.0,Xcode8.0升级到Xcode8.1时会删除它支持的8.0以后的版本配置文件。老项目要兼容iOS8以下也是可以另辟蹊径的。 </p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xcode/">xcode</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/02/24/Xcode8-1如何支持iOS8-0以下版本/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
 </div>
       <footer id="footer">
   <div class="outer">
@@ -1216,8 +752,8 @@ send();
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
