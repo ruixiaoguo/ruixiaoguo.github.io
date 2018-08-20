@@ -4,21 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Grx Blog</title>
+  <title>iOS应用架构谈 view层的组织和调用方案 | Grx Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="iOS应用架构谈 view层的组织和调用方案Date  Fri 24 April 2015 Tags iOS / architect / thoughts
-前言当我们开始设计View层的架构时，往往是这个App还没有开始开发，或者这个App已经发过几个版本了，然后此时需要做非常彻底的重构。一般也就是这两种时机会去做View层架构，基于这个时机的特殊性，我们在这时候必须清楚认识到：View层的架构一">
+  <meta name="description" content="iOS应用架构谈 view层的组织和调用方案前言当我们开始设计View层的架构时，往往是这个App还没有开始开发，或者这个App已经发过几个版本了，然后此时需要做非常彻底的重构。一般也就是这两种时机会去做View层架构，基于这个时机的特殊性，我们在这时候必须清楚认识到：View层的架构一旦实现或定型，在App发版后可修改的余地就已经非常之小了。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Grx Blog">
-<meta property="og:url" content="http://yoursite.com/2018/08/16/iOS应用架构谈 view层的组织和调用方案/index.html">
+<meta property="og:title" content="iOS应用架构谈 view层的组织和调用方案">
+<meta property="og:url" content="http://yoursite.com/2018/08/15/iOS应用架构谈 view层的组织和调用方案/index.html">
 <meta property="og:site_name" content="Grx Blog">
-<meta property="og:description" content="iOS应用架构谈 view层的组织和调用方案Date  Fri 24 April 2015 Tags iOS / architect / thoughts
-前言当我们开始设计View层的架构时，往往是这个App还没有开始开发，或者这个App已经发过几个版本了，然后此时需要做非常彻底的重构。一般也就是这两种时机会去做View层架构，基于这个时机的特殊性，我们在这时候必须清楚认识到：View层的架构一">
-<meta property="og:updated_time" content="2018-08-16T08:23:14.913Z">
+<meta property="og:description" content="iOS应用架构谈 view层的组织和调用方案前言当我们开始设计View层的架构时，往往是这个App还没有开始开发，或者这个App已经发过几个版本了，然后此时需要做非常彻底的重构。一般也就是这两种时机会去做View层架构，基于这个时机的特殊性，我们在这时候必须清楚认识到：View层的架构一旦实现或定型，在App发版后可修改的余地就已经非常之小了。">
+<meta property="og:updated_time" content="2018-08-20T08:32:58.133Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Grx Blog">
-<meta name="twitter:description" content="iOS应用架构谈 view层的组织和调用方案Date  Fri 24 April 2015 Tags iOS / architect / thoughts
-前言当我们开始设计View层的架构时，往往是这个App还没有开始开发，或者这个App已经发过几个版本了，然后此时需要做非常彻底的重构。一般也就是这两种时机会去做View层架构，基于这个时机的特殊性，我们在这时候必须清楚认识到：View层的架构一">
+<meta name="twitter:title" content="iOS应用架构谈 view层的组织和调用方案">
+<meta name="twitter:description" content="iOS应用架构谈 view层的组织和调用方案前言当我们开始设计View层的架构时，往往是这个App还没有开始开发，或者这个App已经发过几个版本了，然后此时需要做非常彻底的重构。一般也就是这两种时机会去做View层架构，基于这个时机的特殊性，我们在这时候必须清楚认识到：View层的架构一旦实现或定型，在App发版后可修改的余地就已经非常之小了。">
   
     <link rel="alternative" href="/atom.xml" title="Grx Blog" type="application/atom+xml">
   
@@ -215,8 +212,8 @@
       <div class="body-wrap"><article id="post-iOS应用架构谈 view层的组织和调用方案" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/08/16/iOS应用架构谈 view层的组织和调用方案/" class="article-date">
-  	<time datetime="2018-08-16T08:12:52.131Z" itemprop="datePublished">2018-08-16</time>
+      <a href="/2018/08/15/iOS应用架构谈 view层的组织和调用方案/" class="article-date">
+  	<time datetime="2018-08-15T10:28:47.000Z" itemprop="datePublished">2018-08-15</time>
 </a>
     </div>
   
@@ -225,10 +222,31 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS应用架构谈 view层的组织和调用方案
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/life/">life</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>iOS应用架构谈 view层的组织和调用方案<br>Date  Fri 24 April 2015 Tags iOS / architect / thoughts</p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>当我们开始设计View层的架构时，往往是这个App还没有开始开发，或者这个App已经发过几个版本了，然后此时需要做非常彻底的重构。<br>一般也就是这两种时机会去做View层架构，基于这个时机的特殊性，我们在这时候必须清楚认识到：View层的架构一旦实现或定型，在App发版后可修改的余地就已经非常之小了。因为它跟业务关联最为紧密，所以哪怕稍微动一点点，它所引发的蝴蝶效应都不见得是业务方能够hold住的。这样的情况，就要求我们在实现这个架构时，代码必须得改得勤快，不能偷懒。也必须抱着充分的自我怀疑态度，做决策时要拿捏好尺度。<br><a id="more"></a></p>
+        <h1 id="iOS应用架构谈-view层的组织和调用方案"><a href="#iOS应用架构谈-view层的组织和调用方案" class="headerlink" title="iOS应用架构谈 view层的组织和调用方案"></a>iOS应用架构谈 view层的组织和调用方案</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>当我们开始设计View层的架构时，往往是这个App还没有开始开发，或者这个App已经发过几个版本了，然后此时需要做非常彻底的重构。一般也就是这两种时机会去做View层架构，基于这个时机的特殊性，我们在这时候必须清楚认识到：View层的架构一旦实现或定型，在App发版后可修改的余地就已经非常之小了。<br><a id="more"></a><br>因为它跟业务关联最为紧密，所以哪怕稍微动一点点，它所引发的蝴蝶效应都不见得是业务方能够hold住的。这样的情况，就要求我们在实现这个架构时，代码必须得改得勤快，不能偷懒。也必须抱着充分的自我怀疑态度，做决策时要拿捏好尺度。</p>
 <h2 id="View层的架构非常之重要，在我看来，这部分架构是这系列文章涉及4个方面最重要的一部分，没有之一。为什么这么说？"><a href="#View层的架构非常之重要，在我看来，这部分架构是这系列文章涉及4个方面最重要的一部分，没有之一。为什么这么说？" class="headerlink" title="View层的架构非常之重要，在我看来，这部分架构是这系列文章涉及4个方面最重要的一部分，没有之一。为什么这么说？"></a>View层的架构非常之重要，在我看来，这部分架构是这系列文章涉及4个方面最重要的一部分，没有之一。为什么这么说？</h2><h2 id="View层架构是影响业务方迭代周期的因素之一"><a href="#View层架构是影响业务方迭代周期的因素之一" class="headerlink" title="View层架构是影响业务方迭代周期的因素之一"></a>View层架构是影响业务方迭代周期的因素之一</h2><p>产品经理产生需求的速度会非常快，尤其是公司此时仍处于创业初期，在规模稍大的公司里面，产品经理也喜欢挖大坑来在leader面前刷存在感，比如阿里。这就导致业务工程师任务非常繁重。正常情况下让产品经理砍需求是不太可能的，因此作为架构师，在架构里有一些可做可不做的事情，最好还是能做就做掉，不要偷懒。这可以帮业务方减负，编写代码的时候也能更加关注业务。</p>
 <p>我跟一些朋友交流的时候，他们都会或多或少地抱怨自己的团队迭代速度不够快，或者说，迭代速度不合理地慢。我认为迭代速度不是想提就能提的，迭代速度的影响因素有很多，一期PRD里的任务量和任务复杂度都会影响迭代周期能达到什么样的程度。抛开这些外在的不谈，从内在可能导致迭代周期达不到合理的速度的原因来看，其中有一个原因很有可能就是View层架构没有做好，让业务工程师完成一个不算复杂的需求时，需要处理太多额外的事情。当然，开会多，工程师水平烂也属于迭代速度提不上去的内部原因，但这个不属于本文讨论范围。还有，加班不是优化迭代周期的正确方式，嗯。</p>
 <h2 id="一般来说，一个不够好的View层架构，主要原因有以下五种："><a href="#一般来说，一个不够好的View层架构，主要原因有以下五种：" class="headerlink" title="一般来说，一个不够好的View层架构，主要原因有以下五种："></a>一般来说，一个不够好的View层架构，主要原因有以下五种：</h2><p>代码混乱不规范<br>过多继承导致的复杂依赖关系<br>模块化程度不够高，组件粒度不够细<br>横向依赖<br>架构设计失去传承</p>
@@ -853,7 +871,7 @@ self.strategyList = @[TextSenderInvocation, ImageSenderInvocation, VoiceSenderIn
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="iOS应用架构谈 view层的组织和调用方案" data-title="" data-url="http://yoursite.com/2018/08/16/iOS应用架构谈 view层的组织和调用方案/"></div>
+	<div class="ds-thread" data-thread-key="iOS应用架构谈 view层的组织和调用方案" data-title="iOS应用架构谈 view层的组织和调用方案" data-url="http://yoursite.com/2018/08/15/iOS应用架构谈 view层的组织和调用方案/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
