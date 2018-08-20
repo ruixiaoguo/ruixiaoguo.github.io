@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/07/08/创建属于自己的私有库(github)以及提交到cocoapods/index.html">
 <meta property="og:site_name" content="Grx Blog">
 <meta property="og:description" content="创建属于自己的私有库(github)以及提交到cocoapods相信每个Develophttps://link.jianshu.com/?t=https://github.com/CharlsPrince/CommonExtension.git%27er都会在使用Cocoapods这儿第三方库管理工具，虽然有时候pod install的时候会有种想死的感觉o(╯□╰)o，但依然无法阻挡某些程序员去">
-<meta property="og:updated_time" content="2018-08-14T08:32:31.480Z">
+<meta property="og:updated_time" content="2018-08-20T06:28:42.677Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="创建属于自己的私有库(github)以及提交到cocoapods">
 <meta name="twitter:description" content="创建属于自己的私有库(github)以及提交到cocoapods相信每个Develophttps://link.jianshu.com/?t=https://github.com/CharlsPrince/CommonExtension.git%27er都会在使用Cocoapods这儿第三方库管理工具，虽然有时候pod install的时候会有种想死的感觉o(╯□╰)o，但依然无法阻挡某些程序员去">
@@ -327,7 +327,8 @@ source &apos;https://github.com/CharlsPrince/CommonExtension.git&apos; #即你�
 pod &apos;xxxx&apos;, :git =&gt;&apos;https://github.com/CharlsPrince/CommonExtension.git&apos;
 或
 pod &apos;xxx&apos;, :podspec =&gt; &apos;xxxx.podspec&apos;
-</code></pre><h2 id="二-让你的框架支持cocoapods"><a href="#二-让你的框架支持cocoapods" class="headerlink" title="二.让你的框架支持cocoapods"></a>二.让你的框架支持cocoapods</h2><h3 id="1-注册Trunk"><a href="#1-注册Trunk" class="headerlink" title="1.注册Trunk"></a>1.注册Trunk</h3><p>// 加上–verbose可以输出详细debug信息，方便出错时查看。<br>pod trunk register wenyanjun1314@163.com “coderYJ” –verbose</p>
+</code></pre><h2 id="八、更新私有库代码"><a href="#八、更新私有库代码" class="headerlink" title="八、更新私有库代码"></a>八、更新私有库代码</h2><p>1.先把代码clone到本地修改。<br>2.修改完代码再修改podspecs文件的版本号提交代码。<br>3.给代码打上tag后push到远端私有库同步代码。<br>4.向自己的私有库提交podspec文件$ pod repo push MySpecs [name].podspec<br>5.github DeskTop客户端同步本地spec仓库到远程specs仓库。<br>6.更新结束，可以搜索到新版本。pod search XXX</p>
+<h2 id="二-让你的框架支持cocoapods"><a href="#二-让你的框架支持cocoapods" class="headerlink" title="二.让你的框架支持cocoapods"></a>二.让你的框架支持cocoapods</h2><h3 id="1-注册Trunk"><a href="#1-注册Trunk" class="headerlink" title="1.注册Trunk"></a>1.注册Trunk</h3><p>// 加上–verbose可以输出详细debug信息，方便出错时查看。<br>pod trunk register wenyanjun1314@163.com “coderYJ” –verbose</p>
 <h3 id="2-发布到cocoapods-验证通过后，给当前代码打上tag，建议tag和版本号一致"><a href="#2-发布到cocoapods-验证通过后，给当前代码打上tag，建议tag和版本号一致" class="headerlink" title="2.发布到cocoapods(验证通过后，给当前代码打上tag，建议tag和版本号一致)"></a>2.发布到cocoapods(验证通过后，给当前代码打上tag，建议tag和版本号一致)</h3><p>// –use-libraries –allow-warnings<br>pod trunk push YJSettingTableView.podspec(进入到podspec所在目录执行)</p>
 <h3 id="2-验证"><a href="#2-验证" class="headerlink" title="2.验证"></a>2.验证</h3><p>pod search XXXXXXX</p>
 
