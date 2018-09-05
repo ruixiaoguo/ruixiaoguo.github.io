@@ -12,10 +12,35 @@
 <meta property="og:url" content="http://yoursite.com/2018/09/02/Flutter原理与实践/index.html">
 <meta property="og:site_name" content="Grx Blog">
 <meta property="og:description" content="Flutter原理与实践Flutter是Google开发的一套全新的跨平台、开源UI框架，支持iOS、Android系统开发，并且是未来新操作系统Fuchsia的默认开发套件。自从2017年5月发布第一个版本以来，目前Flutter已经发布了近60个版本，并且在2018年5月发布了第一个“Ready for Production Apps”的Beta 3版本，6月20日发布了第一个“Release">
-<meta property="og:updated_time" content="2018-09-05T06:00:14.982Z">
+<meta property="og:image" content="https://tech.meituan.com/img/waimai-flutter/flutter-hot-reload.gif">
+<meta property="og:image" content="https://tech.meituan.com/img/waimai-flutter/flutter-malloc.png">
+<meta property="og:image" content="https://tech.meituan.com/img/waimai-flutter/flutter-free.png">
+<meta property="og:image" content="https://tech.meituan.com/img/waimai-flutter/flutter-layer-arch.png">
+<meta property="og:image" content="https://tech.meituan.com/img/waimai-flutter/flutter-render-steps.svg">
+<meta property="og:image" content="https://tech.meituan.com/img/waimai-flutter/flutter-render-tree-layout.svg">
+<meta property="og:image" content="https://tech.meituan.com/img/waimai-flutter/flutter-relayout-boundary.svg">
+<meta property="og:image" content="https://tech.meituan.com/img/waimai-flutter/flutter-render-layer.svg">
+<meta property="og:image" content="https://tech.meituan.com/img/waimai-flutter/flutter-repaint-boundary.svg">
+<meta property="og:image" content="https://tech.meituan.com/img/waimai-flutter/flutter-layout-1.svg">
+<meta property="og:image" content="https://tech.meituan.com/img/waimai-flutter/flutter-layout-2.svg">
+<meta property="og:image" content="https://tech.meituan.com/img/waimai-flutter/flutter-layout-3.svg">
+<meta property="og:image" content="https://tech.meituan.com/img/waimai-flutter/flutter-main.png">
+<meta property="og:image" content="https://tech.meituan.com/img/waimai-flutter/flutter-android-dir.png">
+<meta property="og:image" content="https://tech.meituan.com/img/waimai-flutter/flutter-apk.png">
+<meta property="og:image" content="https://tech.meituan.com/img/waimai-flutter/flutter-apk-aot.png">
+<meta property="og:image" content="https://tech.meituan.com/img/waimai-flutter/flutter-debug.svg">
+<meta property="og:image" content="https://tech.meituan.com/img/waimai-flutter/flutter-sos.png">
+<meta property="og:image" content="https://tech.meituan.com/img/waimai-flutter/flutter-horn-config.png">
+<meta property="og:image" content="https://tech.meituan.com/img/waimai-flutter/flutter-switch.png">
+<meta property="og:image" content="https://tech.meituan.com/img/waimai-flutter/allcategory-flutter-vs-android@2x.jpg">
+<meta property="og:image" content="https://tech.meituan.com/img/waimai-flutter/flutter-allcategory-page-speed.png">
+<meta property="og:image" content="https://tech.meituan.com/img/waimai-flutter/android-native-allcategory-page-speed.png">
+<meta property="og:image" content="https://tech.meituan.com/img/waimai-flutter/android-vs-flutter-frame-duration.png">
+<meta property="og:updated_time" content="2018-09-05T06:19:22.626Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flutter原理与实践">
 <meta name="twitter:description" content="Flutter原理与实践Flutter是Google开发的一套全新的跨平台、开源UI框架，支持iOS、Android系统开发，并且是未来新操作系统Fuchsia的默认开发套件。自从2017年5月发布第一个版本以来，目前Flutter已经发布了近60个版本，并且在2018年5月发布了第一个“Ready for Production Apps”的Beta 3版本，6月20日发布了第一个“Release">
+<meta name="twitter:image" content="https://tech.meituan.com/img/waimai-flutter/flutter-hot-reload.gif">
   
     <link rel="alternative" href="/atom.xml" title="Grx Blog" type="application/atom+xml">
   
@@ -119,7 +144,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/OC/" style="font-size: 10px;">-OC</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Apple-Watch/" style="font-size: 10px;">Apple Watch</a> <a href="/tags/Flutter/" style="font-size: 10px;">Flutter</a> <a href="/tags/Life/" style="font-size: 10px;">Life</a> <a href="/tags/OC/" style="font-size: 20px;">OC</a> <a href="/tags/RAC/" style="font-size: 10px;">RAC</a> <a href="/tags/Swift/" style="font-size: 16px;">Swift</a> <a href="/tags/Xcode/" style="font-size: 14px;">Xcode</a> <a href="/tags/appledoc/" style="font-size: 10px;">appledoc</a> <a href="/tags/hexo/" style="font-size: 12px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/life/" style="font-size: 18px;">life</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a>
+						<a href="/tags/OC/" style="font-size: 10px;">-OC</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Apple-Watch/" style="font-size: 10px;">Apple Watch</a> <a href="/tags/Flutter/" style="font-size: 10px;">Flutter</a> <a href="/tags/Life/" style="font-size: 10px;">Life</a> <a href="/tags/OC/" style="font-size: 20px;">OC</a> <a href="/tags/RAC/" style="font-size: 10px;">RAC</a> <a href="/tags/Swift/" style="font-size: 16px;">Swift</a> <a href="/tags/WebView/" style="font-size: 10px;">WebView</a> <a href="/tags/Xcode/" style="font-size: 14px;">Xcode</a> <a href="/tags/appledoc/" style="font-size: 10px;">appledoc</a> <a href="/tags/hexo/" style="font-size: 12px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/life/" style="font-size: 18px;">life</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a>
 					</div>
 				</section>
 				
@@ -255,6 +280,7 @@
 <p>Flutter同时支持Windows、Linux和macOS操作系统作为开发环境，并且在Android Studio和VS Code两个IDE上都提供了全功能的支持。Flutter所使用的Dart语言同时支持AOT和JIT运行方式，JIT模式下还有一个备受欢迎的开发利器“热刷新”（Hot Reload），即在Android Studio中编辑Dart代码后，只需要点击保存或者“Hot Reload”按钮，就可以立即更新到正在运行的设备上，不需要重新编译App，甚至不需要重启App，立即就可以看到更新后的样式。</p>
 <p>在Flutter中，所有功能都可以通过组合多个Widget来实现，包括对齐方式、按行排列、按列排列、网格排列甚至事件处理等等。Flutter控件主要分为两大类，StatelessWidget和StatefulWidget，StatelessWidget用来展示静态的文本或者图片，如果控件需要根据外部数据或者用户操作来改变的话，就需要使用StatefulWidget。State的概念也是来源于Facebook的流行Web框架React，React风格的框架中使用控件树和各自的状态来构建界面，当某个控件的状态发生变化时由框架负责对比前后状态差异并且采取最小代价来更新渲染结果。</p>
 <h2 id="Hot-Reload"><a href="#Hot-Reload" class="headerlink" title="Hot Reload"></a>Hot Reload</h2><p>在Dart代码文件中修改字符串“Hello, World”，添加一个惊叹号，点击保存或者热刷新按钮就可以立即更新到界面上，仅需几百毫秒：</p>
+<p><img src="https://tech.meituan.com/img/waimai-flutter/flutter-hot-reload.gif" alt="avatar"></p>
 <h2 id="flutter-hot-reload"><a href="#flutter-hot-reload" class="headerlink" title="flutter-hot-reload"></a>flutter-hot-reload</h2><p>Flutter通过将新的代码注入到正在运行的DartVM中，来实现Hot Reload这种神奇的效果，在DartVM将程序中的类结构更新完成后，Flutter会立即重建整个控件树，从而更新界面。但是热刷新也有一些限制，并不是所有的代码改动都可以通过热刷新来更新：</p>
 <p>编译错误，如果修改后的Dart代码无法通过编译，Flutter会在控制台报错，这时需要修改对应的代码。<br>控件类型从StatelessWidget到StatefulWidget的转换，因为Flutter在执行热刷新时会保留程序原来的state，而某个控件从stageless→stateful后会导致Flutter重新创建控件时报错“myWidget is not a subtype of StatelessWidget”，而从stateful→stateless会报错“type ‘myWidget’ is not a subtype of type ‘StatefulWidget’ of ‘newWidget’”。<br>全局变量和静态成员变量，这些变量不会在热刷新时更新。<br>修改了main函数中创建的根控件节点，Flutter在热刷新后只会根据原来的根节点重新创建控件树，不会修改根节点。<br>某个类从普通类型转换成枚举类型，或者类型的泛型参数列表变化，都会使热刷新失败。<br>热刷新无法实现更新时，执行一次热重启（Hot Restart）就可以全量更新所有代码，同样不需要重启App，区别是restart会将所有Dart代码打包同步到设备上，并且所有状态都会重置。</p>
 <h2 id="Flutter插件"><a href="#Flutter插件" class="headerlink" title="Flutter插件"></a>Flutter插件</h2><p>Flutter使用的Dart语言无法直接调用Android系统提供的Java接口，这时就需要使用插件来实现中转。Flutter官方提供了丰富的原生接口封装：</p>
@@ -302,11 +328,14 @@ setState(() {});
 <p>使用Dart2js编译成JavaScript代码，运行在常规浏览器中（Dart Web）。<br>使用DartVM直接在命令行中运行Dart代码（DartVM）。<br>AOT方式编译成机器码，例如Flutter App框架（Flutter）。<br>Flutter在筛选了20多种语言后，最终选择Dart作为开发语言主要有几个原因：</p>
 <p>健全的类型系统，同时支持静态类型检查和运行时类型检查。<br>代码体积优化（Tree Shaking），编译时只保留运行时需要调用的代码（不允许反射这样的隐式引用），所以庞大的Widgets库不会造成发布体积过大。<br>丰富的底层库，Dart自身提供了非常多的库。<br>多生代无锁垃圾回收器，专门为UI框架中常见的大量Widgets对象创建和销毁优化。<br>跨平台，iOS和Android共用一套代码。<br>JIT &amp; AOT运行模式，支持开发时的快速迭代和正式发布后最大程度发挥硬件性能。<br>在Dart中，有一些重要的基本概念需要了解：</p>
 <p>所有变量的值都是对象，也就是类的实例。甚至数字、函数和null也都是对象，都继承自Object类。<br>虽然Dart是强类型语言，但是显式变量类型声明是可选的，Dart支持类型推断。如果不想使用类型推断，可以用dynamic类型。<br>Dart支持泛型，List<int>表示包含int类型的列表，List<dynamic>则表示包含任意类型的列表。<br>Dart支持顶层（top-level）函数和类成员函数，也支持嵌套函数和本地函数。<br>Dart支持顶层变量和类成员变量。<br>Dart没有public、protected和private这些关键字，使用下划线“_”开头的变量或者函数，表示只在库内可见。参考库和可见性。<br>DartVM的内存分配策略非常简单，创建对象时只需要在现有堆上移动指针，内存增长始终是线形的，省去了查找可用内存段的过程：</dynamic></int></p>
+<p><img src="https://tech.meituan.com/img/waimai-flutter/flutter-malloc.png" alt="avatar"></p>
 <h2 id="flutter-malloc"><a href="#flutter-malloc" class="headerlink" title="flutter-malloc"></a>flutter-malloc</h2><p>Dart中类似线程的概念叫做Isolate，每个Isolate之间是无法共享内存的，所以这种分配策略可以让Dart实现无锁的快速分配。</p>
 <p>Dart的垃圾回收也采用了多生代算法，新生代在回收内存时采用了“半空间”算法，触发垃圾回收时Dart会将当前半空间中的“活跃”对象拷贝到备用空间，然后整体释放当前空间的所有内存：</p>
+<p><img src="https://tech.meituan.com/img/waimai-flutter/flutter-free.png" alt="avatar"></p>
 <h2 id="flutter-free"><a href="#flutter-free" class="headerlink" title="flutter-free"></a>flutter-free</h2><p>整个过程中Dart只需要操作少量的“活跃”对象，大量的没有引用的“死亡”对象则被忽略，这种算法也非常适合Flutter框架中大量Widget重建的场景。</p>
 <h2 id="Flutter-Framework"><a href="#Flutter-Framework" class="headerlink" title="Flutter Framework"></a>Flutter Framework</h2><p>Flutter的框架部分完全使用Dart语言实现，并且有着清晰的分层架构。分层架构使得我们可以在调用Flutter提供的便捷开发功能（预定义的一套高质量Material控件）之外，还可以直接调用甚至修改每一层实现（因为整个框架都属于“用户空间”的代码），这给我们提供了最大程度的自定义能力。Framework底层是Flutter引擎，引擎主要负责图形绘制（Skia）、文字排版（libtxt）和提供Dart运行时，引擎全部使用C++实现，Framework层使我们可以用Dart语言调用引擎的强大能力。</p>
-<h2 id="分层架构"><a href="#分层架构" class="headerlink" title="分层架构"></a>分层架构</h2><p>flutter-layer-arch</p>
+<h2 id="分层架构"><a href="#分层架构" class="headerlink" title="分层架构"></a>分层架构</h2><p><img src="https://tech.meituan.com/img/waimai-flutter/flutter-layer-arch.png" alt="avatar"></p>
+<p>flutter-layer-arch</p>
 <p>Framework的最底层叫做Foundation，其中定义的大都是非常基础的、提供给其他所有层使用的工具类和方法。绘制库（Painting）封装了Flutter Engine提供的绘制接口，主要是为了在绘制控件等固定样式的图形时提供更直观、更方便的接口，比如绘制缩放后的位图、绘制文本、插值生成阴影以及在盒子周围绘制边框等等。Animation是动画相关的类，提供了类似Android系统的ValueAnimator的功能，并且提供了丰富的内置插值器。Gesture提供了手势识别相关的功能，包括触摸事件类定义和多种内置的手势识别器。GestureBinding类是Flutter中处理手势的抽象服务类，继承自BindingBase类。Binding系列的类在Flutter中充当着类似于Android中的SystemService系列（ActivityManager、PackageManager）功能，每个Binding类都提供一个服务的单例对象，App最顶层的Binding会包含所有相关的Bingding抽象类。如果使用Flutter提供的控件进行开发，则需要使用WidgetsFlutterBinding，如果不使用Flutter提供的任何控件，而直接调用Render层，则需要使用RenderingFlutterBinding。</p>
 <p>Flutter本身支持Android和iOS两个平台，除了性能和开发语言上的“native”化之外，它还提供了两套设计语言的控件实现Material &amp; Cupertino，可以帮助App更好地在不同平台上提供原生的用户体验。</p>
 <h2 id="渲染库（Rendering）"><a href="#渲染库（Rendering）" class="headerlink" title="渲染库（Rendering）"></a>渲染库（Rendering）</h2><p>Flutter的控件树在实际显示时会转换成对应的渲染对象（RenderObject）树来实现布局和绘制操作。一般情况下，我们只会在调试布局，或者需要使用自定义控件来实现某些特殊效果的时候，才需要考虑渲染对象树的细节。渲染库主要提供的功能类有：</p>
@@ -320,10 +349,15 @@ RenderBoxContainerDefaultsMixin&lt;RenderBox, FlexParentData&gt;,
 DebugOverflowIndicatorMixin { ... }
 </code></pre><p>RendererBinding是渲染树和Flutter引擎的胶水层，负责管理帧重绘、窗口尺寸和渲染相关参数变化的监听。RenderObject渲染树中所有节点的基类，定义了布局、绘制和合成相关的接口。RenderBox和其三个常用的子类RenderParagraph、RenderImage、RenderFlex则是具体布局和绘制逻辑的实现类。</p>
 <p>在Flutter界面渲染过程分为三个阶段：布局、绘制、合成，布局和绘制在Flutter框架中完成，合成则交由引擎负责。</p>
+<p><img src="https://tech.meituan.com/img/waimai-flutter/flutter-render-steps.svg" alt="avatar"></p>
 <h2 id="flutter-render-steps"><a href="#flutter-render-steps" class="headerlink" title="flutter-render-steps"></a>flutter-render-steps</h2><p>控件树中的每个控件通过实现RenderObjectWidget#createRenderObject(BuildContext context) → RenderObject方法来创建对应的不同类型的RenderObject对象，组成渲染对象树。因为Flutter极大地简化了布局的逻辑，所以整个布局过程中只需要深度遍历一次：</p>
+<p><img src="https://tech.meituan.com/img/waimai-flutter/flutter-render-tree-layout.svg" alt="avatar"></p>
 <h2 id="flutter-render-tree-layout"><a href="#flutter-render-tree-layout" class="headerlink" title="flutter-render-tree-layout"></a>flutter-render-tree-layout</h2><p>渲染对象树中的每个对象都会在布局过程中接受父对象的Constraints参数，决定自己的大小，然后父对象就可以按照自己的逻辑决定各个子对象的位置，完成布局过程。子对象不存储自己在容器中的位置，所以在它的位置发生改变时并不需要重新布局或者绘制。子对象的位置信息存储在它自己的parentData字段中，但是该字段由它的父对象负责维护，自身并不关心该字段的内容。同时也因为这种简单的布局逻辑，Flutter可以在某些节点设置布局边界（Relayout boundary），即当边界内的任何对象发生重新布局时，不会影响边界外的对象，反之亦然：</p>
+<p><img src="https://tech.meituan.com/img/waimai-flutter/flutter-relayout-boundary.svg" alt="avatar"></p>
 <h2 id="flutter-relayout-boundary"><a href="#flutter-relayout-boundary" class="headerlink" title="flutter-relayout-boundary"></a>flutter-relayout-boundary</h2><p>布局完成后，渲染对象树中的每个节点都有了明确的尺寸和位置，Flutter会把所有对象绘制到不同的图层上：</p>
+<p><img src="https://tech.meituan.com/img/waimai-flutter/flutter-render-layer.svg" alt="avatra"></p>
 <h2 id="flutter-render-layer"><a href="#flutter-render-layer" class="headerlink" title="flutter-render-layer"></a>flutter-render-layer</h2><p>因为绘制节点时也是深度遍历，可以看到第二个节点在绘制它的背景和前景不得不绘制在不同的图层上，因为第四个节点切换了图层（因为“4”节点是一个需要独占一个图层的内容，比如视频），而第六个节点也一起绘制到了红色图层。这样会导致第二个节点的前景（也就是“5”）部分需要重绘时，和它在逻辑上毫不相干但是处于同一图层的第六个节点也必须重绘。为了避免这种情况，Flutter提供了另外一个“重绘边界”的概念：</p>
+<p><img src="https://tech.meituan.com/img/waimai-flutter/flutter-repaint-boundary.svg" alt="avatar"></p>
 <h2 id="flutter-repaint-boundary"><a href="#flutter-repaint-boundary" class="headerlink" title="flutter-repaint-boundary"></a>flutter-repaint-boundary</h2><p>在进入和走出重绘边界时，Flutter会强制切换新的图层，这样就可以避免边界内外的互相影响。典型的应用场景就是ScrollView，当滚动内容重绘时，一般情况下其他内容是不需要重绘的。虽然重绘边界可以在任何节点手动设置，但是一般不需要我们来实现，Flutter提供的控件默认会在需要设置的地方自动设置。</p>
 <h2 id="控件库（Widgets）"><a href="#控件库（Widgets）" class="headerlink" title="控件库（Widgets）"></a>控件库（Widgets）</h2><p>Flutter的控件库提供了非常丰富的控件，包括最基本的文本、图片、容器、输入框和动画等等。在Flutter中“一切皆是控件”，通过组合、嵌套不同类型的控件，就可以构建出任意功能、任意复杂度的界面。它包含的最主要的几个类有：</p>
 <pre><code>class WidgetsFlutterBinding extends BindingBase with GestureBinding, ServicesBinding, SchedulerBinding,
@@ -340,13 +374,19 @@ abstract class RenderObjectElement extends Element { ... }
 </code></pre><p>基于Flutter控件系统开发的程序都需要使用WidgetsFlutterBinding，它是Flutter的控件框架和Flutter引擎的胶水层。Widget就是所有控件的基类，它本身所有的属性都是只读的。RenderObjectWidget所有的实现类则负责提供配置信息并创建具体的RenderObjectElement。Element是Flutter用来分离控件树和真正的渲染对象的中间层，控件用来描述对应的element属性，控件重建后可能会复用同一个element。RenderObjectElement持有真正负责布局、绘制和碰撞测试（hit test）的RenderObject对象。</p>
 <p>StatelessWidget和StatefulWidget并不会直接影响RenderObject的创建，它们只负责创建对应的RenderObjectWidget，StatelessElement和StatefulElement也是类似的功能。</p>
 <p>它们之间的关系如下图：</p>
+<p><img src="https://tech.meituan.com/img/waimai-flutter/flutter-layout-1.svg" alt="avatar"></p>
 <h2 id="flutter-layout-1"><a href="#flutter-layout-1" class="headerlink" title="flutter-layout-1"></a>flutter-layout-1</h2><p>如果控件的属性发生了变化（因为控件的属性是只读的，所以变化也就意味着重新创建了新的控件树），但是其树上每个节点的类型没有变化时，element树和render树可以完全重用原来的对象（因为element和render object的属性都是可变的）：</p>
+<p><img src="https://tech.meituan.com/img/waimai-flutter/flutter-layout-2.svg" alt="avatar"></p>
 <h2 id="flutter-layout-2"><a href="#flutter-layout-2" class="headerlink" title="flutter-layout-2"></a>flutter-layout-2</h2><p>但是，如果控件树种某个节点的类型发生了变化，则element树和render树中的对应节点也需要重新创建：</p>
+<p><img src="https://tech.meituan.com/img/waimai-flutter/flutter-layout-3.svg" alt="avatar"></p>
 <p>flutter-layout-3</p>
 <p>外卖全品类页面实践<br>在调研了Flutter的各项特性和实现原理之后，外卖计划灰度上线Flutter版的全品类页面。对于将Flutter页面作为App的一部分这种集成模式，官方并没有提供完善的支持，所以我们首先需要了解Flutter是如何编译、打包并且运行起来的。</p>
 <h2 id="Flutter-App构建过程"><a href="#Flutter-App构建过程" class="headerlink" title="Flutter App构建过程"></a>Flutter App构建过程</h2><p>最简单的Flutter工程至少包含两个文件：</p>
+<p><img src="https://tech.meituan.com/img/waimai-flutter/flutter-main.png" alt="avatar"></p>
 <h2 id="flutter-main"><a href="#flutter-main" class="headerlink" title="flutter-main"></a>flutter-main</h2><p>运行Flutter程序时需要对应平台的宿主工程，在Android上Flutter通过自动创建一个Gradle项目来生成宿主，在项目目录下执行flutter create .，Flutter会创建ios和android两个目录，分别构建对应平台的宿主项目，android目录内容如下：</p>
+<p><img src="https://tech.meituan.com/img/waimai-flutter/flutter-android-dir.png" alt="avatar"></p>
 <h2 id="flutter-android-dir"><a href="#flutter-android-dir" class="headerlink" title="flutter-android-dir"></a>flutter-android-dir</h2><p>此Gradle项目中只有一个app module，构建产物即是宿主APK。Flutter在本地运行时默认采用Debug模式，在项目目录执行flutter run即可安装到设备中并自动运行，Debug模式下Flutter使用JIT方式来执行Dart代码，所有的Dart代码都会打包到APK文件中assets目录下，由libflutter.so中提供的DartVM读取并执行：</p>
+<p><img src="https://tech.meituan.com/img/waimai-flutter/flutter-apk.png" alt="avatar"></p>
 <h2 id="flutter-apk"><a href="#flutter-apk" class="headerlink" title="flutter-apk"></a>flutter-apk</h2><p>kernel_blob.bin是Flutter引擎的底层接口和Dart语言基本功能部分代码：</p>
 <pre><code>third_party/dart/runtime/bin/*.dart
 third_party/dart/runtime/lib/*.dart
@@ -383,9 +423,11 @@ flutter/packages/flutter/lib/src/animation/*.dart
 .pub-cache/hosted/pub.flutter-io.cn/shared_preferences-0.4.2/*.dart
 kernel_blob.bin和platform.dill都是由flutter_tools中的bundle.dart中调用KernelCompiler生成。
 </code></pre><p>在Release模式（flutter run –release）下，Flutter会使用Dart的AOT运行模式，编译时将Dart代码转换成ARM指令：</p>
+<p><img src="https://tech.meituan.com/img/waimai-flutter/flutter-apk-aot.png" alt="avatar"></p>
 <h2 id="flutter-apk-aot"><a href="#flutter-apk-aot" class="headerlink" title="flutter-apk-aot"></a>flutter-apk-aot</h2><p>kernel_blob.bin和platform.dill都不在打包后的APK中，取代其功能的是(isolate/vm)<em>snapshot</em>(data/instr)四个文件。snapshot文件由Flutter SDK中的flutter/bin/cache/artifacts/engine/android-arm-release/darwin-x64/gen_snapshot命令生成，vmsnapshot*是Dart虚拟机运行所需要的数据和代码指令，isolatesnapshot*则是每个isolate运行所需要的数据和代码指令。</p>
 <h2 id="Flutter-App运行机制"><a href="#Flutter-App运行机制" class="headerlink" title="Flutter App运行机制"></a>Flutter App运行机制</h2><p>Flutter构建出的APK在运行时会将所有assets目录下的资源文件解压到App私有文件目录中的flutter目录下，主要包括处理字符编码的icudtl.dat，还有Debug模式的kernel_blob.bin、platform.dill和Release模式下的4个snapshot文件。默认情况下Flutter在Application#onCreate时调用FlutterMain#startInitialization来启动解压任务，然后在FlutterActivityDelegate#onCreate中调用FlutterMain#ensureInitializationComplete来等待解压任务结束。</p>
 <p>Flutter在Debug模式下使用JIT执行方式，主要是为了支持广受欢迎的热刷新功能：</p>
+<p><img src="https://tech.meituan.com/img/waimai-flutter/flutter-debug.svg" alt="avatar"></p>
 <h2 id="flutter-debug"><a href="#flutter-debug" class="headerlink" title="flutter-debug"></a>flutter-debug</h2><p>触发热刷新时Flutter会检测发生改变的Dart文件，将其同步到App私有缓存目录下，DartVM加载并且修改对应的类或者方法，重建控件树后立即可以在设备上看到效果。</p>
 <p>在Release模式下Flutter会直接将snapshot文件映射到内存中执行其中的指令：</p>
 <h2 id="flutter-aot"><a href="#flutter-aot" class="headerlink" title="flutter-aot"></a>flutter-aot</h2><p>在Release模式下，FlutterActivityDelegate#onCreate中调用FlutterMain#ensureInitializationComplete方法中会将AndroidManifest中设置的snapshot（没有设置则使用上面提到的默认值）文件名等运行参数设置到对应的C++同名类对象中，构造FlutterNativeView实例时调用nativeAttach来初始化DartVM，运行编译好的Dart代码。</p>
@@ -456,6 +498,7 @@ return;
 callback(true);
 }),
 </code></pre><h2 id="SO库兼容性"><a href="#SO库兼容性" class="headerlink" title="SO库兼容性"></a>SO库兼容性</h2><p>Flutter官方只提供了四种CPU架构的SO库：armeabi-v7a、arm64-v8a、x86和x86-64，其中x86系列只支持Debug模式，但是外卖使用的大量SDK都只提供了armeabi架构的库。虽然我们可以通过修改引擎src根目录和third_party/dart目录下build/config/arm.gni，third_party/skia目录下的BUILD.gn等配置文件来编译出armeabi版本的Flutter引擎，但是实际上市面上绝大部分设备都已经支持armeabi-v7a，其提供的硬件加速浮点运算指令可以大大提高Flutter的运行速度，在灰度阶段我们可以主动屏蔽掉不支持armeabi-v7a的设备，直接使用armeabi-v7a版本的引擎。做到这点我们首先需要修改Flutter提供的引擎，在Flutter安装目录下的bin/cache/artifacts/engine下有Flutter下载的所有平台的引擎：</p>
+<p><img src="https://tech.meituan.com/img/waimai-flutter/flutter-sos.png" alt="avatar"></p>
 <h2 id="flutter-sos"><a href="#flutter-sos" class="headerlink" title="flutter-sos"></a>flutter-sos</h2><p>我们只需要修改android-arm、android-arm-profile和android-arm-release下的flutter.jar，将其中的lib/armeabi-v7a/libflutter.so移动到lib/armeabi/libflutter.so即可：</p>
 <pre><code>cd $FLUTTER_ROOT/bin/cache/artifacts/engine
 for arch in android-arm android-arm-profile android-arm-release; do
@@ -487,7 +530,9 @@ L.wtf(e);
 return false;
 }
 </code></pre><h2 id="灰度和自动降级策略"><a href="#灰度和自动降级策略" class="headerlink" title="灰度和自动降级策略"></a>灰度和自动降级策略</h2><p>Horn是一个美团内部的跨平台配置下发SDK，使用Horn可以很方便地指定灰度开关：</p>
+<p><img src="https://tech.meituan.com/img/waimai-flutter/flutter-horn-config.png" alt="avatar"></p>
 <h2 id="flutter-horn-config"><a href="#flutter-horn-config" class="headerlink" title="flutter-horn-config"></a>flutter-horn-config</h2><p>在条件配置页面定义一系列条件，然后在参数配置页面添加新的字段flutter即可：</p>
+<p><img src="https://tech.meituan.com/img/waimai-flutter/flutter-switch.png" alt="avatar"></p>
 <h2 id="flutter-switch"><a href="#flutter-switch" class="headerlink" title="flutter-switch"></a>flutter-switch</h2><p>因为在客户端做了ABI兜底策略，所以这里定义的ABI规则并没有启用。</p>
 <p>Flutter目前仍然处于Beta阶段，灰度过程中难免发生崩溃现象，观察到崩溃后再针对机型或者设备ID来做降级虽然可以尽量降低影响，但是我们可以做到更迅速。外卖的Crash采集SDK同时也支持JNI Crash的收集，我们专门为Flutter注册了崩溃监听器，一旦采集到Flutter相关的JNI Crash就立即停止该设备的Flutter功能，启动Flutter之前会先判断FLUTTER_NATIVE_CRASH_FLAG文件是否存在，如果存在则表示该设备发生过Flutter相关的崩溃，很有可能是不兼容导致的问题，当前版本周期内在该设备上就不再使用Flutter功能。</p>
 <p>除了崩溃以外，Flutter页面中的Dart代码也可能发生异常，例如服务器下发数据格式错误导致解析失败等等，Dart也提供了全局的异常捕获功能：</p>
@@ -582,8 +627,10 @@ Stack frame #09 pc 0000241c  /data/data/com.sankuai.meituan.takeoutnew/app_flutt
 #23     _invoke (dart:ui/hooks.dart:122)
 #24     _drawFrame (dart:ui/hooks.dart:109)
 </code></pre><h2 id="Flutter和原生性能对比"><a href="#Flutter和原生性能对比" class="headerlink" title="Flutter和原生性能对比"></a>Flutter和原生性能对比</h2><p>虽然使用原生实现（左）和Flutter实现（右）的全品类页面在实际使用过程中几乎分辨不出来：</p>
+<p><img src="https://tech.meituan.com/img/waimai-flutter/allcategory-flutter-vs-android@2x.jpg" alt="avatar"></p>
 <h2 id="wm-allcategory-screenshot"><a href="#wm-allcategory-screenshot" class="headerlink" title="wm-allcategory-screenshot"></a>wm-allcategory-screenshot</h2><p>但是我们还需要在性能方面有一个比较明确的数据对比。</p>
 <p>我们最关心的两个页面性能指标就是页面加载时间和页面渲染速度。测试页面加载速度可以直接使用美团内部的Metrics性能测试工具，我们将页面Activity对象创建作为页面加载的开始时间，页面API数据返回作为页面加载结束时间。从两个实现的页面分别启动400多次的数据中可以看到，原生实现（AllCategoryActivity）的加载时间中位数为210ms，Flutter实现（FlutterCategoryActivity）的加载时间中位数为231ms。考虑到目前我们还没有针对FlutterView做缓存和重用，FlutterView每次创建都需要初始化整个Flutter环境并加载相关代码，多出的20ms还在预期范围内：flutter-allcategory-page-speed</p>
+<p><img src="https://tech.meituan.com/img/waimai-flutter/flutter-allcategory-page-speed.png" alt="avatar"><br><img src="https://tech.meituan.com/img/waimai-flutter/android-native-allcategory-page-speed.png" alt="avatar"></p>
 <h2 id="android-native-allcategory-page-speed"><a href="#android-native-allcategory-page-speed" class="headerlink" title="android-native-allcategory-page-speed"></a>android-native-allcategory-page-speed</h2><p>因为Flutter的UI逻辑和绘制代码都不在主线程执行，Metrics原有的FPS功能无法统计到Flutter页面的真实情况，我们需要用特殊方法来对比两种实现的渲染效率。Android原生实现的界面渲染耗时使用系统提供的FrameMetrics接口进行监控：</p>
 <pre><code>public class AllCategoryActivity extends WmBaseActivity {
 
@@ -640,11 +687,13 @@ adb shell input swipe 500 1000 500 300 900
 adb shell input keyevent 4
 done
 </code></pre><p>将测试结果的100次启动中每帧耗时取平均値，得到每帧平均耗时情况（横坐标轴为帧序列，纵坐标轴为每帧耗时，单位为毫秒）：</p>
+<p><img src="https://tech.meituan.com/img/waimai-flutter/android-vs-flutter-frame-duration.png" alt="avatar"></p>
 <h2 id="android-vs-flutter-frame-duration"><a href="#android-vs-flutter-frame-duration" class="headerlink" title="android-vs-flutter-frame-duration"></a>android-vs-flutter-frame-duration</h2><p>Android原生实现和Flutter版本都会在页面打开的前5帧超过16ms，刚打开页面时原生实现需要创建大量View，Flutter也需要创建大量Widget，后续帧中可以重用大部分控件和渲染节点（原生的RenderNode和Flutter的RenderObject），所以启动时的布局和渲染操作都是最耗时的。</p>
 <p>10000帧（100次×100帧每次）中Android原生总平均値为10.21ms，Flutter总平均値为12.28ms，Android原生实现总丢帧数851帧8.51%，Flutter总丢帧987帧9.87%。在原生实现的触摸事件处理和过度绘制充分优化的前提下，Flutter完全可以媲美原生的性能。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Flutter目前仍处于早期阶段，也还没有发布正式的Release版本，不过我们看到Flutter团队一直在为这一目标而努力。虽然Flutter的开发生态不如Android和iOS原生应用那么成熟，许多常用的复杂控件还需要自己实现，有的甚至会比较困难（比如官方尚未提供的ListView.scrollTo(index)功能），但是在高性能和跨平台方面Flutter在众多UI框架中还是有很大优势的。</p>
 <p>开发Flutter应用只能使用Dart语言，Dart本身既有静态语言的特性，也支持动态语言的部分特性，对于Java和JavaScript开发者来说门槛都不高，3-5天可以快速上手，大约1-2周可以熟练掌握。在开发全品类页面的Flutter版本时我们也深刻体会到了Dart语言的魅力，Dart的语言特性使得Flutter的界面构建过程也比Android原生的XML+JAVA更直观，代码量也从原来的900多行减少到500多行（排除掉引用的公共组件）。Flutter页面集成到App后APK体积至少会增加5.5MB，其中包括3.3MB的SO库文件和2.2MB的ICU数据文件，此外业务代码1300行编译产物的大小有2MB左右。</p>
 <p>Flutter本身的特性适合追求iOS和Android跨平台的一致体验，追求高性能的UI交互效果的场景，不适合追求动态化部署的场景。Flutter在Android上已经可以实现动态化部署，但是由于Apple的限制，在iOS上实现动态化部署非常困难，Flutter团队也正在和Apple积极沟通。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://flutter-io.cn" target="_blank" rel="external">Flutter中文官网</a><br><a href="https://flutter.io/technical-overview/" target="_blank" rel="external">Flutter框架技术概览</a><br><a href="https://pub.dartlang.org/flutter/" target="_blank" rel="external">Flutter插件仓库</a><br><a href="https://www.dartlang.org/guides/language/language-tour" target="_blank" rel="external">A Tour of the Dart Language</a><br><a href="https://www.dartlang.org/guides/libraries/library-tour" target="_blank" rel="external">A Tour of the Dart Libraries</a><br><a href="https://medium.com/m/global-identity?redirectUrl=https%3A%2F%2Fhackernoon.com%2Fwhy-flutter-uses-Dart-dd635a054ebf" target="_blank" rel="external">Why Flutter Uses Dart</a><br><a href="https://flutter.io/layout/" target="_blank" rel="external">Flutter Layout机制简介</a><br><a href="https://www.youtube.com/watch?v=dkyY9WCGMi0" target="_blank" rel="external">Flutter’s Layered Design</a></p>
 
       
     </div>
@@ -654,18 +703,18 @@ done
     
 <nav id="article-nav">
   
-    <a href="/2018/09/03/深入理解JSCore/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/09/03/美团客户端响应式框架 EasyReact/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          深入理解JSCore
+          美团客户端响应式框架 EasyReact
         
       </div>
     </a>
   
   
-    <a href="/2018/08/28/深入理解JSCore的副本/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">写给工程师的十条精进原则</div>
+    <a href="/2018/08/31/如何基于深度学习实现图像的智能审核？/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">如何基于深度学习实现图像的智能审核？</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
