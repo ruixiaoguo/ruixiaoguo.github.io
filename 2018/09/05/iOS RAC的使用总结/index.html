@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>iOS RAC的使用总结 | Grx Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="iOS RAC的使用总结ReactiveCocoa(简称RAC),是GitHub上开源的一个应用于iOS和OS X开发的一个新框架.RAC具有函数式编程和响应者编程的特性.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS RAC的使用总结">
+<meta property="og:url" content="http://yoursite.com/2018/09/05/iOS RAC的使用总结/index.html">
+<meta property="og:site_name" content="Grx Blog">
+<meta property="og:description" content="iOS RAC的使用总结ReactiveCocoa(简称RAC),是GitHub上开源的一个应用于iOS和OS X开发的一个新框架.RAC具有函数式编程和响应者编程的特性.">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/851071-fe8e104e0ff34d94.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/851071-903b533898d5d93f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000">
+<meta property="og:updated_time" content="2018-09-06T08:16:36.075Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS RAC的使用总结">
+<meta name="twitter:description" content="iOS RAC的使用总结ReactiveCocoa(简称RAC),是GitHub上开源的一个应用于iOS和OS X开发的一个新框架.RAC具有函数式编程和响应者编程的特性.">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/851071-fe8e104e0ff34d94.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000">
+  
+    <link rel="alternative" href="/atom.xml" title="Grx Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://img3.imgtn.bdimg.com/it/u=2738905542,2894070565&amp;fm=21&amp;gp=0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Grx</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">自我管理，知识管理，时间管理，阅读，语音写作，思维导图</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/tags/life">随笔</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/ruixiaoguo" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="https://weibo.com/u/3984935859?refer_flag=1005055010_" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/OC/" style="font-size: 10px;">-OC</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Apple-Watch/" style="font-size: 10px;">Apple Watch</a> <a href="/tags/Flutter/" style="font-size: 10px;">Flutter</a> <a href="/tags/Life/" style="font-size: 10px;">Life</a> <a href="/tags/OC/" style="font-size: 20px;">OC</a> <a href="/tags/RAC/" style="font-size: 12px;">RAC</a> <a href="/tags/Swift/" style="font-size: 16px;">Swift</a> <a href="/tags/WebView/" style="font-size: 10px;">WebView</a> <a href="/tags/Xcode/" style="font-size: 14px;">Xcode</a> <a href="/tags/appledoc/" style="font-size: 10px;">appledoc</a> <a href="/tags/hexo/" style="font-size: 12px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/life/" style="font-size: 18px;">life</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.devtang.com">唐巧的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondvincent.com">破船之家</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://limboy.me">无网不剩</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://msching.github.io">码农人生</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://yulingtianxia.com">玉令天下</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.leichunfeng.com">雷纯锋的技术博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://jax.cnblogs.com">包建强</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.cnbang.net">bang</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">知识管理，时间管理，自我管理，阅读，语音写作，思维导图，Wiz，TimeMeter</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Grx</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://img3.imgtn.bdimg.com/it/u=2738905542,2894070565&amp;fm=21&amp;gp=0.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Grx</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">自我管理，知识管理，时间管理，阅读，语音写作，思维导图</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/life">随笔</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/ruixiaoguo" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="https://weibo.com/u/3984935859?refer_flag=1005055010_" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-iOS RAC的使用总结" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/09/05/iOS RAC的使用总结/" class="article-date">
+  	<time datetime="2018-09-05T08:28:47.000Z" itemprop="datePublished">2018-09-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS RAC的使用总结
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RAC/">RAC</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="iOS-RAC的使用总结"><a href="#iOS-RAC的使用总结" class="headerlink" title="iOS RAC的使用总结"></a>iOS RAC的使用总结</h1><p>ReactiveCocoa(简称RAC),是GitHub上开源的一个应用于iOS和OS X开发的一个新框架.RAC具有函数式编程和响应者编程的特性.<br><a id="more"></a></p>
+<h2 id="ReactiveCocoa解决的问题"><a href="#ReactiveCocoa解决的问题" class="headerlink" title="ReactiveCocoa解决的问题:"></a>ReactiveCocoa解决的问题:</h2><ol>
+<li>传统iOS开发过程中,状态以及状态之间依赖过多的问题</li>
+<li>传统MVC架构的问题:Controller比较复杂,可测试性差</li>
+<li>提供统一的消息传递机制</li>
+</ol>
+<p>RAC的简单讲解:这篇博客主要是记录RAC的使用的</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/851071-fe8e104e0ff34d94.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000" alt="avatar"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/851071-903b533898d5d93f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000" alt="avatar"></p>
+<h2 id="RAC使用的demo"><a href="#RAC使用的demo" class="headerlink" title="RAC使用的demo"></a>RAC使用的demo</h2><h2 id="1-键值观察–监听TF的值发生变化"><a href="#1-键值观察–监听TF的值发生变化" class="headerlink" title="1.键值观察–监听TF的值发生变化"></a>1.键值观察–监听TF的值发生变化</h2><pre><code>- (void)demo1{
+     @weakify(self);
+    [self.tF.rac_textSignal subscribeNext:^(NSString *value) {
+        @strongify(self);
+
+        self.value = value;
+
+
+    }];
+
+    //当self.value的值变化时调用Block，这是用KVO的机制，RAC封装了KVO
+
+    [RACObserve(self, value) subscribeNext:^(NSString *value) {
+
+        NSLog(@&quot;%@&quot;,value);
+
+    }];
+}
+</code></pre><h2 id="2-map的使用"><a href="#2-map的使用" class="headerlink" title="2. map的使用"></a>2. map的使用</h2><pre><code>- (void)demo2{
+   //创建一个信号
+    RACSignal *signalA = [RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) {
+       //这个信号里面有一个Next事件的玻璃球和一个complete事件的玻璃球
+        [subscriber sendNext:@&quot;唱歌&quot;];
+        [subscriber sendCompleted];
+        return nil;
+
+    }];
+
+    //对信号进行改进,当信号里面流的是唱歌.就改进为&apos;跳舞&apos;返还给self.value
+
+    RAC(self, tF.text) = [signalA map:^id(NSString *value) {
+        if ([value isEqualToString:@&quot;唱歌&quot;]) {
+            return @&quot;跳舞&quot;;
+        }
+        return @&quot;&quot;;
+
+    }];       
+}
+</code></pre><h2 id="3-filter使用-你向西，他就向东，他向左，你就向右。"><a href="#3-filter使用-你向西，他就向东，他向左，你就向右。" class="headerlink" title="3.filter使用,你向西，他就向东，他向左，你就向右。"></a>3.filter使用,你向西，他就向东，他向左，你就向右。</h2><pre><code>- (void)demo3{
+
+    //创建两个通道,一个从A流出的通道A,和一个从B流出的通道B
+    RACChannelTerminal *channelA = RACChannelTo(self, value);
+    RACChannelTerminal *channelB = RACChannelTo(self,value2);
+
+    //改造通道A,使通过通道A的值,如果等于&apos;西&apos;,就改为&apos;东&apos;
+    [[channelA map:^id(NSString *value) {
+        if ([value isEqualToString:@&quot;西&quot;]) {
+            NSLog(@&quot;东&quot;);
+            return @&quot;东&quot;;
+
+        }
+        NSLog(@&quot;====== %@&quot;,value);
+        return value;
+    }] subscribe:channelB];//通道A流向B
+
+    //改造通道B,使通过通道B的值,如果等于&apos;左&apos;,就改为&apos;右&apos;传出去
+    [[channelB map:^id(id value) {
+        if ([value isEqualToString:@&quot;左&quot;]) {
+            NSLog(@&quot;右&quot;);
+            return @&quot;右&quot;;
+        }
+        NSLog(@&quot;====== %@&quot;,value);
+        return value;
+
+    }] subscribe:channelA];//通道B流向通道A
+
+    //KVO监听valueA的值的变化,过滤valueA的值,返回Yes表示通过
+    //只有value有值,才可通过
+    [[RACObserve(self, value) filter:^BOOL(id value) {
+
+        return value ? YES : NO;
+
+    }] subscribeNext:^(id x) {
+
+        NSLog(@&quot;你向%@&quot;,x);
+
+    }];
+
+    //KVO监听value2的变化
+    [[RACObserve(self, value2) filter:^BOOL(id value) {
+        return value ? YES: NO;
+    }] subscribeNext:^(id x) {
+        NSLog(@&quot;他向%@&quot;,x);
+    }];
+
+    //下面使value的值和value2的值发生改变
+    self.value = @&quot;西&quot;;
+    self.value2 = @&quot;左&quot;;  
+}
+</code></pre><h2 id="4-代理"><a href="#4-代理" class="headerlink" title="4.代理"></a>4.代理</h2><h2 id="1-代理的第一种写法"><a href="#1-代理的第一种写法" class="headerlink" title="1)代理的第一种写法"></a>1)代理的第一种写法</h2><pre><code>    .m文件
+    - (void)demo4{
+
+        [self.delegate makeAnApp:@&quot;12345上山打老虎&quot; String:@&quot;老虎不在家,怎么办&quot;];
+    }
+    .h文件
+
+    - (void)makeAnApp:(NSString *)string String:(NSString *)string;
+
+    @end
+
+    @interface Base5Controller : UIViewController
+
+    @property (nonatomic, assign)id&lt;ProgrammerDelegate&gt; delegate;
+    第一个控制器的.h
+
+     Base5Controller *base = [[Base5Controller alloc] init];
+    //        base.delegate = self; 
+
+            [self demo4];
+
+
+            //这里是个坑,必须将代理最后设置,否则信号是无法订阅到的
+            //雷纯峰大大是这样子解释的:在设置代理的时候，系统会缓存这个代理对象实现了哪些代码方法
+            //如果将代理放在订阅信号前设置,那么当控制器成为代理时是无法缓存这个代理对象实现了哪些代码方法的
+
+            base.delegate = self;
+            [self.navigationController pushViewController:base animated:YES];
+
+        }else{
+            [self.navigationController pushViewController:[cl new] animated:YES];
+        }
+
+
+}
+</code></pre><p>#pragma mark—demo4<br>//使用RAC代替代理时,rac_signalForSelector: fromProtocol:这个代替代理的方法使用时,切记要将self设为代理这句话放在订阅代理信号的后面写,否则会无法执行</p>
+<pre><code>- (void)demo4{
+    //为self添加一个信号,表示代理ProgrammerDelegate的makeAnApp;
+    //RACTuple 相当于swift中的元祖
+    [[self rac_signalForSelector:@selector(makeAnApp:String:) fromProtocol:@protocol(ProgrammerDelegate)] subscribeNext:^(RACTuple *x) {
+        //这里可以立即为makeAnApp的方法要执行的代码
+        NSLog(@&quot;%@ &quot;,x.first);
+        NSLog(@&quot;%@&quot;,x.second);
+    }];
+}
+</code></pre><h2 id="2-方法2-使用RACSubject替代代理"><a href="#2-方法2-使用RACSubject替代代理" class="headerlink" title="2)方法2 使用RACSubject替代代理"></a>2)方法2 使用RACSubject替代代理</h2><pre><code>    /**
+     *  RACSubject:信号提供者,自己可以充当信号,又能发送信号
+     创建方法:
+     1.创建RACSubject
+     2.订阅信号
+     3.发送信号
+     工作流程:
+     1.订阅信号,内部保存了订阅者,和订阅者相应block
+     2.当发送信号的,遍历订阅者,调用订阅者的nextBolck
+
+     注:如果订阅信号,必须在发送信号之前订阅信号,不然收不到信号,有利用区别RACReplaySubject
+
+     */
+
+    -(void)touchesBegan:(NSSet&lt;UITouch *&gt; *)touches withEvent:(UIEvent *)event{
+        RacSubjectController *racsub = [[RacSubjectController alloc] init];
+        racsub.subject = [RACSubject subject];
+        [racsub.subject subscribeNext:^(id x) {
+            NSLog(@&quot;被通知了%@&quot;,x);
+        }];
+        [self.navigationController pushViewController:racsub animated:YES];
+
+    }
+    在RacSubjectController.h里面声明属性
+
+    @property (nonatomic, strong) RACSubject *subject;
+    .m里面进行数据的传递
+
+    -(void)touchesBegan:(NSSet&lt;UITouch *&gt; *)touches withEvent:(UIEvent *)event{
+
+    if (self.subject) {
+        [self.subject sendNext:@1];
+
+    }
+
+}
+</code></pre><h2 id="5-广播"><a href="#5-广播" class="headerlink" title="5.广播"></a>5.广播</h2><pre><code>//发送通知
+- (void)demo5{
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+
+    //发送广播通知
+    [center postNotificationName:@&quot;妇女之友&quot; object:nil userInfo:@{@&quot;技巧&quot;:@&quot;用心听&quot;}];
+
+
+}
+
+//接收通知
+
+NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+//RAC的通知不需要我们手动移除
+//注册广播通知
+RACSignal *siganl = [center rac_addObserverForName:@&quot;妇女之友&quot; object:nil];
+//设置接收通知的回调处理
+[siganl subscribeNext:^(NSNotification *x) {
+
+    NSLog(@&quot;技巧: %@&quot;,x.userInfo[@&quot;技巧&quot;]);
+}];
+</code></pre><h2 id="6-两个信号串联-两个管串联-一个管处理完自己的东西-下一个管才开始处理自己的东西"><a href="#6-两个信号串联-两个管串联-一个管处理完自己的东西-下一个管才开始处理自己的东西" class="headerlink" title="6.两个信号串联,两个管串联,一个管处理完自己的东西,下一个管才开始处理自己的东西"></a>6.两个信号串联,两个管串联,一个管处理完自己的东西,下一个管才开始处理自己的东西</h2><pre><code>- (void)demo6{
+
+    //创建一个信号管A
+    RACSignal *siganlA = [RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) {
+        [subscriber sendNext:@&quot;吃饭&quot;];
+        [subscriber sendCompleted];
+        return nil;
+
+    }];
+
+    //创建一个信号管B
+    RACSignal *siganlB = [RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) {
+
+        [subscriber sendNext:@&quot;吃的饱饱的,才可以睡觉的&quot;];
+        [subscriber sendCompleted];
+        return nil;
+    }];
+
+    //串联管A和管B
+    RACSignal *concatSiganl = [siganlA concat:siganlB];
+    //串联后的接收端处理 ,两个事件,走两次,第一个打印siggnalA的结果,第二次打印siganlB的结果
+    [concatSiganl subscribeNext:^(id x) {
+        NSLog(@&quot;%@&quot;,x);
+
+    }];
+
+}
+</code></pre><h2 id="7-并联-只要有一个管有东西-就可以打印"><a href="#7-并联-只要有一个管有东西-就可以打印" class="headerlink" title="7.并联,只要有一个管有东西,就可以打印"></a>7.并联,只要有一个管有东西,就可以打印</h2><pre><code>- (void)demo7{
+  //创建信号A
+    RACSignal *siganlA = [RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) {
+        [subscriber sendNext:@&quot;纸厂污水&quot;];
+        [subscriber sendCompleted];
+        return nil;
+    }];
+
+    //创建信号B
+    RACSignal *siganlB = [RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) {
+
+        [subscriber sendNext:@&quot;电镀厂污水&quot;];
+        [subscriber sendCompleted];
+        return nil;
+    }];
+
+    //并联两个信号,根上面一样,分两次打印
+    RACSignal *mergeSiganl = [RACSignal merge:@[siganlA,siganlB]];
+    [mergeSiganl subscribeNext:^(id x) {
+
+        NSLog(@&quot;%@&quot;,x);
+
+    }];
+
+}
+</code></pre><h2 id="8-组合-只有两个信号都有值-才可以组合"><a href="#8-组合-只有两个信号都有值-才可以组合" class="headerlink" title="8.组合,只有两个信号都有值,才可以组合"></a>8.组合,只有两个信号都有值,才可以组合</h2><pre><code>- (void)demo8{
+    //定义2个自定义信号
+    RACSubject *letters = [RACSubject subject];
+    RACSubject *numbers = [RACSubject subject];
+
+    //组合信号
+    [[RACSignal combineLatest:@[letters,numbers] reduce:^(NSString *letter, NSString *number){
+
+        return [letter stringByAppendingString:number];
+    }] subscribeNext:^(id x) {
+        NSLog(@&quot;%@&quot;,x);
+
+    }];
+
+
+    //自己控制发生信号值
+    [letters sendNext:@&quot;A&quot;];
+    [letters sendNext:@&quot;B&quot;];
+    [numbers sendNext:@&quot;1&quot;]; //打印B1
+    [letters sendNext:@&quot;C&quot;];//打印C1
+    [numbers sendNext:@&quot;2&quot;];//打印C2
+}
+</code></pre><h2 id="9-合流压缩"><a href="#9-合流压缩" class="headerlink" title="9.合流压缩"></a>9.合流压缩</h2><pre><code>- (void)demo9{
+
+    //创建信号A
+    RACSignal *siganlA = [RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) {
+
+        [subscriber sendNext:@&quot;红&quot;];
+        [subscriber sendCompleted];
+        return nil;
+    }];
+
+    //创建信号B
+    RACSignal *siganlB = [RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) {
+
+        [subscriber sendNext:@&quot;白&quot;];
+        [subscriber sendCompleted];
+        return nil;
+    }];
+
+    //合流后处理的是压缩包,需要解压后才能取到里面的值
+    [[siganlA zipWith:siganlB] subscribeNext:^(id x) {
+
+        //解压缩
+        RACTupleUnpack(NSString *stringA, NSString *stringB) = x;
+        NSLog(@&quot;%@ %@&quot;,stringA, stringB);
+    }];
+
+}
+</code></pre><h2 id="10-映射-我可以点石成金"><a href="#10-映射-我可以点石成金" class="headerlink" title="10.映射,我可以点石成金"></a>10.映射,我可以点石成金</h2><pre><code>- (void)demo10{
+    RACSignal *siganl = [RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) {
+        [subscriber sendNext:nil];
+        [subscriber sendCompleted];
+        return nil;
+    }];
+    //对信号进行改造,改&quot;石&quot;成&quot;金&quot;
+    siganl = [siganl map:^id(NSString *value) {
+        if ([value isEqualToString:@&quot;石&quot;]) {
+            return @&quot;金&quot;;
+        }
+        return value;
+
+    }];
+
+    //打印,不论信号发送的是什么,这一步都会走的
+    [siganl subscribeNext:^(id x) {
+        NSLog(@&quot;%@&quot;,x);
+
+    }];
+
+
+}
+</code></pre><h2 id="11-过滤-未满18岁-禁止入内"><a href="#11-过滤-未满18岁-禁止入内" class="headerlink" title="11.过滤,未满18岁,禁止入内"></a>11.过滤,未满18岁,禁止入内</h2><pre><code>- (void)demo11{
+    RACSignal *singal = [RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) {
+
+        [subscriber sendNext:@(15)];
+        [subscriber sendNext:@(17)];
+        [subscriber sendNext:@(21)];
+        [subscriber sendNext:@(14)];
+        [subscriber sendNext:@(30)];
+
+        [subscriber sendCompleted];
+
+        return nil;
+    }];
+
+    //过滤信号,打印
+    [[singal filter:^BOOL(NSNumber *value) {
+
+        //大于18岁的,才可以通过
+        return value.integerValue &gt;= 18;//return为yes可以通过
+    }] subscribeNext:^(id x) {
+        NSLog(@&quot;%@&quot;,x);
+
+    }];
+
+}
+</code></pre><h2 id="12-秩序-flattenMap方法也可以换成then方法-效果一样"><a href="#12-秩序-flattenMap方法也可以换成then方法-效果一样" class="headerlink" title="12.秩序(flattenMap方法也可以换成then方法,效果一样)"></a>12.秩序(flattenMap方法也可以换成then方法,效果一样)</h2><pre><code>-(void)demo12{
+
+    RACSignal *siganl = [RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) {
+        NSLog(@&quot;打蛋液&quot;);
+        [subscriber sendNext:@&quot;蛋液&quot;];
+        [subscriber sendCompleted];
+        return nil;
+
+    }];
+
+    //对信号进行秩序秩序的第一步
+    siganl = [siganl flattenMap:^RACStream *(NSString *value) {
+        //处理上一步的RACSiganl的信号value.这里的value=@&quot;蛋液&quot;
+        NSLog(@&quot;把%@倒进锅里面煎&quot;,value);
+        return [RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) {
+            [subscriber sendNext:@&quot;煎蛋&quot;];
+            [subscriber sendCompleted];
+            return nil;
+
+        }];
+
+    }];
+    //对信号进行第二步处理
+    siganl = [siganl flattenMap:^RACStream *(id value) {
+        NSLog(@&quot;把%@装载盘里&quot;,value);
+        return [RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) {
+            [subscriber sendNext:@&quot;上菜&quot;];
+            [subscriber sendCompleted];
+            return nil;
+        }];
+
+    }];
+
+    //最后打印 最后带有===上菜
+    [siganl subscribeNext:^(id x) {
+        NSLog(@&quot;====%@&quot;,x);
+    }];
+
+}
+</code></pre><h2 id="13-命令"><a href="#13-命令" class="headerlink" title="13.命令"></a>13.命令</h2><pre><code>-(void)demo13{
+
+    RACCommand *command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        //打印：今天我投降了
+
+       //命令执行代理
+        NSLog(@&quot;%@我投降了&quot;,input);
+        //返回一个RACSignal信号
+        return [RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) {
+            return nil;
+        }];
+
+    }];
+
+    //执行命令
+    [command execute:@&quot;今天&quot;];
+
+
+}
+</code></pre><h2 id="14-延迟"><a href="#14-延迟" class="headerlink" title="14.延迟"></a>14.延迟</h2><pre><code>- (void)demo14{
+    RACSignal *siganl = [RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) {
+        NSLog(@&quot;等等我,我还有10s就到了&quot;);
+        [subscriber sendNext:@&quot;北极&quot;];
+        [subscriber sendCompleted];
+        return nil;
+    }];
+
+    //延迟10s接受next的玻璃球
+    [[siganl delay:10] subscribeNext:^(id x) {
+
+        NSLog(@&quot;我到了%@&quot;,x);
+
+    }];
+
+
+}
+</code></pre><h2 id="15-重放"><a href="#15-重放" class="headerlink" title="15.重放"></a>15.重放</h2><pre><code>- (void)demo15{
+
+    RACSignal *siganl = [RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) {
+        NSLog(@&quot;电影&quot;);
+        [subscriber sendNext:@&quot;电影&quot;];
+        [subscriber sendCompleted];
+        return nil;
+
+    }];
+
+    //创建该普通信号的重复信号
+    RACSignal *replaySiganl = [siganl replay];
+    //重复接受信号
+    [replaySiganl subscribeNext:^(NSString *x) {
+        NSLog(@&quot;小米%@&quot;,x);
+    }];
+    [replaySiganl subscribeNext:^(NSString *x) {
+        NSLog(@&quot;小红%@&quot;,x);
+
+    }];
+}
+</code></pre><h2 id="16-定时—每隔8小时服用一次药"><a href="#16-定时—每隔8小时服用一次药" class="headerlink" title="16.定时—每隔8小时服用一次药"></a>16.定时—每隔8小时服用一次药</h2><pre><code>- (void)demo16{
+    //创建定时器信号.定时8小时
+    RACSignal *siganl = [RACSignal interval:60 * 60 * 8 onScheduler:[RACScheduler mainThreadScheduler]];
+    //定时器执行代码
+    [siganl subscribeNext:^(id x) {
+        NSLog(@&quot;吃药&quot;);
+
+    }];
+
+
+}
+</code></pre><h2 id="17-超时"><a href="#17-超时" class="headerlink" title="17.超时"></a>17.超时</h2><pre><code>- (void)demo17{
+
+    RACSignal *siganl = [RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) {
+        NSLog(@&quot;我快到了&quot;);
+        RACSignal *sendSiganl = [RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) {
+
+            [subscriber sendNext:nil];
+            [subscriber sendCompleted];
+            return nil;
+        }];
+
+        //发生信号要1个小时10分钟才到
+        [[sendSiganl delay:60 * 70] subscribeNext:^(id x) {
+           //这里才发送next玻璃球到siganl
+            [subscriber sendNext:@&quot;我到了&quot;];
+            [subscriber sendCompleted];
+
+        }];
+        return nil;
+
+
+    }];
+
+    [[siganl timeout:60 * 60 onScheduler:[RACScheduler mainThreadScheduler]] subscribeNext:^(id x) {
+
+        NSLog(@&quot;等了你一个小时,你一直没来,我走了&quot;);
+
+    }];
+
+}
+</code></pre><h2 id="18-重试"><a href="#18-重试" class="headerlink" title="18.重试"></a>18.重试</h2><pre><code>- (void)demo18{
+
+    __block int failedCount = 0;
+
+    //创建信号
+    RACSignal *siganl = [RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) {
+        if (failedCount &lt; 100) {
+            failedCount ++;
+            NSLog(@&quot;我失败了&quot;);
+            [subscriber sendError:nil];
+        }else{
+            NSLog(@&quot;经历了数百次后,我成功了&quot;);
+            [subscriber sendNext:nil];
+
+        }
+        return nil;
+
+    }];
+
+    //重试
+    RACSignal *retrySiganl = [siganl retry];
+    //直到发生next的玻璃球
+    [retrySiganl subscribeNext:^(id x) {
+        NSLog(@&quot;重要成功了&quot;);
+
+    }];
+
+}
+</code></pre><h2 id="19-节流-不好意思-这里每一秒只能通过一个人-如果1s内发生多个-只通过最后一个"><a href="#19-节流-不好意思-这里每一秒只能通过一个人-如果1s内发生多个-只通过最后一个" class="headerlink" title="19.节流,不好意思,这里每一秒只能通过一个人,如果1s内发生多个,只通过最后一个"></a>19.节流,不好意思,这里每一秒只能通过一个人,如果1s内发生多个,只通过最后一个</h2><pre><code>- (void)demo19{
+
+    RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) {
+       //即使发送一个next的玻璃球
+        [subscriber sendNext:@&quot;A&quot;];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [subscriber sendNext:@&quot;B&quot;];
+
+        });
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [subscriber sendNext:@&quot;C&quot;];
+            [subscriber sendNext:@&quot;D&quot;];
+            [subscriber sendNext:@&quot;E&quot;];
+
+        });
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [subscriber sendNext:@&quot;F&quot;];
+        });
+        return nil;
+
+    }];
+
+    //对信号进行节流,限制时间内一次只能通过一个玻璃球
+    [[signal throttle:1] subscribeNext:^(id x) {
+        NSLog(@&quot;%@通过了&quot;,x);
+
+    }];
+    /*
+     [2015-08-16 22:08:45.677]旅客A
+     [2015-08-16 22:08:46.737]旅客B
+     [2015-08-16 22:08:47.822]旅客E
+     [2015-08-16 22:08:48.920]旅客F
+     */
+
+}
+</code></pre><h2 id="20-条件-takeUntil方法-当给定的signal完成前一直取值"><a href="#20-条件-takeUntil方法-当给定的signal完成前一直取值" class="headerlink" title="20.条件(takeUntil方法,当给定的signal完成前一直取值)"></a>20.条件(takeUntil方法,当给定的signal完成前一直取值)</h2><pre><code>    - (void)demo20{
+
+        RACSignal *takeSiganl = [RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) {
+           //创建一个定时器信号,每一秒触发一次
+            RACSignal *siganl = [RACSignal interval:1 onScheduler:[RACScheduler mainThreadScheduler]];
+            [siganl subscribeNext:^(id x) {
+               //在这里定时发送next玻璃球
+                [subscriber sendNext:@&quot;直到世界尽头&quot;];
+
+            }];
+            return nil;
+
+        }];
+
+        //创建条件信号
+        RACSignal *conditionSiganl = [RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) {
+           //设置5s后发生complete玻璃球
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                NSLog(@&quot;世界的今天到了,请下车&quot;);
+                [subscriber sendCompleted];
+            });
+            return nil;
+        }];
+
+        //设置条件,takeSiganl信号在conditionSignal信号接收完成前,不断取值
+        [[takeSiganl takeUntil:conditionSiganl] subscribeNext:^(id x) {
+            NSLog(@&quot;%@&quot;,x);
+
+        }];
+
+
+}
+</code></pre><h2 id="21-RACReplaySubject使用"><a href="#21-RACReplaySubject使用" class="headerlink" title="21.RACReplaySubject使用"></a>21.RACReplaySubject使用</h2><pre><code>/**
+ *  RACReplaySubject创建方法
+        1.创建RACSubject
+        2.订阅信号
+        3.发送信号
+     工作流程:
+     1.订阅信号,内部保存了订阅者,和订阅者相应的block
+     2.当发送信号的,遍历订阅者,调用订阅者的nextBlock
+     3.发送的信号会保存起来,当订阅者订阅信号的时候,会将之前保存的信号,一个个作用于新的订阅者,保存信号的容量由capacity决定,这也是有别于RACSubject的
+ */
+
+-(void)RACReplaySubject{
+
+    RACReplaySubject *replaySubject = [RACReplaySubject subject];
+    [replaySubject subscribeNext:^(id x) {
+        NSLog(@&quot; 1 %@&quot;,x);
+    }];
+
+    [replaySubject subscribeNext:^(id x) {
+        NSLog(@&quot;2 %@&quot;,x);
+    }];
+    [replaySubject sendNext:@7];
+    [replaySubject subscribeNext:^(id x) {
+        NSLog(@&quot;3 %@&quot;,x);
+    }];
+
+}
+</code></pre><h2 id="22-rac-liftSelector-withSignals使用"><a href="#22-rac-liftSelector-withSignals使用" class="headerlink" title="22.rac_liftSelector:withSignals使用"></a>22.rac_liftSelector:withSignals使用</h2><pre><code>//这里的rac_liftSelector:withSignals 就是干这件事的，它的意思是当signalA和signalB都至少sendNext过一次，接下来只要其中任意一个signal有了新的内容，doA:withB这个方法就会自动被触发
+-(void)test{
+
+    RACSignal *sigalA = [RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) {
+
+        double delayInSeconds = 2.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds *NSEC_PER_SEC));
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(popTime * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [subscriber sendNext:@&quot;A&quot;];
+
+        });
+        return nil;
+    }];
+
+    RACSignal *signalB = [RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) {
+        [subscriber sendNext:@&quot;B&quot;];
+        [subscriber sendNext:@&quot;Another B&quot;];
+        [subscriber sendCompleted];
+        return nil;
+
+    }];
+    [self rac_liftSelector:@selector(doA:withB:) withSignals:sigalA,signalB, nil];
+
+}
+</code></pre>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/09/04/WebView性能、体验分析与优化/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">WebView性能、体验分析与优化</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="iOS RAC的使用总结" data-title="iOS RAC的使用总结" data-url="http://yoursite.com/2018/09/05/iOS RAC的使用总结/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 Grx
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
