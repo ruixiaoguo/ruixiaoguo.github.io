@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>MonkeyKing：无需集成第三方直接分享登录 | Grx Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="MonkeyKing：无需集成第三方直接分享登录集成第三方的东西虽然很简单,但是如果出现了一些编译上的错误,作为菜鸟是很难处理的。而最简单有效的处理方式就是把第三方的SDK全部移除再重新添加，错误就神奇的消失啦~">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MonkeyKing：无需集成第三方直接分享登录">
+<meta property="og:url" content="http://yoursite.com/2018/09/18/MonkeyKing：无需集成第三方直接分享登录/index.html">
+<meta property="og:site_name" content="Grx Blog">
+<meta property="og:description" content="MonkeyKing：无需集成第三方直接分享登录集成第三方的东西虽然很简单,但是如果出现了一些编译上的错误,作为菜鸟是很难处理的。而最简单有效的处理方式就是把第三方的SDK全部移除再重新添加，错误就神奇的消失啦~">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1275318-59718c44ab448ae5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1275318-6faa3992d5146314.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/903">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1275318-1fbcc6040d3f93c6.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/500">
+<meta property="og:updated_time" content="2018-09-18T02:59:27.286Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MonkeyKing：无需集成第三方直接分享登录">
+<meta name="twitter:description" content="MonkeyKing：无需集成第三方直接分享登录集成第三方的东西虽然很简单,但是如果出现了一些编译上的错误,作为菜鸟是很难处理的。而最简单有效的处理方式就是把第三方的SDK全部移除再重新添加，错误就神奇的消失啦~">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1275318-59718c44ab448ae5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000">
+  
+    <link rel="alternative" href="/atom.xml" title="Grx Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://img3.imgtn.bdimg.com/it/u=2738905542,2894070565&amp;fm=21&amp;gp=0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Grx</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">自我管理，知识管理，时间管理，阅读，语音写作，思维导图</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/tags/life">随笔</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/ruixiaoguo" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="https://weibo.com/u/3984935859?refer_flag=1005055010_" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/OC/" style="font-size: 10px;">-OC</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Apple-Watch/" style="font-size: 10px;">Apple Watch</a> <a href="/tags/Flutter/" style="font-size: 12px;">Flutter</a> <a href="/tags/Life/" style="font-size: 10px;">Life</a> <a href="/tags/Lottie/" style="font-size: 10px;">Lottie</a> <a href="/tags/MonkeyKing/" style="font-size: 10px;">MonkeyKing</a> <a href="/tags/OC/" style="font-size: 20px;">OC</a> <a href="/tags/RAC/" style="font-size: 12px;">RAC</a> <a href="/tags/Swift/" style="font-size: 16px;">Swift</a> <a href="/tags/WebView/" style="font-size: 10px;">WebView</a> <a href="/tags/Xcode/" style="font-size: 14px;">Xcode</a> <a href="/tags/appledoc/" style="font-size: 10px;">appledoc</a> <a href="/tags/hexo/" style="font-size: 12px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/life/" style="font-size: 18px;">life</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.devtang.com">唐巧的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondvincent.com">破船之家</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://limboy.me">无网不剩</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://msching.github.io">码农人生</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://yulingtianxia.com">玉令天下</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.leichunfeng.com">雷纯锋的技术博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://jax.cnblogs.com">包建强</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.cnbang.net">bang</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">知识管理，时间管理，自我管理，阅读，语音写作，思维导图，Wiz，TimeMeter</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Grx</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://img3.imgtn.bdimg.com/it/u=2738905542,2894070565&amp;fm=21&amp;gp=0.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Grx</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">自我管理，知识管理，时间管理，阅读，语音写作，思维导图</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/life">随笔</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/ruixiaoguo" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="https://weibo.com/u/3984935859?refer_flag=1005055010_" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-MonkeyKing：无需集成第三方直接分享登录" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/09/18/MonkeyKing：无需集成第三方直接分享登录/" class="article-date">
+  	<time datetime="2018-09-18T10:28:47.000Z" itemprop="datePublished">2018-09-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MonkeyKing：无需集成第三方直接分享登录
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MonkeyKing/">MonkeyKing</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="MonkeyKing：无需集成第三方直接分享登录"><a href="#MonkeyKing：无需集成第三方直接分享登录" class="headerlink" title="MonkeyKing：无需集成第三方直接分享登录"></a>MonkeyKing：无需集成第三方直接分享登录</h1><p>集成第三方的东西虽然很简单,但是如果出现了一些编译上的错误,作为菜鸟是很难处理的。而最简单有效的处理方式就是把第三方的SDK全部移除再重新添加，错误就神奇的消失啦~<br><a id="more"></a></p>
+<p>之前公司技术总监因故放弃了使用友M去管理第三方SDK，采取直接去第三方平台下载SDK集成的方式，导致项目里的SDK管理混乱。那么可不可以不使用第三方的SDK来实现第三方平台的分享、授权、支付等操作嘞?那就请猴王MonkeyKing来收服这些SDK吧~<br>其实官方demo里面的例子讲的很清楚了，但是自己动手按照自己喜欢的方式封装一下内部方法，用起来也舒服些~<br>正片</p>
+<blockquote>
+<p>操作环境：</p>
+</blockquote>
+<ol>
+<li>xcode 8.2.1</li>
+<li>swift 3.0</li>
+<li>准备工作</li>
+</ol>
+<h2 id="新建一个xcode项目，使用CocoaPods导入MonkeyKing。"><a href="#新建一个xcode项目，使用CocoaPods导入MonkeyKing。" class="headerlink" title="新建一个xcode项目，使用CocoaPods导入MonkeyKing。"></a>新建一个xcode项目，使用CocoaPods导入MonkeyKing。</h2><pre><code>platform :ios, &apos;9.0&apos;
+target &apos;MonkeyKingDemo&apos; do
+  # Comment the next line if you&apos;re not using Swift and don&apos;t want to use dynamic frameworks
+  use_frameworks!
+  pod &apos;MonkeyKing&apos;
+end
+</code></pre><p>先从第三方分享开始吧~<br>打开项目，先根据自己的需求配置一下第三方平台的URL Type（微信，qq，微博等等）。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1275318-59718c44ab448ae5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000" alt="avatar"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1275318-6faa3992d5146314.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/903" alt="avatar"></p>
+<p>我们创建一个工具类thirdParty.swift来统一管理第三方的业务逻辑。</p>
+<p>先按照自己的需求，定义一些枚举方便使用。</p>
+<pre><code>// 分享类型
+enum shareType {
+    case weChatSession
+    case weChatTimeline
+    case weibo
+    case qqFriend
+    case qqZone
+    case other // 占位用
+}
+// 第三方平台类型
+enum platformType {
+    case weChat
+    case qq
+    case weibo
+    case alipay
+    case other //占位用
+}
+</code></pre><p>我们给工具类定义一个注册第三方账号的类方法，这个方法我们可以在app启动时就调用，或者在你需要使用第三方之前调用。第三方的App key 和App ID、回调地址，我们可以在该工具类里面定义一些常量来管理，这里不再赘述。</p>
+<pre><code>/// regist third account
+    class func registAccount() {
+        MonkeyKing.registerAccount(.weChat(appID: &quot;xxxxxxx&quot;, appKey: &quot;xxxxxxx&quot;))
+        MonkeyKing.registerAccount(.weibo(appID: &quot;xxxxxxx&quot;, appKey: &quot;xxxxxxx&quot;, redirectURL: &quot;xxxxxxx&quot;))
+        MonkeyKing.registerAccount(.qq(appID: &quot;xxxxxxx&quot;))
+    }
+</code></pre><p>通常我们就在app刚启动时调用这个方法吧~</p>
+<pre><code>func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+        // regist third account
+        thirdParty.registAccount()
+        return true
+    }
+</code></pre><p>如果我们还需要处理第三方的回调，那么我们还需要在AppDelegate里面添加以下处理。</p>
+<pre><code>// iOS 10
+func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -&gt; Bool {
+        _ = MonkeyKing.handleOpenURL(url)
+        return true
+ }
+// iOS 9
+func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -&gt; Bool {
+        _ = MonkeyKing.handleOpenURL(url)
+        return true
+}
+</code></pre><p>是不是已经等不及了</p>
+<h2 id="第三方分享"><a href="#第三方分享" class="headerlink" title="第三方分享"></a>第三方分享</h2><p>同常我们需要分享的内容包括文字、图片、链接、视频、音频。在这里我只是把常用的文字、图片、链接分享处理一下，音视频一般不太用的到，如果需要的话，大同小异。</p>
+<p>首先我们在thirdParty里面增加一个内部使用的方法，实际上就是封装了MonkeyKing的内部方法，方便我们使用。分享文字、图片和链接时所封装的方法内部都会用到这个方法，不需要暴露给外界，所以方法加了fileprivate关键字</p>
+<pre><code>fileprivate class func shareInfo(_ info: MonkeyKing.Info, shareType: shareType) {
+        var message: MonkeyKing.Message?
+        switch shareType {
+        case .weChatSession:
+            message = MonkeyKing.Message.weChat(.session(info: info))
+        case .weChatTimeline:
+            message = MonkeyKing.Message.weChat(.timeline(info: info))
+        case .weibo:
+            message = MonkeyKing.Message.weibo(.default(info: info, accessToken: nil))
+        case .qqFriend:
+            message = MonkeyKing.Message.qq(.friends(info: info))
+        case .qqZone:
+            message = MonkeyKing.Message.qq(.zone(info: info))
+        default:
+            break
+        }
+        // 处理分享结果
+        if let message = message{
+            MonkeyKing.deliver(message) { result in
+                print(&quot;result: \(result)&quot;)
+            }
+        }
+    }
+</code></pre><h2 id="分享文字"><a href="#分享文字" class="headerlink" title="分享文字"></a>分享文字</h2><p>分享文字的话，其实方法参数里只留下text就可以，博主因为强迫症，各个方法都想要长得一样。。。所以用不到的参数也加上了。。。额。。。</p>
+<pre><code>class func share(text: String?, title: String?, description: String?, shareType: shareType) {
+        guard let text = text else { return }
+        let info = MonkeyKing.Info(
+            title: text,
+            description: nil,
+            thumbnail: nil,
+            media: nil
+        )
+        shareInfo(info, shareType: shareType)
+    }
+</code></pre><h2 id="分享图片"><a href="#分享图片" class="headerlink" title="分享图片"></a>分享图片</h2><p>分享图片的话有一点是需要注意的。第三方对图片的缩略图大小是有限制的，通常是不能大于32kb（32768b），所以需要对传入的待分享图片的缩略图进行处理。<br>我们先增加一个UIImage类的扩展，用于压缩图片体积，备用。这个方法比较简单粗暴，如果有更科学的方法，大家请分享一下。</p>
+<pre><code>extension UIImage {
+    /// 压缩图片大小
+    ///
+    /// - Parameters:
+    ///   - maxLength: 最大尺寸(比特)
+    ///   - compress: 压缩系数(0~1)
+    /// - Returns:
+    func compress(maxLength: Int, compress: CGFloat = 0.90) -&gt; Data? {
+        let data = UIImageJPEGRepresentation(self, compress)
+        if (data?.count)! &lt; maxLength || compress &lt; 0{
+            return data
+        }
+        return self.compress(maxLength: maxLength, compress: compress-0.05)
+    }
+}
+</code></pre><p>然后我们依旧在thirdParty里面增加一个内部使用的方法，来压缩图片缩略图。这里的3000是指32kb（32768b），博主强迫症，非得弄个整数不可。</p>
+<pre><code>fileprivate class func compress(thumbnail: UIImage) -&gt; UIImage? {
+        if let data = UIImageJPEGRepresentation(thumbnail, 1) {
+            if data.count &lt; 30000 { return thumbnail } // 无需压缩
+        }
+        if let imageData = thumbnail.compress(maxLength: 30000) {
+            if imageData.count &gt; 30000 { // 还不符合尺寸要求？再压
+                if let compressedImage = UIImage(data: imageData) {
+                    return compress(thumbnail: compressedImage)
+                }
+            } else {
+                if let compressedImage = UIImage(data: imageData) {
+                    return compressedImage
+                }
+            }
+        }
+        return nil
+    }
+</code></pre><p>最后，我们进行图片分享</p>
+<pre><code>class func share(image: UIImage?, thumbnail: UIImage?, shareType: shareType) {
+        guard let image = image else { return }
+        var compressedThumbnail: UIImage?
+        if thumbnail != nil { // 如果传入了缩略图，也得判断一下尺寸是否合格
+            if let compressedImage = compress(thumbnail: thumbnail!) {
+                compressedThumbnail = compressedImage
+            }
+        } else { // 没有缩略图，那就取原图来压一个缩略图来用
+            if let compressedImage = compress(thumbnail: image) {
+                compressedThumbnail = compressedImage
+            }
+        }
+        let info = MonkeyKing.Info(
+            title: nil,
+            description: nil,
+            thumbnail: compressedThumbnail,
+            media: .image(image)
+        )
+        shareInfo(info, shareType: shareType)
+    }
+</code></pre><h2 id="分享链接"><a href="#分享链接" class="headerlink" title="分享链接"></a>分享链接</h2><p>如果分享的链接需要配缩略图，缩略图也要符合尺寸的要求。</p>
+<pre><code>class func share(url: String?, thumbnail: UIImage?, title: String?, description: String?, shareType: shareType) {
+        guard let urlString = url else { return }
+        guard let url = URL(string: urlString) else { return }
+
+        var compressedThumbnail: UIImage?
+        if thumbnail != nil {
+            if let compressedImage = compress(thumbnail: thumbnail!) {
+                compressedThumbnail = compressedImage
+            }
+        }
+
+        let info = MonkeyKing.Info(
+            title: title,
+            description: description,
+            thumbnail: compressedThumbnail,
+            media: .url(url)
+        )
+        shareInfo(info, shareType: shareType)
+    }
+</code></pre><p>呐，是不是很简单</p>
+<h2 id="第三方授权"><a href="#第三方授权" class="headerlink" title="第三方授权"></a>第三方授权</h2><p>我们先在thirdParty里定义一个闭包来处理第三方授权后返回的数据。</p>
+<pre><code>public typealias completionHandler = (_ info: [String: Any]?, _ response: URLResponse?, _ error: Error?) -&gt; Void
+</code></pre><p>然后。。。就用这个方法。</p>
+<pre><code>  // MARK:-OAuth
+class func OAuth(platformType: platformType, completionHandler: @escaping completionHandler) {
+        switch platformType {
+        case .weChat:
+            MonkeyKing.oauth(for: .weChat) { (info, response, error) in
+                completionHandler(info, response, error)
+            }
+        case .qq:
+            MonkeyKing.oauth(for: .qq, scope: &quot;get_user_info&quot;) { (info, response, error) in
+                completionHandler(info, response, error)   
+            }
+        case .weibo:
+            MonkeyKing.oauth(for: .weibo) { (info, response, error) in
+                completionHandler(info, response, error)
+            }
+        default:
+            break
+        }
+
+    }
+</code></pre><p>在我们需要第三方授权的地方使用这个方法，并在回调里处理返回的数据。<br>例如微信：</p>
+<pre><code>thirdParty.OAuth(platformType: .weChat) { (dictionary, response, error) in
+            print(&quot;dictionary \(dictionary)&quot;)
+            print(&quot;error \(error)&quot;)
+}
+</code></pre><h2 id="第三方支付"><a href="#第三方支付" class="headerlink" title="第三方支付"></a>第三方支付</h2><p>关于支付这个地方，其实demo不太好处理。但是我依然稍微封了一个方法，就待优化吧。<br>我们先在thirdParty里定义一个闭包来处理第三方支付后返回的数据。</p>
+<pre><code>public typealias payCompletionHandler = (_ result: Bool) -&gt; Void
+</code></pre><p>然后。。。就用这个方法。传入的urlString是发起订单后server端返回的数据拼接出来的，这一点还是不太方便的。例如微信的订单(此处WXPayModel是用户根据后台返回数据自己定义的)：</p>
+<pre><code> let string = &quot;weixin://app/\(WXPayModel.appid!)/pay/?nonceStr=\(WXPayModel.noncestr!)&amp;package=Sign%3DWXPay&amp;partnerId=\(WXPayModel.partnerid!)&amp;prepayId=\(WXPayModel.prepayid!)&amp;timeStamp=\(UInt32(WXPayModel.timestamp!))&amp;sign=\(WXPayModel.sign!)&amp;signType=SHA1&quot;
+获取到订单信息后拼接为url，作为参数传入以下方法。
+
+// MARK:-Pay
+class func pay(platformType: platformType, urlString: String, completionHandler: @escaping payCompletionHandler) {
+        switch platformType {
+        case .weChat:
+            let order = MonkeyKing.Order.weChat(urlString: urlString)
+            MonkeyKing.deliver(order) { result in
+                completionHandler(result)
+            }
+        case .alipay:
+            let order = MonkeyKing.Order.alipay(urlString: urlString)
+            MonkeyKing.deliver(order) { result in
+                completionHandler(result)
+            }
+        default:
+            break
+        }
+  }
+</code></pre><p>结束语</p>
+<p>更详细的使用，请大家移步至MonkeyKing下载官方的demo来学习吧~<br>MonkeyKing由国人开发，目前由四个大牛程序员维护。不引入SDK，方便快捷，减少项目体积，大家有兴趣可以试试~<br>我的demo地址demo，因为分享、授权、支付等应用场景很多，所以demo里面并没有一一实现，仅仅提供该thridParty工具类以及相关类扩展。有什么疑问或建议，请留言~</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1275318-1fbcc6040d3f93c6.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/500" alt="avatar"></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/09/10/Lottie初级教程：打造iOS APP完美动画/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Lottie初级教程：打造iOS APP完美动画</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="MonkeyKing：无需集成第三方直接分享登录" data-title="MonkeyKing：无需集成第三方直接分享登录" data-url="http://yoursite.com/2018/09/18/MonkeyKing：无需集成第三方直接分享登录/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 Grx
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
