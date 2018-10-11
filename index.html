@@ -210,6 +210,174 @@
 
       <div class="body-wrap">
   
+    <article id="post-ios字体适配的三种实现方法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/10/11/ios字体适配的三种实现方法/" class="article-date">
+  	<time datetime="2018-10-11T10:28:47.000Z" itemprop="datePublished">2018-10-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/11/ios字体适配的三种实现方法/">iOS字体适配的三种实现方法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="iOS字体适配的三种实现方法"><a href="#iOS字体适配的三种实现方法" class="headerlink" title="iOS字体适配的三种实现方法"></a>iOS字体适配的三种实现方法</h2><p>大家先看下IOS字体规范与多屏幕适配的规律和在不同尺寸屏幕适配的UI布局：<br>在项目中肯定会遇到字体适配的问题，从上面可以看出：一般情况是在4，5，6上用一套字体大小，在6P上字体大小扩大1.5倍数。</p>
+<p>&lt;!-more-&gt;</p>
+<p>方法一：利用running time运行时，替换方法的方法进行适配字体</p>
+<p>代码如下：</p>
+<pre><code>    //
+    //  UIFont+ZSPSize.h
+    //  ZSPUIFontText
+    //
+    //  Created by ZSP on 2017/5/18.
+    //  Copyright © 2017年 ZSP. All rights reserved.
+    //
+
+    #import &lt;UIKit/UIKit.h&gt;
+    #import &lt;objc/runtime.h&gt;
+
+    @interface UIFont (ZSPSize)
+
+    @end
+
+    //
+    //  UIFont+ZSPSize.m
+    //  ZSPUIFontText
+    //
+    //  Created by ZSP on 2017/5/18.
+    //  Copyright © 2017年 ZSP. All rights reserved.
+//
+
+    #define MyUIScreen  375 // UI设计原型图的手机尺寸宽度(6s), 6p的--414
+
+    #define IS_IPHONE_4 ([[UIScreen mainScreen] bounds].size.height == 480.0f)
+    #define IS_IPHONE_5 ([[UIScreen mainScreen] bounds].size.height == 568.0f)
+    #define IS_IPHONE_6 ([[UIScreen mainScreen] bounds].size.height == 667.0f)
+    #define IS_IPHONE_6_PLUS ([[UIScreen mainScreen] bounds].size.height == 736.0f)
+
+    // 这里设置iPhone6放大的字号数（现在是缩小2号，也就是iPhone6上字号为17，在iPhone4s和iPhone5上字体为15时，）
+    #define IPHONE5_INCREMENT 2
+    // 这里设置iPhone6Plus放大的字号数（现在是放大1号，也就是iPhone6上字号为17，在iPhone6P上字体为18时）
+    #define IPHONE6PLUS_INCREMENT 1
+
+    #import &quot;UIFont+ZSPSize.h&quot;
+
+    @implementation UIFont (ZSPSize)
+
+    +(void)load{
+
+        //获取替换后的类方法
+        Method newMethod = class_getClassMethod([self class], @selector(adjustFont:));
+        //获取替换前的类方法
+        Method method = class_getClassMethod([self class], @selector(systemFontOfSize:));
+        //然后交换类方法
+        method_exchangeImplementations(newMethod, method);
+
+    }
+
+    //在6p上字体扩大1.5倍
+    +(UIFont *)adjustFont:(CGFloat)fontSize{
+
+        UIFont *newFont = nil;
+        if (IS_IPHONE_6_PLUS){
+            newFont = [UIFont adjustFont:fontSize * 1.5];
+        }else{
+            newFont = [UIFont adjustFont:fontSize];
+        }
+        return newFont;
+    }
+
+    //以6s未基准（因为一般UI设计是以6s尺寸为基准设计的）的字体。在5s和6P上会根据屏幕尺寸，字体大小会相应的扩大和缩小
+    //+ (UIFont *)adjustFont:(CGFloat)fontSize {
+    //    UIFont *newFont = nil;
+    //    newFont = [UIFont adjustFont:fontSize * [UIScreen mainScreen].bounds.size.width/MyUIScreen];
+    //    return newFont;
+    //}
+
+    //以6s未基准（因为一般UI设计是以6s尺寸为基准设计的）的字体。在5s和6P上会根据屏幕尺寸，字体大小会相应的扩大和缩小
+    //在6s上字号是17,在6P是上字号扩大到18号（字号扩大1个字号），在4s和5s上字号缩小到15号字（字号缩小2个字号）
+    //+(UIFont *)adjustFont:(CGFloat)fontSize{
+    //   
+    //    UIFont *newFont = nil;
+    //    if (IS_IPHONE_5 || IS_IPHONE_4){
+    //        newFont = [UIFont adjustFont:fontSize - IPHONE5_INCREMENT];
+    //    }else if (IS_IPHONE_6_PLUS){
+    //        newFont = [UIFont adjustFont:fontSize + IPHONE6PLUS_INCREMENT];
+    //    }else{
+    //        newFont = [UIFont adjustFont:fontSize];
+    //    }
+    //    return newFont;
+    //}
+
+@end
+</code></pre><p>上面分类中有3个adjustFont方法，大家可以根据自己的需求，用不同的方法，注释已经写了，有问题可以留言。</p>
+<p>注意:<br>load方法只会走一次，利用runtime的method进行方法的替换<br>替换的方法里面（把系统的方法替换成我们自己写的方法），这里要记住写自己的方法，不然会死循环<br>之后凡是用到systemFontOfSize方法的地方，都会被替换成我们自己的方法，即可改字体大小了<br>注意：此方法只能替换 纯代码 写的控件字号，如果你用xib创建的控件且在xib里面设置的字号，那么替换不了！你需要在xib的<br>awakeFromNib方法里面手动设置下控件字体</p>
+<h2 id="方法二：用宏定义适配字体大小（根据手机尺寸判断）"><a href="#方法二：用宏定义适配字体大小（根据手机尺寸判断）" class="headerlink" title="方法二：用宏定义适配字体大小（根据手机尺寸判断）"></a>方法二：用宏定义适配字体大小（根据手机尺寸判断）</h2><p>1.5代表6P尺寸的时候字体为1.5倍，5S和6尺寸时大小一样，也可根据需求自定义比例。<br>代码如下：</p>
+<pre><code>#define IsIphone6P          SCREEN_WIDTH==414
+#define SizeScale           (IsIphone6P ? 1.5 : 1)
+#define kFontSize(value)    value*SizeScale
+#define kFont(value)        [UIFont systemFontOfSize:value*SizeScale]
+</code></pre><h2 id="方法三：用宏定义适配字体大小（根据手机机型判断）"><a href="#方法三：用宏定义适配字体大小（根据手机机型判断）" class="headerlink" title="方法三：用宏定义适配字体大小（根据手机机型判断）"></a>方法三：用宏定义适配字体大小（根据手机机型判断）</h2><p>//宏定义</p>
+<pre><code>define FONT_SIZE(size) ([UIFont systemFontOfSize:FontSize(size))
+</code></pre><p>/**</p>
+<ul>
+<li><p>字体适配 我在PCH文件定义了一个方法<br>*/</p>
+<pre><code>static inline CGFloat FontSize(CGFloat fontSize){
+    if (SCREENWIDTH==320) {
+        return fontSize-2;
+    }else if (SCREENWIDTH==375){
+        return fontSize;
+    }else{
+        return fontSize+2;
+    }
+}
+</code></pre></li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OC/">OC</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-WKWebView离线缓存" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -786,69 +954,9 @@ NSURLRequest *request = [[NSURLRequest alloc] initWithURL:URL];
 
 
   
-    <article id="post-深入理解JSCore" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/09/03/深入理解JSCore/" class="article-date">
-  	<time datetime="2018-09-03T10:28:47.000Z" itemprop="datePublished">2018-09-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/03/深入理解JSCore/">深入理解JSCore</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="深入理解JSCore"><a href="#深入理解JSCore" class="headerlink" title="深入理解JSCore"></a>深入理解JSCore</h1><p>动态化作为移动客户端技术的一个重要分支，一直是业界积极探索的方向。目前业界流行的动态化方案，如Facebook的React Native，阿里巴巴的Weex都采用了前端系的DSL方案，而它们在iOS系统上能够顺利的运行，都离不开一个背后的功臣：JavaScriptCore（以下简称JSCore），它建立起了Objective-C（以下简称OC）和JavaScript（以下简称JS）两门语言之间沟通的桥梁。无论是这些流行的动态化方案，还是WebView Hybrid方案，亦或是之前广泛流行的JSPatch，JSCore都在其中发挥了举足轻重的作用。作为一名iOS开发工程师，了解JSCore已经逐渐成为了必备技能之一。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OC/">OC</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2018/09/03/深入理解JSCore/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>
