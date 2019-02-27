@@ -118,7 +118,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/OC/" style="font-size: 10px;">-OC</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Apple-Watch/" style="font-size: 10px;">Apple Watch</a> <a href="/tags/Flutter/" style="font-size: 14px;">Flutter</a> <a href="/tags/Life/" style="font-size: 10px;">Life</a> <a href="/tags/Lottie/" style="font-size: 10px;">Lottie</a> <a href="/tags/MMKV/" style="font-size: 10px;">MMKV</a> <a href="/tags/MonkeyKing/" style="font-size: 10px;">MonkeyKing</a> <a href="/tags/OC/" style="font-size: 20px;">OC</a> <a href="/tags/RAC/" style="font-size: 12px;">RAC</a> <a href="/tags/Swift/" style="font-size: 16px;">Swift</a> <a href="/tags/WKWebView/" style="font-size: 10px;">WKWebView</a> <a href="/tags/WebView/" style="font-size: 10px;">WebView</a> <a href="/tags/Xcode/" style="font-size: 14px;">Xcode</a> <a href="/tags/appledoc/" style="font-size: 10px;">appledoc</a> <a href="/tags/hexo/" style="font-size: 12px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/life/" style="font-size: 18px;">life</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a>
+						<a href="/tags/OC/" style="font-size: 10px;">-OC</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Apple-Watch/" style="font-size: 10px;">Apple Watch</a> <a href="/tags/Flutter/" style="font-size: 13.33px;">Flutter</a> <a href="/tags/Life/" style="font-size: 10px;">Life</a> <a href="/tags/Lottie/" style="font-size: 10px;">Lottie</a> <a href="/tags/MMKV/" style="font-size: 10px;">MMKV</a> <a href="/tags/MonkeyKing/" style="font-size: 10px;">MonkeyKing</a> <a href="/tags/OC/" style="font-size: 20px;">OC</a> <a href="/tags/RAC/" style="font-size: 11.67px;">RAC</a> <a href="/tags/Swift/" style="font-size: 16.67px;">Swift</a> <a href="/tags/WKWebView/" style="font-size: 10px;">WKWebView</a> <a href="/tags/WebView/" style="font-size: 10px;">WebView</a> <a href="/tags/Xcode/" style="font-size: 15px;">Xcode</a> <a href="/tags/appledoc/" style="font-size: 10px;">appledoc</a> <a href="/tags/hexo/" style="font-size: 11.67px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/life/" style="font-size: 18.33px;">life</a> <a href="/tags/xcode/" style="font-size: 10px;">xcode</a>
 					</div>
 				</section>
 				
@@ -209,6 +209,126 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-iOS应用架构谈 view层的组织和调用方案" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/15/iOS应用架构谈 view层的组织和调用方案/" class="article-date">
+  	<time datetime="2018-08-15T10:28:47.000Z" itemprop="datePublished">2018-08-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/15/iOS应用架构谈 view层的组织和调用方案/">iOS应用架构谈 view层的组织和调用方案</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="iOS应用架构谈-view层的组织和调用方案"><a href="#iOS应用架构谈-view层的组织和调用方案" class="headerlink" title="iOS应用架构谈 view层的组织和调用方案"></a>iOS应用架构谈 view层的组织和调用方案</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>当我们开始设计View层的架构时，往往是这个App还没有开始开发，或者这个App已经发过几个版本了，然后此时需要做非常彻底的重构。一般也就是这两种时机会去做View层架构，基于这个时机的特殊性，我们在这时候必须清楚认识到：View层的架构一旦实现或定型，在App发版后可修改的余地就已经非常之小了。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/life/">life</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2018/08/15/iOS应用架构谈 view层的组织和调用方案/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-iOS团队编程规范" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/15/iOS团队编程规范/" class="article-date">
+  	<time datetime="2018-08-15T10:28:47.000Z" itemprop="datePublished">2018-08-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/15/iOS团队编程规范/">iOS团队编程规范</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="iOS团队编程规范"><a href="#iOS团队编程规范" class="headerlink" title="iOS团队编程规范"></a>iOS团队编程规范</h1><p>需求是暂时的，只有变化才是永恒的，面向变化编程，而不是面向需求编程。<br>不要过分追求技巧，降低程序的可读性。<br>简洁的代码可以让bug无处藏身。要写出明显没有bug的代码，而不是没有明显bug的代码。<br>先把眼前的问题解决掉，解决好，再考虑将来的扩展问题。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/life/">life</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2018/08/15/iOS团队编程规范/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-iOS应用架构谈 开篇" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -672,143 +792,6 @@
       
         <p class="article-more-link">
           <a  href="/2017/02/24/Xcode8-1如何支持iOS8-0以下版本/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-iOS网络-『文件下载、断点下载』的实现（三）：AFNetworking" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/02/14/iOS网络-『文件下载、断点下载』的实现（三）：AFNetworking/" class="article-date">
-  	<time datetime="2017-02-14T02:32:28.000Z" itemprop="datePublished">2017-02-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/14/iOS网络-『文件下载、断点下载』的实现（三）：AFNetworking/">iOS网络--『文件下载、断点下载』的实现（三）：AFNetworking</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>目录</p>
-<p>AFNetworking下载简介<br>AFNetworking下载相关<br>2.1 AFNetworking（文件下载）<br>2.2 AFNetworking（断点下载 | 支持离线）<br>关于『文件下载、断点下载』所有实现的Demo地址：<br><a href="https://github.com/lianai911/YSC-DownloadDemo">Demo地址</a></p>
-<p>iOS网络–『文件下载、断点下载』的实现相关文章：</p>
-</blockquote>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OC/">OC</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/02/14/iOS网络-『文件下载、断点下载』的实现（三）：AFNetworking/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Apple Watch 指南" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/25/Apple Watch 指南/" class="article-date">
-  	<time datetime="2016-06-25T01:45:59.000Z" itemprop="datePublished">2016-06-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/25/Apple Watch 指南/">Apple Watch 指南</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Apple-Watch-指南"><a href="#Apple-Watch-指南" class="headerlink" title="Apple Watch 指南"></a><a id="apple_watch"></a><a href="https://developer.apple.com/watchkit/">Apple Watch 指南</a></h2><h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><ul>
-<li><a href="#watch_doc">1. 文档</a><ul>
-<li><a href="#watchkit_guide">WatchKit Programming Guide（中译）</a></li>
-<li><a href="#watch_ui_guide">Apple Watch Human Interface Guidelines（中译）</a></li>
-</ul>
-</li>
-<li><a href="#watch_courses">2. Watch 教程</a><ul>
-<li><a href="#watch_getting_started">快速入门</a></li>
-<li><a href="#watch_courses_featured">教程精选</a></li>
-</ul>
-</li>
-<li><a href="#watch_projects">3. Watch 项目</a></li>
-<li><a href="#watch_news">4. 媒体文章</a></li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apple-Watch/">Apple Watch</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/06/25/Apple Watch 指南/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
