@@ -6,30 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>逆向IPA越狱包代码注入 | Grx Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="重签名目的：越狱包重签名运行到非越狱手机进行调试。">
+  <meta name="description" content="代码注入目的：修改添加原有ipa包二进制文件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="逆向IPA越狱包代码注入">
 <meta property="og:url" content="http://yoursite.com/2019/01/21/IPA越狱包代码注入/index.html">
 <meta property="og:site_name" content="Grx Blog">
-<meta property="og:description" content="重签名目的：越狱包重签名运行到非越狱手机进行调试。">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2325948-83767dfeb5f6baf4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2325948-ac9c63f063080f14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/379">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2325948-e2c7ddca25eee880.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/632">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2325948-c87298388a9c1a85.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/689">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2325948-ea1c49b6ee55c3cd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/559">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2325948-d0aedd4883e2bbc3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/961">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2325948-215864b965178882.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/189">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2325948-349f8e94776841ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/282">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2325948-884663b9b360f90b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/270">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2325948-e7387f5436ad9dd4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/641">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2325948-2f39df3f9115e094.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/758">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1502585-700c540b70aaa008?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6188399-148250907bf2b43f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/333">
-<meta property="og:updated_time" content="2019-02-27T09:18:39.630Z">
+<meta property="og:description" content="代码注入目的：修改添加原有ipa包二进制文件">
+<meta property="og:updated_time" content="2019-02-27T09:29:49.972Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="逆向IPA越狱包代码注入">
-<meta name="twitter:description" content="重签名目的：越狱包重签名运行到非越狱手机进行调试。">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/2325948-83767dfeb5f6baf4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000">
+<meta name="twitter:description" content="代码注入目的：修改添加原有ipa包二进制文件">
   
     <link rel="alternative" href="/atom.xml" title="Grx Blog" type="application/atom+xml">
   
@@ -260,44 +246,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>重签名目的：越狱包重签名运行到非越狱手机进行调试。</p>
+        <p>代码注入目的：修改添加原有ipa包二进制文件</p>
 <a id="more"></a>
-<h2 id="一-前期准备："><a href="#一-前期准备：" class="headerlink" title="一.前期准备："></a>一.前期准备：</h2><h3 id="1-利用PP助手下载越狱的App包。"><a href="#1-利用PP助手下载越狱的App包。" class="headerlink" title="1.利用PP助手下载越狱的App包。"></a>1.利用PP助手下载越狱的App包。</h3><p><img src="https://upload-images.jianshu.io/upload_images/2325948-83767dfeb5f6baf4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000" alt="avatar"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2325948-ac9c63f063080f14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/379" alt="avatar"></p>
-<h2 id="2-查看越狱包的签名信息"><a href="#2-查看越狱包的签名信息" class="headerlink" title="2.查看越狱包的签名信息"></a>2.查看越狱包的签名信息</h2><h3 id="codesign-vv-d-包的路径"><a href="#codesign-vv-d-包的路径" class="headerlink" title="codesign -vv -d  包的路径"></a>codesign -vv -d  包的路径</h3><p><img src="https://upload-images.jianshu.io/upload_images/2325948-e2c7ddca25eee880.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/632" alt="avatar"></p>
-<h2 id="3-查询本地所有授权证书"><a href="#3-查询本地所有授权证书" class="headerlink" title="3.查询本地所有授权证书"></a>3.查询本地所有授权证书</h2><h3 id="通过终端命定：security-find-identity-v-p-codesigning"><a href="#通过终端命定：security-find-identity-v-p-codesigning" class="headerlink" title="通过终端命定：security find-identity -v -p codesigning"></a>通过终端命定：security find-identity -v -p codesigning</h3><p><img src="https://upload-images.jianshu.io/upload_images/2325948-c87298388a9c1a85.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/689" alt="avatar"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2325948-ea1c49b6ee55c3cd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/559" alt="avatar"></p>
-<h2 id="4-查看App可执行文件是否加密"><a href="#4-查看App可执行文件是否加密" class="headerlink" title="4.查看App可执行文件是否加密"></a>4.查看App可执行文件是否加密</h2><p><img src="https://upload-images.jianshu.io/upload_images/2325948-d0aedd4883e2bbc3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/961" alt="avatar"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2325948-215864b965178882.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/189" alt="avatar"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2325948-349f8e94776841ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/282" alt="avatar"></p>
-<p>##(以上内容仅供查看，可不操作！！！下面才是真正的重签名！！！)</p>
-<h2 id="获取签名需要的文件"><a href="#获取签名需要的文件" class="headerlink" title="获取签名需要的文件"></a>获取签名需要的文件</h2><h4 id="1-签名证书名称-例如：iPhone-Distribution-tommy-lee-Z6V8555LML-可到本机钥匙串中查看"><a href="#1-签名证书名称-例如：iPhone-Distribution-tommy-lee-Z6V8555LML-可到本机钥匙串中查看" class="headerlink" title="1.签名证书名称 例如：iPhone Distribution: tommy lee (Z6V8555LML) 可到本机钥匙串中查看"></a>1.签名证书名称 例如：iPhone Distribution: tommy lee (Z6V8555LML) 可到本机钥匙串中查看</h4><h4 id="2-embedded-mobileprovision描述文件。xcode配置好证书打包生产IPA包。之后获取它的描述文件："><a href="#2-embedded-mobileprovision描述文件。xcode配置好证书打包生产IPA包。之后获取它的描述文件：" class="headerlink" title="2.embedded.mobileprovision描述文件。xcode配置好证书打包生产IPA包。之后获取它的描述文件："></a>2.embedded.mobileprovision描述文件。xcode配置好证书打包生产IPA包。之后获取它的描述文件：</h4><p><img src="https://upload-images.jianshu.io/upload_images/2325948-884663b9b360f90b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/270" alt="avatar"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2325948-e7387f5436ad9dd4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/641" alt="avatar"></p>
-<h4 id="3-Entitlements-plist-权限文件：-新建Entitlements-plist文件将以下代码添加进去就可以"><a href="#3-Entitlements-plist-权限文件：-新建Entitlements-plist文件将以下代码添加进去就可以" class="headerlink" title="3.Entitlements.plist 权限文件： 新建Entitlements.plist文件将以下代码添加进去就可以"></a>3.Entitlements.plist 权限文件： 新建Entitlements.plist文件将以下代码添加进去就可以</h4><p><img src="https://upload-images.jianshu.io/upload_images/2325948-2f39df3f9115e094.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/758" alt="avatar"></p>
-<p>####（注意里面配置的id格式）</p>
-<h2 id="二-终端进行签名"><a href="#二-终端进行签名" class="headerlink" title="二.终端进行签名"></a>二.终端进行签名</h2><h3 id="1-在终端输入fastlane-sigh-resign命令"><a href="#1-在终端输入fastlane-sigh-resign命令" class="headerlink" title="1.在终端输入fastlane sigh resign命令"></a>1.在终端输入fastlane sigh resign命令</h3><h3 id="2-Signing-Identity：输入用来签名的证书标识"><a href="#2-Signing-Identity：输入用来签名的证书标识" class="headerlink" title="2.Signing Identity：输入用来签名的证书标识"></a>2.Signing Identity：输入用来签名的证书标识</h3><p><img src="https://upload-images.jianshu.io/upload_images/1502585-700c540b70aaa008?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000" alt="avatar"></p>
-<h3 id="3-Path-to-provisioning-file-输入描述文件"><a href="#3-Path-to-provisioning-file-输入描述文件" class="headerlink" title="3. Path to provisioning file:输入描述文件"></a>3. Path to provisioning file:输入描述文件</h3><h3 id="4-自动resign，成功"><a href="#4-自动resign，成功" class="headerlink" title="4. 自动resign，成功"></a>4. 自动resign，成功</h3><h2 id="三。签名工具：sigh命令行或者iReSign客户端（推荐）"><a href="#三。签名工具：sigh命令行或者iReSign客户端（推荐）" class="headerlink" title="三。签名工具：sigh命令行或者iReSign客户端（推荐）"></a>三。签名工具：sigh命令行或者iReSign客户端（推荐）</h2><h3 id="全部配置好一键导出"><a href="#全部配置好一键导出" class="headerlink" title="全部配置好一键导出"></a>全部配置好一键导出</h3><h3 id="iReSign运行界面："><a href="#iReSign运行界面：" class="headerlink" title="iReSign运行界面："></a>iReSign运行界面：</h3><p><img src="https://upload-images.jianshu.io/upload_images/6188399-148250907bf2b43f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/333" alt="avatar"></p>
-<h3 id="需要准备的文件"><a href="#需要准备的文件" class="headerlink" title="需要准备的文件:"></a>需要准备的文件:</h3><h4 id="appName-ipa-要重签名的ipa"><a href="#appName-ipa-要重签名的ipa" class="headerlink" title="appName.ipa: 要重签名的ipa"></a>appName.ipa: 要重签名的ipa</h4><h4 id="embedded-mobileprovision-用来签名的provision文件"><a href="#embedded-mobileprovision-用来签名的provision文件" class="headerlink" title="embedded.mobileprovision: 用来签名的provision文件"></a>embedded.mobileprovision: 用来签名的provision文件</h4><h4 id="entitlements-plist-授权机制"><a href="#entitlements-plist-授权机制" class="headerlink" title="entitlements.plist: 授权机制"></a>entitlements.plist: 授权机制</h4><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
-&lt;plist version=&quot;1.0&quot;&gt;
-&lt;dict&gt;
-    &lt;key&gt;application-identifier&lt;/key&gt;
-    &lt;string&gt;CDJ7TE32UE.com.test.test&lt;/string&gt;
-    &lt;key&gt;aps-environment&lt;/key&gt;
-    &lt;string&gt;production&lt;/string&gt;
-    &lt;key&gt;com.apple.developer.associated-domains&lt;/key&gt;
-    &lt;string&gt;*&lt;/string&gt;
-    &lt;key&gt;com.apple.developer.team-identifier&lt;/key&gt;
-    &lt;string&gt;CDJ7TE32UE&lt;/string&gt;
-    &lt;key&gt;get-task-allow&lt;/key&gt;
-    &lt;false/&gt;
-    &lt;key&gt;keychain-access-groups&lt;/key&gt;
-    &lt;array&gt;
-        &lt;string&gt;CDJ7TE32UE.*&lt;/string&gt;
-    &lt;/array&gt;
-&lt;/dict&gt;
-&lt;/plist&gt;
-</code></pre><h4 id="distributionName-指该签名对应的证书的名字，在keychain中可以找到对应证书的名称"><a href="#distributionName-指该签名对应的证书的名字，在keychain中可以找到对应证书的名称" class="headerlink" title="distributionName: 指该签名对应的证书的名字，在keychain中可以找到对应证书的名称"></a>distributionName: 指该签名对应的证书的名字，在keychain中可以找到对应证书的名称</h4><h2 id="四。签名成功就可以安装到设备上测试了。"><a href="#四。签名成功就可以安装到设备上测试了。" class="headerlink" title="四。签名成功就可以安装到设备上测试了。"></a>四。签名成功就可以安装到设备上测试了。</h2>
+<h2 id="一-前期准备："><a href="#一-前期准备：" class="headerlink" title="一.前期准备："></a>一.前期准备：</h2><h3 id="1-已经签名的IPA越狱包。"><a href="#1-已经签名的IPA越狱包。" class="headerlink" title="1.已经签名的IPA越狱包。"></a>1.已经签名的IPA越狱包。</h3><h2 id="二-创建动态库"><a href="#二-创建动态库" class="headerlink" title="二.创建动态库"></a>二.创建动态库</h2><h3 id="2-创建动态库工程-1-设置bitCode-2-切换旧的编译环境"><a href="#2-创建动态库工程-1-设置bitCode-2-切换旧的编译环境" class="headerlink" title="2.创建动态库工程(1.设置bitCode 2.切换旧的编译环境)"></a>2.创建动态库工程(1.设置bitCode 2.切换旧的编译环境)</h3><h4 id="两种方式："><a href="#两种方式：" class="headerlink" title="两种方式："></a>两种方式：</h4><h4 id="1-ios-代码注入-Framework"><a href="#1-ios-代码注入-Framework" class="headerlink" title="1.ios 代码注入(Framework)"></a>1.ios 代码注入(Framework)</h4><h4 id="创建方式参考链接：https-www-jianshu-com-p-b447ec564837"><a href="#创建方式参考链接：https-www-jianshu-com-p-b447ec564837" class="headerlink" title="创建方式参考链接：https://www.jianshu.com/p/b447ec564837"></a>创建方式参考链接：<a href="https://www.jianshu.com/p/b447ec564837" target="_blank" rel="external">https://www.jianshu.com/p/b447ec564837</a></h4><h4 id="2-ios-代码注入-dylib"><a href="#2-ios-代码注入-dylib" class="headerlink" title="2.ios 代码注入(dylib)"></a>2.ios 代码注入(dylib)</h4><h4 id="创建方式参考链接：https-www-jianshu-com-p-1f278e47d4e1"><a href="#创建方式参考链接：https-www-jianshu-com-p-1f278e47d4e1" class="headerlink" title="创建方式参考链接：https://www.jianshu.com/p/1f278e47d4e1"></a>创建方式参考链接：<a href="https://www.jianshu.com/p/1f278e47d4e1" target="_blank" rel="external">https://www.jianshu.com/p/1f278e47d4e1</a></h4><h4 id="（创建dylib采用MonKeyLib方式。配置方式参考链接：https-www-jianshu-com-p-8ecbafb8abc0）"><a href="#（创建dylib采用MonKeyLib方式。配置方式参考链接：https-www-jianshu-com-p-8ecbafb8abc0）" class="headerlink" title="!!!!（创建dylib采用MonKeyLib方式。配置方式参考链接：https://www.jianshu.com/p/8ecbafb8abc0）"></a>!!!!（创建dylib采用MonKeyLib方式。配置方式参考链接：<a href="https://www.jianshu.com/p/8ecbafb8abc0）" target="_blank" rel="external">https://www.jianshu.com/p/8ecbafb8abc0）</a></h4><h2 id="三-添加Frameworks到IAP包内容"><a href="#三-添加Frameworks到IAP包内容" class="headerlink" title="三.添加Frameworks到IAP包内容"></a>三.添加Frameworks到IAP包内容</h2><h2 id="四-更新FramWork到Mack-O"><a href="#四-更新FramWork到Mack-O" class="headerlink" title="四.更新FramWork到Mack-O"></a>四.更新FramWork到Mack-O</h2><h4 id="cd-Users-guoruixiao-Desktop-Payload-Vocalist-app"><a href="#cd-Users-guoruixiao-Desktop-Payload-Vocalist-app" class="headerlink" title="cd /Users/guoruixiao/Desktop/Payload/Vocalist.app"></a>cd /Users/guoruixiao/Desktop/Payload/Vocalist.app</h4><h4 id="chmod-x-Vocalist"><a href="#chmod-x-Vocalist" class="headerlink" title="chmod +x Vocalist"></a>chmod +x Vocalist</h4><h4 id="yololib-Vocalist-Frameworks-LinkHookFramWork-framework-LinkHookFramWork"><a href="#yololib-Vocalist-Frameworks-LinkHookFramWork-framework-LinkHookFramWork" class="headerlink" title="yololib Vocalist Frameworks/LinkHookFramWork.framework/LinkHookFramWork"></a>yololib Vocalist Frameworks/LinkHookFramWork.framework/LinkHookFramWork</h4><h2 id="五-FramWork-代码权限重签名"><a href="#五-FramWork-代码权限重签名" class="headerlink" title="五.FramWork:代码权限重签名"></a>五.FramWork:代码权限重签名</h2><h4 id="cd-Users-guoruixiao-Desktop-Payload"><a href="#cd-Users-guoruixiao-Desktop-Payload" class="headerlink" title="cd /Users/guoruixiao/Desktop/Payload"></a>cd /Users/guoruixiao/Desktop/Payload</h4><h4 id="usr-bin-codesign-d-–entitlements-Vocalist-app"><a href="#usr-bin-codesign-d-–entitlements-Vocalist-app" class="headerlink" title="/usr/bin/codesign -d –entitlements - Vocalist.app"></a>/usr/bin/codesign -d –entitlements - Vocalist.app</h4><h4 id="usr-bin-codesign-f-s-“iPhone-Distribution-tommy-lee-Z6V8555LML-”-Users-guoruixiao-Desktop-Entitlements-plist-Vocalist-app-Frameworks-LinkHookFramWork-framework"><a href="#usr-bin-codesign-f-s-“iPhone-Distribution-tommy-lee-Z6V8555LML-”-Users-guoruixiao-Desktop-Entitlements-plist-Vocalist-app-Frameworks-LinkHookFramWork-framework" class="headerlink" title="/usr/bin/codesign -f -s “iPhone Distribution: tommy lee (Z6V8555LML)” /Users/guoruixiao/Desktop/Entitlements.plist Vocalist.app/Frameworks/LinkHookFramWork.framework"></a>/usr/bin/codesign -f -s “iPhone Distribution: tommy lee (Z6V8555LML)” /Users/guoruixiao/Desktop/Entitlements.plist Vocalist.app/Frameworks/LinkHookFramWork.framework</h4><h2 id="六-二进制文件-代码权限重签名"><a href="#六-二进制文件-代码权限重签名" class="headerlink" title="六.二进制文件:代码权限重签名"></a>六.二进制文件:代码权限重签名</h2><h4 id="usr-bin-codesign-f-s-“iPhone-Distribution-tommy-lee-Z6V8555LML-”-–entitlements-Users-guoruixiao-Desktop-Entitlements-plist-Vocalist-app"><a href="#usr-bin-codesign-f-s-“iPhone-Distribution-tommy-lee-Z6V8555LML-”-–entitlements-Users-guoruixiao-Desktop-Entitlements-plist-Vocalist-app" class="headerlink" title="/usr/bin/codesign -f -s “iPhone Distribution: tommy lee (Z6V8555LML)” –entitlements /Users/guoruixiao/Desktop/Entitlements.plist Vocalist.app"></a>/usr/bin/codesign -f -s “iPhone Distribution: tommy lee (Z6V8555LML)” –entitlements /Users/guoruixiao/Desktop/Entitlements.plist Vocalist.app</h4>
       
     </div>
     
