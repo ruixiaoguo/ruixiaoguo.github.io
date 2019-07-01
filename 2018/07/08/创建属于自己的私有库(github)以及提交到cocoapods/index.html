@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/07/08/创建属于自己的私有库(github)以及提交到cocoapods/index.html">
 <meta property="og:site_name" content="Grx Blog">
 <meta property="og:description" content="创建属于自己的私有库(github)以及提交到cocoapods相信每个Develophttps://link.jianshu.com/?t=https://github.com/CharlsPrince/CommonExtension.git%27er都会在使用Cocoapods这儿第三方库管理工具，虽然有时候pod install的时候会有种想死的感觉o(╯□╰)o，但依然无法阻挡某些程序员去">
-<meta property="og:updated_time" content="2018-08-20T06:28:42.677Z">
+<meta property="og:updated_time" content="2019-07-01T10:55:23.097Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="创建属于自己的私有库(github)以及提交到cocoapods">
 <meta name="twitter:description" content="创建属于自己的私有库(github)以及提交到cocoapods相信每个Develophttps://link.jianshu.com/?t=https://github.com/CharlsPrince/CommonExtension.git%27er都会在使用Cocoapods这儿第三方库管理工具，虽然有时候pod install的时候会有种想死的感觉o(╯□╰)o，但依然无法阻挡某些程序员去">
@@ -282,7 +282,7 @@ s.source_files  = &quot;HomePageModule/HomePageModule/*.{h,m}&quot;
 s.frameworks    = &apos;UIKit&apos;
 s.platform      = :ios
 </code></pre><p>当然还有一些其他的，详细介绍可以去Cocoapods看看或可以看看AFNetworking的podspec，他们写得很正规和简洁。</p>
-<h2 id="四、验证podspec合法性"><a href="#四、验证podspec合法性" class="headerlink" title="四、验证podspec合法性"></a>四、验证podspec合法性</h2><p>如果终端是在项目的当前目录下就直接执行一下命令，否则你需要cd到你要验证的.podspec的文件目录下：</p>
+<h2 id="四、验证podspec合法性"><a href="#四、验证podspec合法性" class="headerlink" title="四、验证podspec合法性"></a>四、验证podspec合法性</h2><p>如果终端是在项目的当前目录下就直接执行一下命令，否则你需要cd到你要验证的.podspec的文件目录下：<br>(如果有文件夹s.source_files  = “GGCoServers/<em>*/</em>.{h,m}”)</p>
 <pre><code>$ pod lib lint  (--allow-warnings可消除警告)
 或
 $ pod spec lint
@@ -295,8 +295,8 @@ $ pod spec lint
 $ git push origin --tags
 </code></pre><p>远端tag.png</p>
 <h2 id="六、向mySpecs提交-podspec文件"><a href="#六、向mySpecs提交-podspec文件" class="headerlink" title="六、向mySpecs提交.podspec文件"></a>六、向mySpecs提交.podspec文件</h2><p>将tag推送到远端以后，向自己的私有库提交podspec文件：(进入私有库podspec所在目录)</p>
-<pre><code>$ pod repo push MySpecs [name].podspec
-</code></pre><p>如果提交成功，去~/.cocoapods/repos/MySpecs文件夹下就能找到你创建的私有库了，当然，只是podspec文件哦，因为~/.cocoapods/repos/只是用来保存podspec文件的嘛<br>到这，你的私有库就已经创建完成了</p>
+<p>$ pod repo push MySpecs [name].podspec –allow-warnings</p>
+<p>如果提交成功，去~/.cocoapods/repos/MySpecs文件夹下就能找到你创建的私有库了，当然，只是podspec文件哦，因为~/.cocoapods/repos/只是用来保存podspec文件的嘛<br>到这，你的私有库就已经创建完成了</p>
 <h2 id="问题小结"><a href="#问题小结" class="headerlink" title="问题小结"></a>问题小结</h2><h3 id="1、执行pod-lib-create-（组件库）-出错"><a href="#1、执行pod-lib-create-（组件库）-出错" class="headerlink" title="1、执行pod lib create （组件库） 出错"></a>1、执行pod lib create （组件库） 出错</h3><pre><code>提示错误：rubygems/core_ext/kernel_require.rb:120:in`require&apos;: cannot load such file -- colored2
 (LoadError)
 解决办法：
