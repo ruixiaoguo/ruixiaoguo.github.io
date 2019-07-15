@@ -6,22 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>谷歌云搭建免费VPN(二) | Grx Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="谷歌云服务VPN环境配置">
+  <meta name="description" content="整体大概流程：申请免费谷歌云服务 =&amp;gt; 创建虚拟实例 =&amp;gt; 在实例搭建SSR或L2TP/IPsecVPN 服务">
 <meta property="og:type" content="article">
 <meta property="og:title" content="谷歌云搭建免费VPN(二)">
 <meta property="og:url" content="http://yoursite.com/2019/07/13/谷歌云搭建免费VPN(二)/index.html">
 <meta property="og:site_name" content="Grx Blog">
-<meta property="og:description" content="谷歌云服务VPN环境配置">
+<meta property="og:description" content="整体大概流程：申请免费谷歌云服务 =&amp;gt; 创建虚拟实例 =&amp;gt; 在实例搭建SSR或L2TP/IPsecVPN 服务">
 <meta property="og:image" content="https://static.oschina.net/uploads/space/2017/1224/010450_QY0n_924639.png">
 <meta property="og:image" content="https://static.oschina.net/uploads/space/2017/1224/010600_PsvG_924639.png">
 <meta property="og:image" content="https://static.oschina.net/uploads/space/2017/1224/010728_pEhQ_924639.png">
 <meta property="og:image" content="https://static.oschina.net/uploads/space/2017/1224/004435_Dgcy_924639.png">
 <meta property="og:image" content="https://static.oschina.net/uploads/space/2017/1224/004459_hZxc_924639.png">
 <meta property="og:image" content="https://static.oschina.net/uploads/space/2017/1224/005455_3vfp_924639.png">
-<meta property="og:updated_time" content="2019-07-15T03:38:28.554Z">
+<meta property="og:updated_time" content="2019-07-15T03:41:45.820Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="谷歌云搭建免费VPN(二)">
-<meta name="twitter:description" content="谷歌云服务VPN环境配置">
+<meta name="twitter:description" content="整体大概流程：申请免费谷歌云服务 =&amp;gt; 创建虚拟实例 =&amp;gt; 在实例搭建SSR或L2TP/IPsecVPN 服务">
 <meta name="twitter:image" content="https://static.oschina.net/uploads/space/2017/1224/010450_QY0n_924639.png">
   
     <link rel="alternative" href="/atom.xml" title="Grx Blog" type="application/atom+xml">
@@ -254,7 +254,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<h4 id="谷歌云服务VPN环境配置"><a href="#谷歌云服务VPN环境配置" class="headerlink" title="谷歌云服务VPN环境配置"></a>谷歌云服务VPN环境配置</h4></blockquote>
+<h4 id="整体大概流程：申请免费谷歌云服务-gt-创建虚拟实例-gt-在实例搭建SSR或L2TP-IPsecVPN-服务"><a href="#整体大概流程：申请免费谷歌云服务-gt-创建虚拟实例-gt-在实例搭建SSR或L2TP-IPsecVPN-服务" class="headerlink" title="整体大概流程：申请免费谷歌云服务 =&gt; 创建虚拟实例 =&gt; 在实例搭建SSR或L2TP/IPsecVPN 服务"></a>整体大概流程：申请免费谷歌云服务 =&gt; 创建虚拟实例 =&gt; 在实例搭建SSR或L2TP/IPsecVPN 服务</h4></blockquote>
 <a id="more"></a>
 <h2 id="一-修改防火墙："><a href="#一-修改防火墙：" class="headerlink" title="一.   修改防火墙："></a>一.   修改防火墙：</h2><blockquote>
 <p>VPC网络 -&gt; 防火墙规则 -&gt; <a href="https://console.cloud.google.com/networking/firewalls/list" target="_blank" rel="external">创建防火墙</a>注意以下几点即可：</p>
