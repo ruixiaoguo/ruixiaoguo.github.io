@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Mac系统本地搭建禅道 | Grx Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="禅道运行环境推荐使用 Apache + PHP + MySQL组合(本教程只针对mac版本使用了MAMP)，OS系统自带Apache与PHP环境，方便配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac系统本地搭建禅道">
+<meta property="og:url" content="http://yoursite.com/2019/08/29/Mac系统本地搭建禅道/index.html">
+<meta property="og:site_name" content="Grx Blog">
+<meta property="og:description" content="禅道运行环境推荐使用 Apache + PHP + MySQL组合(本教程只针对mac版本使用了MAMP)，OS系统自带Apache与PHP环境，方便配置">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2084577-4d28dc25c09a522d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2084577-86f1fa6c245d2239.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2084577-e8f9793eae769767.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2084577-c9af26d5ff650972.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1399292-33a3aa327c6ab1fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1399292-c9a6d48a6493d7e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1399292-a3d31901e93e9595.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1399292-5dcfec170344ce9f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1399292-dd92e0de703d690b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1399292-6bbc9486621d9bd2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000">
+<meta property="og:image" content="https://www.zentao.net/file.php?f=201906/f_c01aa83ed40472d44ae524da2ce1c963&t=jpg&o=&s=&v=1559696378">
+<meta property="og:image" content="https://www.zentao.net/file.php?f=201906/f_513642e9abce764038586db0353ab84a&t=jpg&o=&s=&v=1559700602">
+<meta property="og:updated_time" content="2019-08-29T07:21:05.458Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mac系统本地搭建禅道">
+<meta name="twitter:description" content="禅道运行环境推荐使用 Apache + PHP + MySQL组合(本教程只针对mac版本使用了MAMP)，OS系统自带Apache与PHP环境，方便配置">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/2084577-4d28dc25c09a522d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000">
+  
+    <link rel="alternative" href="/atom.xml" title="Grx Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/rufei.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Grx</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">自我管理，知识管理，时间管理，阅读，语音写作，思维导图</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/tags/life">随笔</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/ruixiaoguo" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="https://weibo.com/u/3984935859?refer_flag=1005055010_" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/OC/" style="font-size: 10px;">-OC</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Apple-Watch/" style="font-size: 10px;">Apple Watch</a> <a href="/tags/Flutter/" style="font-size: 15px;">Flutter</a> <a href="/tags/Google/" style="font-size: 13.33px;">Google</a> <a href="/tags/Life/" style="font-size: 10px;">Life</a> <a href="/tags/Lottie/" style="font-size: 10px;">Lottie</a> <a href="/tags/MMKV/" style="font-size: 10px;">MMKV</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/MonkeyKing/" style="font-size: 10px;">MonkeyKing</a> <a href="/tags/OC/" style="font-size: 20px;">OC</a> <a href="/tags/PHP/" style="font-size: 11.67px;">PHP</a> <a href="/tags/RAC/" style="font-size: 11.67px;">RAC</a> <a href="/tags/Swift/" style="font-size: 16.67px;">Swift</a> <a href="/tags/WKWebView/" style="font-size: 10px;">WKWebView</a> <a href="/tags/WebView/" style="font-size: 10px;">WebView</a> <a href="/tags/Xcode/" style="font-size: 15px;">Xcode</a> <a href="/tags/appledoc/" style="font-size: 10px;">appledoc</a> <a href="/tags/cocos2d/" style="font-size: 10px;">cocos2d</a> <a href="/tags/hexo/" style="font-size: 11.67px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/life/" style="font-size: 18.33px;">life</a> <a href="/tags/xcode/" style="font-size: 11.67px;">xcode</a> <a href="/tags/智能家居/" style="font-size: 15px;">智能家居</a> <a href="/tags/逆向/" style="font-size: 15px;">逆向</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.devtang.com">唐巧的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondvincent.com">破船之家</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://limboy.me">无网不剩</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://msching.github.io">码农人生</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://yulingtianxia.com">玉令天下</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.leichunfeng.com">雷纯锋的技术博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://jax.cnblogs.com">包建强</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.cnbang.net">bang</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">知识管理，时间管理，自我管理，阅读，语音写作，思维导图，Wiz，TimeMeter</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Grx</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/rufei.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Grx</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">自我管理，知识管理，时间管理，阅读，语音写作，思维导图</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/life">随笔</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/ruixiaoguo" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="https://weibo.com/u/3984935859?refer_flag=1005055010_" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Mac系统本地搭建禅道" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/08/29/Mac系统本地搭建禅道/" class="article-date">
+  	<time datetime="2019-08-29T06:28:47.000Z" itemprop="datePublished">2019-08-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Mac系统本地搭建禅道
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="禅道运行环境推荐使用-Apache-PHP-MySQL组合-本教程只针对mac版本使用了MAMP-，OS系统自带Apache与PHP环境，方便配置"><a href="#禅道运行环境推荐使用-Apache-PHP-MySQL组合-本教程只针对mac版本使用了MAMP-，OS系统自带Apache与PHP环境，方便配置" class="headerlink" title="禅道运行环境推荐使用 Apache + PHP + MySQL组合(本教程只针对mac版本使用了MAMP)，OS系统自带Apache与PHP环境，方便配置"></a>禅道运行环境推荐使用 Apache + PHP + MySQL组合(本教程只针对mac版本使用了MAMP)，OS系统自带Apache与PHP环境，方便配置</h4><a id="more"></a>
+<h2 id="一、部署禅道运行环境"><a href="#一、部署禅道运行环境" class="headerlink" title="一、部署禅道运行环境"></a>一、部署禅道运行环境</h2><blockquote>
+<p>Apache、PHP、MySQL，推荐使用MAMP搭建本地服务器</p>
+</blockquote>
+<h3 id="MAMP设置："><a href="#MAMP设置：" class="headerlink" title="MAMP设置："></a>MAMP设置：</h3><h4 id="1-设置Hosts"><a href="#1-设置Hosts" class="headerlink" title="1.设置Hosts"></a>1.设置Hosts</h4><p><img src="https://upload-images.jianshu.io/upload_images/2084577-4d28dc25c09a522d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000" alt="avatar"></p>
+<h4 id="2-设置Ports"><a href="#2-设置Ports" class="headerlink" title="2.设置Ports"></a>2.设置Ports</h4><p><img src="https://upload-images.jianshu.io/upload_images/2084577-86f1fa6c245d2239.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000" alt="avatar"></p>
+<h4 id="3-设置MySQL-推荐使用Sequel-Pro"><a href="#3-设置MySQL-推荐使用Sequel-Pro" class="headerlink" title="3.设置MySQL(推荐使用Sequel Pro)"></a>3.设置MySQL(推荐使用Sequel Pro)</h4><p><img src="https://upload-images.jianshu.io/upload_images/2084577-e8f9793eae769767.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000" alt="avatar"></p>
+<h4 id="4-设置PHP-选择好当前安装的PHP版本推荐-gt-7-2"><a href="#4-设置PHP-选择好当前安装的PHP版本推荐-gt-7-2" class="headerlink" title="4.设置PHP(选择好当前安装的PHP版本推荐&gt;7.2)"></a>4.设置PHP(选择好当前安装的PHP版本推荐&gt;7.2)</h4><p><img src="https://upload-images.jianshu.io/upload_images/2084577-c9af26d5ff650972.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000" alt="avatar"></p>
+<h2 id="2-本地服务器搭建禅道"><a href="#2-本地服务器搭建禅道" class="headerlink" title="2.本地服务器搭建禅道"></a>2.本地服务器搭建禅道</h2><h4 id="一：下载源代码"><a href="#一：下载源代码" class="headerlink" title="一：下载源代码"></a>一：下载源代码</h4><h4 id="在禅道官网下载最新版本的的源代码，下载地址：http-www-zentao-net-download-html"><a href="#在禅道官网下载最新版本的的源代码，下载地址：http-www-zentao-net-download-html" class="headerlink" title="在禅道官网下载最新版本的的源代码，下载地址：http://www.zentao.net/download.html"></a>在禅道官网下载最新版本的的源代码，下载地址：<a href="http://www.zentao.net/download.html" target="_blank" rel="external">http://www.zentao.net/download.html</a></h4><h4 id="下载格式：-zip；"><a href="#下载格式：-zip；" class="headerlink" title="下载格式：.zip；"></a>下载格式：.zip；</h4><h4 id="二：拷贝项目"><a href="#二：拷贝项目" class="headerlink" title="二：拷贝项目"></a>二：拷贝项目</h4><h4 id="将下载好的项目zentaopms文件拷贝到服务器所在文件夹下htdocs-MAMP中可以直接进入服务器根目录"><a href="#将下载好的项目zentaopms文件拷贝到服务器所在文件夹下htdocs-MAMP中可以直接进入服务器根目录" class="headerlink" title="将下载好的项目zentaopms文件拷贝到服务器所在文件夹下htdocs(MAMP中可以直接进入服务器根目录)"></a>将下载好的项目zentaopms文件拷贝到服务器所在文件夹下htdocs(MAMP中可以直接进入服务器根目录)</h4><h4 id="三：运行项目"><a href="#三：运行项目" class="headerlink" title="三：运行项目"></a>三：运行项目</h4><h4 id="启动MAMP后，在浏览器中访问项目地址：http-localhost-zentaopms-www-index-php，进入系统安装程序，点击开始安装"><a href="#启动MAMP后，在浏览器中访问项目地址：http-localhost-zentaopms-www-index-php，进入系统安装程序，点击开始安装" class="headerlink" title="启动MAMP后，在浏览器中访问项目地址：http://localhost/zentaopms/www/index.php，进入系统安装程序，点击开始安装"></a>启动MAMP后，在浏览器中访问项目地址：<a href="http://localhost/zentaopms/www/index.php，进入系统安装程序，点击开始安装" target="_blank" rel="external">http://localhost/zentaopms/www/index.php，进入系统安装程序，点击开始安装</a></h4><p><img src="https://upload-images.jianshu.io/upload_images/1399292-33a3aa327c6ab1fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000" alt="avatar"></p>
+<h4 id="四：签署协议"><a href="#四：签署协议" class="headerlink" title="四：签署协议"></a>四：签署协议</h4><h4 id="傻瓜式操作选择同意授权协议"><a href="#傻瓜式操作选择同意授权协议" class="headerlink" title="傻瓜式操作选择同意授权协议"></a>傻瓜式操作选择同意授权协议</h4><p><img src="https://upload-images.jianshu.io/upload_images/1399292-c9a6d48a6493d7e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000" alt="avatar"></p>
+<h4 id="五：系统检查"><a href="#五：系统检查" class="headerlink" title="五：系统检查"></a>五：系统检查</h4><h4 id="这一步会自动检查当前服务器的配置信息，现在检查通过后选择下一步。"><a href="#这一步会自动检查当前服务器的配置信息，现在检查通过后选择下一步。" class="headerlink" title="这一步会自动检查当前服务器的配置信息，现在检查通过后选择下一步。"></a>这一步会自动检查当前服务器的配置信息，现在检查通过后选择下一步。</h4><p><img src="https://upload-images.jianshu.io/upload_images/1399292-a3d31901e93e9595.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000" alt="avatar"></p>
+<h4 id="六：生成配置文件"><a href="#六：生成配置文件" class="headerlink" title="六：生成配置文件"></a>六：生成配置文件</h4><h4 id="这一步会自动生成配置文件，如下图-需要提前在MAMP中创建数据库密码默认root"><a href="#这一步会自动生成配置文件，如下图-需要提前在MAMP中创建数据库密码默认root" class="headerlink" title="这一步会自动生成配置文件，如下图(需要提前在MAMP中创建数据库密码默认root)"></a>这一步会自动生成配置文件，如下图(需要提前在MAMP中创建数据库密码默认root)</h4><p><img src="https://upload-images.jianshu.io/upload_images/1399292-5dcfec170344ce9f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000" alt="avatar"></p>
+<h4 id="七：保存配置文件"><a href="#七：保存配置文件" class="headerlink" title="七：保存配置文件"></a>七：保存配置文件</h4><p><img src="https://upload-images.jianshu.io/upload_images/1399292-dd92e0de703d690b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000" alt="avatar"></p>
+<h4 id="八：设置账号"><a href="#八：设置账号" class="headerlink" title="八：设置账号"></a>八：设置账号</h4><p><img src="https://upload-images.jianshu.io/upload_images/1399292-6bbc9486621d9bd2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000" alt="avatar"></p>
+<h2 id="3-安装ioncube扩展方法教程"><a href="#3-安装ioncube扩展方法教程" class="headerlink" title="3.安装ioncube扩展方法教程"></a>3.安装ioncube扩展方法教程</h2><blockquote>
+<p>禅道的加密软件使用的是ioncube，以下是如何部署安装ioncube的扩展。</p>
+</blockquote>
+<h4 id="上一步是安装完禅道的本地源码程序，再次在浏览器中访问项目地址：http-localhost-zentaopms-www-index-php会出现安装ioncube向导页面。"><a href="#上一步是安装完禅道的本地源码程序，再次在浏览器中访问项目地址：http-localhost-zentaopms-www-index-php会出现安装ioncube向导页面。" class="headerlink" title="上一步是安装完禅道的本地源码程序，再次在浏览器中访问项目地址：http://localhost/zentaopms/www/index.php会出现安装ioncube向导页面。"></a>上一步是安装完禅道的本地源码程序，再次在浏览器中访问项目地址：<a href="http://localhost/zentaopms/www/index.php会出现安装ioncube向导页面。" target="_blank" rel="external">http://localhost/zentaopms/www/index.php会出现安装ioncube向导页面。</a></h4><h4 id="一：下载loader-wizard-php"><a href="#一：下载loader-wizard-php" class="headerlink" title="一：下载loader-wizard.php"></a>一：下载loader-wizard.php</h4><blockquote>
+<h5 id="ioncube提供了一个安装的向导程序，可以非常方便的帮助检测php的运行环境，自动给出提示"><a href="#ioncube提供了一个安装的向导程序，可以非常方便的帮助检测php的运行环境，自动给出提示" class="headerlink" title="ioncube提供了一个安装的向导程序，可以非常方便的帮助检测php的运行环境，自动给出提示"></a>ioncube提供了一个安装的向导程序，可以非常方便的帮助检测php的运行环境，自动给出提示</h5></blockquote>
+<h4 id="1-1-也可以通过下面的地址下载loader-wizard：-http-www-ioncube-com-loader-wizard-loader-wizard-zip"><a href="#1-1-也可以通过下面的地址下载loader-wizard：-http-www-ioncube-com-loader-wizard-loader-wizard-zip" class="headerlink" title="1.1 也可以通过下面的地址下载loader-wizard：  http://www.ioncube.com/loader-wizard/loader-wizard.zip"></a>1.1 也可以通过下面的地址下载loader-wizard：  <a href="http://www.ioncube.com/loader-wizard/loader-wizard.zip" target="_blank" rel="external">http://www.ioncube.com/loader-wizard/loader-wizard.zip</a></h4><h4 id="1-2-下载之后，将其解压缩，到apache服务器的根目录htdoc目录。-禅道源码所在的目录"><a href="#1-2-下载之后，将其解压缩，到apache服务器的根目录htdoc目录。-禅道源码所在的目录" class="headerlink" title="1.2 下载之后，将其解压缩，到apache服务器的根目录htdoc目录。(禅道源码所在的目录)"></a>1.2 下载之后，将其解压缩，到apache服务器的根目录htdoc目录。(禅道源码所在的目录)</h4><h4 id="二：运行loader-wizard-php程序"><a href="#二：运行loader-wizard-php程序" class="headerlink" title="二：运行loader-wizard.php程序"></a>二：运行loader-wizard.php程序</h4><h4 id="1-使用浏览器访问ioncube路径比如-http-localhost-loader-wizard-php-实际的访问路径根据情况修改"><a href="#1-使用浏览器访问ioncube路径比如-http-localhost-loader-wizard-php-实际的访问路径根据情况修改" class="headerlink" title="1.使用浏览器访问ioncube路径比如 http://localhost/loader-wizard.php 实际的访问路径根据情况修改"></a>1.使用浏览器访问ioncube路径比如 <a href="http://localhost/loader-wizard.php" target="_blank" rel="external">http://localhost/loader-wizard.php</a> 实际的访问路径根据情况修改</h4><h4 id="2-访问之后不出意外会出现ioncube引导安装页面-选择Local-install本地安装"><a href="#2-访问之后不出意外会出现ioncube引导安装页面-选择Local-install本地安装" class="headerlink" title="2.访问之后不出意外会出现ioncube引导安装页面(选择Local install本地安装)"></a>2.访问之后不出意外会出现ioncube引导安装页面(选择Local install本地安装)</h4><p><img src="https://www.zentao.net/file.php?f=201906/f_c01aa83ed40472d44ae524da2ce1c963&amp;t=jpg&amp;o=&amp;s=&amp;v=1559696378" alt="avatar"></p>
+<h4 id="3-选择下一步后会出现详细安装页面，此页面会根据你本地服务器配置自动给出安装提示。"><a href="#3-选择下一步后会出现详细安装页面，此页面会根据你本地服务器配置自动给出安装提示。" class="headerlink" title="3.选择下一步后会出现详细安装页面，此页面会根据你本地服务器配置自动给出安装提示。"></a>3.选择下一步后会出现详细安装页面，此页面会根据你本地服务器配置自动给出安装提示。</h4><p><img src="https://www.zentao.net/file.php?f=201906/f_513642e9abce764038586db0353ab84a&amp;t=jpg&amp;o=&amp;s=&amp;v=1559700602" alt="avatar"></p>
+<blockquote>
+<h4 id="1-根据这个向导程序的提示，下载相应的解密软件"><a href="#1-根据这个向导程序的提示，下载相应的解密软件" class="headerlink" title="1.根据这个向导程序的提示，下载相应的解密软件"></a>1.根据这个向导程序的提示，下载相应的解密软件</h4><h4 id="2-将下载下来的解密软件放在它指定的目录中。"><a href="#2-将下载下来的解密软件放在它指定的目录中。" class="headerlink" title="2.将下载下来的解密软件放在它指定的目录中。"></a>2.将下载下来的解密软件放在它指定的目录中。</h4><h4 id="3-下载向导程序计算出来新的php-ini文件，替换系统原来的php-ini文件。-推荐使用MAMP菜单中的File修改php-ini-手动修改后重启服务器不生效，亲测！！！"><a href="#3-下载向导程序计算出来新的php-ini文件，替换系统原来的php-ini文件。-推荐使用MAMP菜单中的File修改php-ini-手动修改后重启服务器不生效，亲测！！！" class="headerlink" title="3.下载向导程序计算出来新的php.ini文件，替换系统原来的php.ini文件。(推荐使用MAMP菜单中的File修改php.ini,手动修改后重启服务器不生效，亲测！！！)"></a>3.下载向导程序计算出来新的php.ini文件，替换系统原来的php.ini文件。(推荐使用MAMP菜单中的File修改php.ini,手动修改后重启服务器不生效，亲测！！！)</h4><h4 id="4-重新启动apache"><a href="#4-重新启动apache" class="headerlink" title="4.重新启动apache"></a>4.重新启动apache</h4></blockquote>
+<h4 id="4-重启服务器后再次访问http-localhost-loader-wizard-php会提示安装成功，表示解密软件已经安装成功了。"><a href="#4-重启服务器后再次访问http-localhost-loader-wizard-php会提示安装成功，表示解密软件已经安装成功了。" class="headerlink" title="4.重启服务器后再次访问http://localhost/loader-wizard.php会提示安装成功，表示解密软件已经安装成功了。"></a>4.重启服务器后再次访问<a href="http://localhost/loader-wizard.php会提示安装成功，表示解密软件已经安装成功了。" target="_blank" rel="external">http://localhost/loader-wizard.php会提示安装成功，表示解密软件已经安装成功了。</a></h4><h4 id="5-此时访问禅道http-localhost-zentaopms-www-index-php不出意外就会出现系统登录页面了。用户名密码默认root。"><a href="#5-此时访问禅道http-localhost-zentaopms-www-index-php不出意外就会出现系统登录页面了。用户名密码默认root。" class="headerlink" title="5.此时访问禅道http://localhost/zentaopms/www/index.php不出意外就会出现系统登录页面了。用户名密码默认root。"></a>5.此时访问禅道<a href="http://localhost/zentaopms/www/index.php不出意外就会出现系统登录页面了。用户名密码默认root。" target="_blank" rel="external">http://localhost/zentaopms/www/index.php不出意外就会出现系统登录页面了。用户名密码默认root。</a></h4><h2 id="4-安装过程遇到的坑。"><a href="#4-安装过程遇到的坑。" class="headerlink" title="4.安装过程遇到的坑。"></a>4.安装过程遇到的坑。</h2><h4 id="1-升级MAC系统的php后与php-fpm调用的版本不一致"><a href="#1-升级MAC系统的php后与php-fpm调用的版本不一致" class="headerlink" title="1.升级MAC系统的php后与php-fpm调用的版本不一致"></a>1.升级MAC系统的php后与php-fpm调用的版本不一致</h4><h4 id="具体修改方法参考https-hk-v2ex-com-t-191069"><a href="#具体修改方法参考https-hk-v2ex-com-t-191069" class="headerlink" title="具体修改方法参考https://hk.v2ex.com/t/191069"></a>具体修改方法参考<a href="https://hk.v2ex.com/t/191069" target="_blank" rel="external">https://hk.v2ex.com/t/191069</a></h4>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/08/15/iOS强迫症的福音--优雅的删除项目中无用的图片资源/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS强迫症的福音--优雅的删除项目中无用的图片资源</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Mac系统本地搭建禅道" data-title="Mac系统本地搭建禅道" data-url="http://yoursite.com/2019/08/29/Mac系统本地搭建禅道/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2019 Grx
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

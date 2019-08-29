@@ -118,7 +118,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/OC/" style="font-size: 10px;">-OC</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Apple-Watch/" style="font-size: 10px;">Apple Watch</a> <a href="/tags/Flutter/" style="font-size: 15px;">Flutter</a> <a href="/tags/Google/" style="font-size: 13.33px;">Google</a> <a href="/tags/Life/" style="font-size: 10px;">Life</a> <a href="/tags/Lottie/" style="font-size: 10px;">Lottie</a> <a href="/tags/MMKV/" style="font-size: 10px;">MMKV</a> <a href="/tags/MonkeyKing/" style="font-size: 10px;">MonkeyKing</a> <a href="/tags/OC/" style="font-size: 20px;">OC</a> <a href="/tags/PHP/" style="font-size: 11.67px;">PHP</a> <a href="/tags/RAC/" style="font-size: 11.67px;">RAC</a> <a href="/tags/Swift/" style="font-size: 16.67px;">Swift</a> <a href="/tags/WKWebView/" style="font-size: 10px;">WKWebView</a> <a href="/tags/WebView/" style="font-size: 10px;">WebView</a> <a href="/tags/Xcode/" style="font-size: 15px;">Xcode</a> <a href="/tags/appledoc/" style="font-size: 10px;">appledoc</a> <a href="/tags/cocos2d/" style="font-size: 10px;">cocos2d</a> <a href="/tags/hexo/" style="font-size: 11.67px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/life/" style="font-size: 18.33px;">life</a> <a href="/tags/xcode/" style="font-size: 11.67px;">xcode</a> <a href="/tags/智能家居/" style="font-size: 15px;">智能家居</a> <a href="/tags/逆向/" style="font-size: 15px;">逆向</a>
+						<a href="/tags/OC/" style="font-size: 10px;">-OC</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Apple-Watch/" style="font-size: 10px;">Apple Watch</a> <a href="/tags/Flutter/" style="font-size: 15px;">Flutter</a> <a href="/tags/Google/" style="font-size: 13.33px;">Google</a> <a href="/tags/Life/" style="font-size: 10px;">Life</a> <a href="/tags/Lottie/" style="font-size: 10px;">Lottie</a> <a href="/tags/MMKV/" style="font-size: 10px;">MMKV</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/MonkeyKing/" style="font-size: 10px;">MonkeyKing</a> <a href="/tags/OC/" style="font-size: 20px;">OC</a> <a href="/tags/PHP/" style="font-size: 11.67px;">PHP</a> <a href="/tags/RAC/" style="font-size: 11.67px;">RAC</a> <a href="/tags/Swift/" style="font-size: 16.67px;">Swift</a> <a href="/tags/WKWebView/" style="font-size: 10px;">WKWebView</a> <a href="/tags/WebView/" style="font-size: 10px;">WebView</a> <a href="/tags/Xcode/" style="font-size: 15px;">Xcode</a> <a href="/tags/appledoc/" style="font-size: 10px;">appledoc</a> <a href="/tags/cocos2d/" style="font-size: 10px;">cocos2d</a> <a href="/tags/hexo/" style="font-size: 11.67px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/life/" style="font-size: 18.33px;">life</a> <a href="/tags/xcode/" style="font-size: 11.67px;">xcode</a> <a href="/tags/智能家居/" style="font-size: 15px;">智能家居</a> <a href="/tags/逆向/" style="font-size: 15px;">逆向</a>
 					</div>
 				</section>
 				
@@ -209,6 +209,66 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-创建属于自己的私有库(github)以及提交到cocoapods" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/07/08/创建属于自己的私有库(github)以及提交到cocoapods/" class="article-date">
+  	<time datetime="2018-07-08T10:28:47.000Z" itemprop="datePublished">2018-07-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/08/创建属于自己的私有库(github)以及提交到cocoapods/">创建属于自己的私有库(github)以及提交到cocoapods</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="创建属于自己的私有库-github-以及提交到cocoapods"><a href="#创建属于自己的私有库-github-以及提交到cocoapods" class="headerlink" title="创建属于自己的私有库(github)以及提交到cocoapods"></a>创建属于自己的私有库(github)以及提交到cocoapods</h1><p>相信每个Develop<a href="https://link.jianshu.com/?t=https://github.com/CharlsPrince/CommonExtension.git%27er都会在使用Cocoapods这儿第三方库管理工具，虽然有时候pod">https://link.jianshu.com/?t=https://github.com/CharlsPrince/CommonExtension.git%27er都会在使用Cocoapods这儿第三方库管理工具，虽然有时候pod</a> install的时候会有种想死的感觉o(╯□╰)o，但依然无法阻挡某些程序员去使用它的热情，why？因为它能使你的项目工程看起来更加简洁，更加有条理性，而不至于使自己项目的Vendor文件夹看起来臃肿，而且能减少手动导入静态framework的麻烦，也可以将自己封装好的代码提交到Trunk供自己和别人使用，的确方便。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OC/">OC</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2018/07/08/创建属于自己的私有库(github)以及提交到cocoapods/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-iOS 组件化方案探索" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -749,68 +809,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/06/15/VitualGS教程示例/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Swift Blog - Apple Developer" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/10/Swift Blog - Apple Developer/" class="article-date">
-  	<time datetime="2016-06-10T10:28:47.000Z" itemprop="datePublished">2016-06-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/10/Swift Blog - Apple Developer/">Swift Blog - Apple Developer（Mirror）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Swift-Blog-Apple-Developer（Mirror）"><a href="#Swift-Blog-Apple-Developer（Mirror）" class="headerlink" title="Swift Blog - Apple Developer（Mirror）"></a>Swift Blog - Apple Developer（Mirror）</h1><blockquote>
-<p>这是 <a href="https://developer.apple.com/swift/blog/">苹果官方 Swift 博客</a> 目录镜像。其中收录了 Swift 爱好者提供的对应博客中文翻译。<a href="https://github.com/ipader/SwiftGuide/tree/master/mirror/Swift%20Blog%20-%20Apple%20Developer">欢迎投递</a>。</p>
-</blockquote>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/06/10/Swift Blog - Apple Developer/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
