@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Grx Blog">
 <meta property="og:description" content="如果你正准备从头开始制作一个新的应用，那么 React Native 会是个非常好的选择。但如果你只想给现有的原生应用中添加一两个视图或是业务流程，React Native 也同样不在话下。只需简单几步，你就可以给原有应用加上新的基于 React Native 的特性、画面和视图等。
 具体的步骤根据你所开发的目标平台不同而不同。">
-<meta property="og:updated_time" content="2020-03-26T07:35:09.348Z">
+<meta property="og:updated_time" content="2020-03-27T06:03:50.449Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RN集成到现有原生应用">
 <meta name="twitter:description" content="如果你正准备从头开始制作一个新的应用，那么 React Native 会是个非常好的选择。但如果你只想给现有的原生应用中添加一两个视图或是业务流程，React Native 也同样不在话下。只需简单几步，你就可以给原有应用加上新的基于 React Native 的特性、画面和视图等。
@@ -262,24 +262,45 @@
     &quot;start&quot;: &quot;yarn react-native start&quot;
   }
 }
-</code></pre><h5 id="此处的”name”-“NumberTileGame”-NumberTileGame替换成自己的iOS工程名"><a href="#此处的”name”-“NumberTileGame”-NumberTileGame替换成自己的iOS工程名" class="headerlink" title="此处的”name”: “NumberTileGame”,NumberTileGame替换成自己的iOS工程名"></a>此处的”name”: “NumberTileGame”,NumberTileGame替换成自己的iOS工程名</h5><h3 id="3-安装node-modules"><a href="#3-安装node-modules" class="headerlink" title="3.安装node_modules/"></a>3.安装node_modules/</h3><h5 id="cd到根目录，执行以下命令"><a href="#cd到根目录，执行以下命令" class="headerlink" title="cd到根目录，执行以下命令"></a>cd到根目录，执行以下命令</h5><h5 id="npm-install"><a href="#npm-install" class="headerlink" title="npm install"></a>npm install</h5><h5 id="此步会根据上面的package-json文件安装node-modules"><a href="#此步会根据上面的package-json文件安装node-modules" class="headerlink" title="此步会根据上面的package.json文件安装node_modules"></a>此步会根据上面的package.json文件安装node_modules</h5><h3 id="4-创建Podfile文件"><a href="#4-创建Podfile文件" class="headerlink" title="4.创建Podfile文件"></a>4.创建Podfile文件</h3><h5 id="cd到iOS工程的根目录（ios-）"><a href="#cd到iOS工程的根目录（ios-）" class="headerlink" title="cd到iOS工程的根目录（ios/）"></a>cd到iOS工程的根目录（ios/）</h5><h5 id="vim-podfile"><a href="#vim-podfile" class="headerlink" title="vim podfile"></a>vim podfile</h5><h5 id="命令执行完后会在（ios-）目录下创建Podfile文件，所需要的react-native依赖库在这里配置，初始内容如下："><a href="#命令执行完后会在（ios-）目录下创建Podfile文件，所需要的react-native依赖库在这里配置，初始内容如下：" class="headerlink" title="命令执行完后会在（ios/）目录下创建Podfile文件，所需要的react-native依赖库在这里配置，初始内容如下："></a>命令执行完后会在（ios/）目录下创建Podfile文件，所需要的react-native依赖库在这里配置，初始内容如下：</h5><pre><code># Uncomment this line to define a global platform for your project
-# platform :ios, &apos;9.0&apos;
+</code></pre><h5 id="此处的”name”-“NumberTileGame”-NumberTileGame替换成自己的iOS工程名"><a href="#此处的”name”-“NumberTileGame”-NumberTileGame替换成自己的iOS工程名" class="headerlink" title="此处的”name”: “NumberTileGame”,NumberTileGame替换成自己的iOS工程名"></a>此处的”name”: “NumberTileGame”,NumberTileGame替换成自己的iOS工程名</h5><h3 id="3-安装node-modules"><a href="#3-安装node-modules" class="headerlink" title="3.安装node_modules/"></a>3.安装node_modules/</h3><h5 id="cd到根目录，执行以下命令"><a href="#cd到根目录，执行以下命令" class="headerlink" title="cd到根目录，执行以下命令"></a>cd到根目录，执行以下命令</h5><h5 id="npm-install"><a href="#npm-install" class="headerlink" title="npm install"></a>npm install</h5><h5 id="此步会根据上面的package-json文件安装node-modules"><a href="#此步会根据上面的package-json文件安装node-modules" class="headerlink" title="此步会根据上面的package.json文件安装node_modules"></a>此步会根据上面的package.json文件安装node_modules</h5><h3 id="4-创建Podfile文件"><a href="#4-创建Podfile文件" class="headerlink" title="4.创建Podfile文件"></a>4.创建Podfile文件</h3><h5 id="cd到iOS工程的根目录（ios-）"><a href="#cd到iOS工程的根目录（ios-）" class="headerlink" title="cd到iOS工程的根目录（ios/）"></a>cd到iOS工程的根目录（ios/）</h5><h5 id="vim-podfile"><a href="#vim-podfile" class="headerlink" title="vim podfile"></a>vim podfile</h5><h5 id="命令执行完后会在（ios-）目录下创建Podfile文件，所需要的react-native依赖库在这里配置，初始内容如下："><a href="#命令执行完后会在（ios-）目录下创建Podfile文件，所需要的react-native依赖库在这里配置，初始内容如下：" class="headerlink" title="命令执行完后会在（ios/）目录下创建Podfile文件，所需要的react-native依赖库在这里配置，初始内容如下："></a>命令执行完后会在（ios/）目录下创建Podfile文件，所需要的react-native依赖库在这里配置，初始内容如下：</h5><pre><code># Uncomment the next line to define a global platform for your project
+platform :ios, &apos;9.0&apos;
+# Uncomment the next line if you&apos;re using Swift or would like to use dynamic frameworks
+# use_frameworks!
 
-target &apos;NumberTileGame&apos; do
-  # Uncomment this line if you&apos;re using Swift or would like to use dynamic frameworks
-  # use_frameworks!
+target &apos;RNTest&apos; do
 
-  # Pods for NumberTileGame
+# Pods for RNTest
+#***********************************************************************#
 
-  target &apos;NumberTileGameTests&apos; do
-    inherit! :search_paths
-    # Pods for testing
-  end
+# &apos;node_modules&apos;目录一般位于根目录中
+# 但是如果你的结构不同，那你就要根据实际路径修改下面的`:path`
+pod &apos;React&apos;, :path =&gt; &apos;../node_modules/react-native&apos;, :subspecs =&gt; [
+&apos;Core&apos;,
+&apos;RCTText&apos;,
+&apos;RCTImage&apos;,
+&apos;RCTActionSheet&apos;,
+&apos;RCTGeolocation&apos;,
+&apos;RCTNetwork&apos;,
+&apos;RCTSettings&apos;,
+&apos;RCTVibration&apos;,
+&apos;BatchedBridge&apos;,
+&apos;RCTWebSocket&apos;,
+&apos;ART&apos;,
+&apos;RCTAnimation&apos;,
+&apos;RCTBlob&apos;,
+&apos;RCTCameraRoll&apos;,
+&apos;RCTPushNotification&apos;,
+&apos;RCTLinkingIOS&apos;,
+&apos;DevSupport&apos;
+# 在这里继续添加你所需要的模块
+]
 
-  target &apos;NumberTileGameUITests&apos; do
-    inherit! :search_paths
-    # Pods for testing
-  end
+# 如果你的RN版本 &gt;= 0.42.0，请加入下面这行
+pod &quot;yoga&quot;, :path =&gt; &quot;../node_modules/react-native/ReactCommon/yoga&quot;
+
+#***********************************************************************#
+
+pod &apos;RNVectorIcons&apos;, :path =&gt; &apos;../node_modules/react-native-vector-icons&apos;
 </code></pre><p>end</p>
 <h5 id="pod-install-安装"><a href="#pod-install-安装" class="headerlink" title="pod install 安装"></a>pod install 安装</h5><h3 id="5-创建index-ios-js-（创建RN组件）"><a href="#5-创建index-ios-js-（创建RN组件）" class="headerlink" title="5.创建index.ios.js （创建RN组件）"></a>5.创建index.ios.js （创建RN组件）</h3><h5 id="cd到根目录，执行以下命令-1"><a href="#cd到根目录，执行以下命令-1" class="headerlink" title="cd到根目录，执行以下命令"></a>cd到根目录，执行以下命令</h5><h5 id="touch-index-ios-js"><a href="#touch-index-ios-js" class="headerlink" title="touch index.ios.js"></a>touch index.ios.js</h5><h5 id="编写index-ios-js-如下"><a href="#编写index-ios-js-如下" class="headerlink" title="编写index.ios.js 如下"></a>编写index.ios.js 如下</h5><pre><code>&apos;use strict&apos;;
 
