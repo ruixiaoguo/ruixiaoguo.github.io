@@ -12,13 +12,13 @@
 <meta property="og:url" content="http://yoursite.com/2020/05/01/Fastlane实现自动化打包和发布（一）/index.html">
 <meta property="og:site_name" content="Grx Blog">
 <meta property="og:description" content="Fastlane是一套使用Ruby写的自动化工具集，用于iOS和Android的自动化打包、发布等工作，可以节省大量的时间。">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11379581-fd6d1a3ff6d613b8.png?imageMogr2/auto-orient/strip|imageView2/2/w/596">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11379581-4917859ba65ffb2c.png?imageMogr2/auto-orient/strip|imageView2/2/w/502">
-<meta property="og:updated_time" content="2020-05-09T07:06:01.368Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/11379581-fd6d1a3ff6d613b8.png?imageMogr2/auto-orient/strip|imageView2/2/w/596">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/11379581-4917859ba65ffb2c.png?imageMogr2/auto-orient/strip|imageView2/2/w/502">
+<meta property="og:updated_time" content="2020-05-09T07:10:31.238Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fastlane实现自动化打包和发布(一)">
 <meta name="twitter:description" content="Fastlane是一套使用Ruby写的自动化工具集，用于iOS和Android的自动化打包、发布等工作，可以节省大量的时间。">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/11379581-fd6d1a3ff6d613b8.png?imageMogr2/auto-orient/strip|imageView2/2/w/596">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/11379581-fd6d1a3ff6d613b8.png?imageMogr2/auto-orient/strip|imageView2/2/w/596">
   
     <link rel="alternative" href="/atom.xml" title="Grx Blog" type="application/atom+xml">
   
@@ -254,23 +254,14 @@
 </blockquote>
 <a id="more"></a>
 <h2 id="一、fastlane的安装"><a href="#一、fastlane的安装" class="headerlink" title="一、fastlane的安装"></a>一、fastlane的安装</h2><ul>
-<li><ol>
 <li>前提电脑需要安装ruby，没有安装的同学先安装ruby，这里不说ruby安装了。</li>
-</ol>
-</li>
-<li><ol>
 <li>安装xcode命令行工具 —- xcode-select –install。</li>
-</ol>
-</li>
-<li><ol>
 <li>安装fastlane   —-  sudo gem install fastlane。</li>
-</ol>
-</li>
 </ul>
 <blockquote>
 <p>安装的比较顺利，基本不会出现什么问题，如有问题自行百度。</p>
 </blockquote>
-<h2 id="二、初始化fastlane"><a href="#二、初始化fastlane" class="headerlink" title="二、初始化fastlane"></a>二、初始化fastlane</h2><h4 id="cd到你的工程目录，执行-（工程需先配置好对应证书和BundleID）"><a href="#cd到你的工程目录，执行-（工程需先配置好对应证书和BundleID）" class="headerlink" title="cd到你的工程目录，执行 （工程需先配置好对应证书和BundleID）"></a>cd到你的工程目录，执行 （工程需先配置好对应证书和BundleID）</h4><h4 id="fastlane-init"><a href="#fastlane-init" class="headerlink" title="fastlane init"></a>fastlane init</h4><h4 id="会出现4个选择如图："><a href="#会出现4个选择如图：" class="headerlink" title="会出现4个选择如图："></a>会出现4个选择如图：</h4><p><img src="https://upload-images.jianshu.io/upload_images/11379581-fd6d1a3ff6d613b8.png?imageMogr2/auto-orient/strip|imageView2/2/w/596" alt="avatar"></p>
+<h2 id="二、初始化fastlane"><a href="#二、初始化fastlane" class="headerlink" title="二、初始化fastlane"></a>二、初始化fastlane</h2><h4 id="cd到你的工程目录，执行-（工程需先配置好对应证书和BundleID）"><a href="#cd到你的工程目录，执行-（工程需先配置好对应证书和BundleID）" class="headerlink" title="cd到你的工程目录，执行 （工程需先配置好对应证书和BundleID）"></a>cd到你的工程目录，执行 （工程需先配置好对应证书和BundleID）</h4><h4 id="fastlane-init"><a href="#fastlane-init" class="headerlink" title="fastlane init"></a>fastlane init</h4><h4 id="会出现4个选择如图："><a href="#会出现4个选择如图：" class="headerlink" title="会出现4个选择如图："></a>会出现4个选择如图：</h4><p><img src="http://upload-images.jianshu.io/upload_images/11379581-fd6d1a3ff6d613b8.png?imageMogr2/auto-orient/strip|imageView2/2/w/596" alt="avatar"></p>
 <ul>
 <li><p>第一个选项的意思是：自动截屏。这个功能能帮我们自动截取APP中的截图，并添加手机边框（如果需要的话）</p>
 </li>
@@ -281,7 +272,7 @@
 <li><p>第二个选项的意思是：手动设置</p>
 </li>
 </ul>
-<h4 id="这里我选择4-手动管理"><a href="#这里我选择4-手动管理" class="headerlink" title="这里我选择4 手动管理"></a>这里我选择4 手动管理</h4><h4 id="执行完了，目录多了fastlane目录和Gemfile"><a href="#执行完了，目录多了fastlane目录和Gemfile" class="headerlink" title="执行完了，目录多了fastlane目录和Gemfile"></a>执行完了，目录多了fastlane目录和Gemfile</h4><p><img src="https://upload-images.jianshu.io/upload_images/11379581-4917859ba65ffb2c.png?imageMogr2/auto-orient/strip|imageView2/2/w/502" alt="avatar"></p>
+<h4 id="这里我选择4-手动管理"><a href="#这里我选择4-手动管理" class="headerlink" title="这里我选择4 手动管理"></a>这里我选择4 手动管理</h4><h4 id="执行完了，目录多了fastlane目录和Gemfile"><a href="#执行完了，目录多了fastlane目录和Gemfile" class="headerlink" title="执行完了，目录多了fastlane目录和Gemfile"></a>执行完了，目录多了fastlane目录和Gemfile</h4><p><img src="http://upload-images.jianshu.io/upload_images/11379581-4917859ba65ffb2c.png?imageMogr2/auto-orient/strip|imageView2/2/w/502" alt="avatar"></p>
 <h2 id="三、配置Appfile文件和Fastfile文件"><a href="#三、配置Appfile文件和Fastfile文件" class="headerlink" title="三、配置Appfile文件和Fastfile文件"></a>三、配置Appfile文件和Fastfile文件</h2><h4 id="编辑Appfile"><a href="#编辑Appfile" class="headerlink" title="编辑Appfile"></a>编辑Appfile</h4><h4 id="Appfile用来存放app-identifier，apple-id和team-id。修改成你对应的参数。-可以设置多个lane对应不同打包环境"><a href="#Appfile用来存放app-identifier，apple-id和team-id。修改成你对应的参数。-可以设置多个lane对应不同打包环境" class="headerlink" title="Appfile用来存放app_identifier，apple_id和team_id。修改成你对应的参数。(可以设置多个lane对应不同打包环境)"></a>Appfile用来存放app_identifier，apple_id和team_id。修改成你对应的参数。(可以设置多个lane对应不同打包环境)</h4><pre><code>for_lane :ApStore do
   app_identifier &quot;mfczs&quot;
   apple_id &quot;XXXX_XXXX@163.com&quot;
